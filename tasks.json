@@ -25,6 +25,20 @@
         "group": "bio",
         "task": "Start HW",
         "date": null,
-        "time": "tonight"
+        "time": null
+    },
+    {
+        "input": "Pick up books from lib on Thursday",
+        "group": null,
+        "task": "Pick up books from lib",
+        "date": "Thursday",
+        "time": null
+    },
+    {,
+        "input": "Use leftover rice in the next two days",
+        "group": "cooking",
+        "task": "use leftover rice",
+        "date": "the next two days",
+        "time": null
     }
 ]
