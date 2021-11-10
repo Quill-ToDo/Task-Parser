@@ -2,14 +2,14 @@
     {
         "input": "Do computer science reading on Friday",
         "group": "computer science",
-        "task": "Do reading",
+        "task": "Do computer science reading",
         "date": "Friday",
         "time": null
     },
     {
         "input": "Work on cosc lab Thursday evening",
         "group": "cosc",
-        "task": "Work on lab",
+        "task": "Work on cosc lab",
         "date": "Thursday",
         "time": "evening"
     },
@@ -23,7 +23,7 @@
     {
         "input": "Start bio HW tonight!!!",
         "group": "bio",
-        "task": "Start HW",
+        "task": "Start bio HW",
         "date": null,
         "time": null
     },
@@ -34,7 +34,7 @@
         "date": "Thursday",
         "time": null
     },
-    {,
+    {
         "input": "Use leftover rice in the next two days",
         "group": "cooking",
         "task": "use leftover rice",
