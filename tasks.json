@@ -1,0 +1,26 @@
+[
+    {
+        "input": "Do computer science reading on Friday",
+        "group": "computer science",
+        "task": "Do reading",
+        "date": "Friday"
+    },
+    {
+        "input": "Work on cosc lab Thursday evening",
+        "group": "cosc",
+        "task": "Work on lab",
+        "date": "Thursday evening"
+    },
+    {
+        "input": "Remind Deni to give cats flea meds every month on the 18th",
+        "group": "None",
+        "task": "Remind Deni to give cats flea meds",
+        "date": "every month on the 18th"
+    },
+    {
+        "input": "Start bio HW tonight!!!",
+        "group": "bio",
+        "task": "Start HW",
+        "date": "tonight!!!"
+    }
+]
