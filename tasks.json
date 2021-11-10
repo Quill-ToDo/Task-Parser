@@ -3,24 +3,28 @@
         "input": "Do computer science reading on Friday",
         "group": "computer science",
         "task": "Do reading",
-        "date": "Friday"
+        "date": "Friday",
+        "time": null
     },
     {
         "input": "Work on cosc lab Thursday evening",
         "group": "cosc",
         "task": "Work on lab",
-        "date": "Thursday evening"
+        "date": "Thursday",
+        "time": "evening"
     },
     {
         "input": "Remind Deni to give cats flea meds every month on the 18th",
-        "group": "None",
+        "group": null,
         "task": "Remind Deni to give cats flea meds",
-        "date": "every month on the 18th"
+        "date": "every month on the 18th",
+        "time": null
     },
     {
         "input": "Start bio HW tonight!!!",
         "group": "bio",
         "task": "Start HW",
-        "date": "tonight!!!"
+        "date": null,
+        "time": "tonight"
     }
 ]
