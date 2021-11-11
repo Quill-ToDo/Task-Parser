@@ -13,7 +13,7 @@
     },
     {
         "input": "Remind Deni to give cats flea meds every month on the 18th",
-        "group": "None",
+        "group": null,
         "task": "Remind Deni to give cats flea meds",
         "date": "every month on the 18th"
     },
@@ -25,14 +25,74 @@
     },
     {
         "input": "Pick up books from lib on Thursday",
-        "group": "none"
-        "task": "Pick up books from lib"
+        "group": null,
+        "task": "Pick up books from lib",
         "date": "Thursday"
     },
-    {,
+    {
         "input": "Use leftover rice in the next two days",
-        "group": "cooking"
-        "task": "use leftover rice"
+        "group": "cooking",
+        "task": "use leftover rice",
         "date": "the next two days"
+    },
+    {
+        "input": "Go to class tomorrow",
+        "group": null,
+        "task": "Go to class",
+        "date": "tomorrow"
+    },
+    {
+        "input": "eat dinner",
+        "group": "None",
+        "task": "eat dinner",
+        "date": null
+    },
+    {
+        "input": "",
+        "group": null,
+        "task": null,
+        "date": null
+    },
+    {
+        "input": "Prepare for MarketBridge interview on Friday",
+        "group": "jobs",
+        "task": "Prepare for MarketBridge interview",
+        "date": "Friday"
+    },
+    {
+        "input": "practice speech for 2 hours tonight",
+        "group": "japanese",
+        "task": "practice speech for 2 hours",
+        "date": "tonight"
+    },
+    {
+        "input": "take medicine",
+        "group": null,
+        "task": "take medicine",
+        "date": null
+    },
+    {
+        "input": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
+        "group": null,
+        "task": "DON'T LET THE DOG EAT THE HOMEWORK",
+        "date": null
+    },
+    {
+        "input": "Go to the grocery store for food on December 14th",
+        "group": "chores",
+        "task": "Go to the grocery store for food",
+        "date": "December 14th"
+    },
+    {
+        "input": "Take down the lights the day after Christmas!",
+        "group": "chores",
+        "task": "Take down the lights",
+        "date": "the day after Christmas"
+    },
+    {
+        "input": "do push-ups every day this week",
+        "group": "exercise",
+        "task": "do push-ups",
+        "date": "every day this week"
     }
 ]
