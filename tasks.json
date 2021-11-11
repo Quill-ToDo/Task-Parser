@@ -2,32 +2,37 @@
     {
         "input": "Do computer science reading on Friday",
         "group": "computer science",
-        "task": "Do reading",
-        "date": "Friday"
+        "task": "Do computer science reading",
+        "date": "Friday",
+        "time": null
     },
     {
         "input": "Work on cosc lab Thursday evening",
         "group": "cosc",
-        "task": "Work on lab",
-        "date": "Thursday evening"
+        "task": "Work on cosc lab",
+        "date": "Thursday",
+        "time": "evening"
     },
     {
         "input": "Remind Deni to give cats flea meds every month on the 18th",
         "group": null,
         "task": "Remind Deni to give cats flea meds",
-        "date": "every month on the 18th"
+        "date": "every month on the 18th",
+        "time": null
     },
     {
         "input": "Start bio HW tonight!!!",
         "group": "bio",
-        "task": "Start HW",
-        "date": "tonight!!!"
+        "task": "Start bio HW",
+        "date": null,
+        "time": null
     },
     {
         "input": "Pick up books from lib on Thursday",
         "group": null,
         "task": "Pick up books from lib",
-        "date": "Thursday"
+        "date": "Thursday",
+        "time": null
     },
     {
         "input": "Use leftover rice in the next two days",

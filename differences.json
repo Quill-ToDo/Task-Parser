@@ -1,0 +1,77 @@
+[
+  {
+    "input": {
+      "group": "computer science",
+      "task": "Do computer science reading",
+      "date": "Friday",
+      "time": null,
+      "input": "Do computer science reading on Friday"
+    },
+    "output": {
+      "group": null,
+      "task": "Do computer science reading on",
+      "date": "Friday",
+      "time": null
+    }
+  },
+  {
+    "input": {
+      "group": null,
+      "task": "Remind Deni to give cats flea meds",
+      "date": "every month on the 18th",
+      "time": null,
+      "input": "Remind Deni to give cats flea meds every month on the 18th"
+    },
+    "output": {
+      "group": null,
+      "task": "Remind Deni give cats flea meds on 18th",
+      "date": "month",
+      "time": null
+    }
+  },
+  {
+    "input": {
+      "group": "bio",
+      "task": "Start bio HW",
+      "date": null,
+      "time": null,
+      "input": "Start bio HW tonight!!!"
+    },
+    "output": {
+      "group": "bio",
+      "task": "Start HW",
+      "date": null,
+      "time": "tonight"
+    }
+  },
+  {
+    "input": {
+      "group": null,
+      "task": "Pick up books from lib",
+      "date": "Thursday",
+      "time": null,
+      "input": "Pick up books from lib on Thursday"
+    },
+    "output": {
+      "group": null,
+      "task": "Pick up books from lib on",
+      "date": "Thursday",
+      "time": null
+    }
+  },
+  {
+    "input": {
+      "group": "cooking",
+      "task": "use leftover rice",
+      "date": "the next two days",
+      "time": null,
+      "input": "Use leftover rice in the next two days"
+    },
+    "output": {
+      "group": null,
+      "task": "Use leftover rice in",
+      "date": "days",
+      "time": null
+    }
+  }
+]
