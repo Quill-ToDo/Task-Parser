@@ -1,13 +1,13 @@
 [
   {
-    "input": {
+    "original input": "Do computer science reading on Friday",
+    "correct groups": {
       "group": "computer science",
       "task": "Do computer science reading",
       "date": "Friday",
-      "time": null,
-      "input": "Do computer science reading on Friday"
+      "time": null
     },
-    "output": {
+    "our output": {
       "group": null,
       "task": "Do computer science reading on",
       "date": "Friday",
@@ -15,44 +15,44 @@
     }
   },
   {
-    "input": {
+    "original input": "Remind Deni to give cats flea meds every month on the 18th",
+    "correct groups": {
       "group": null,
       "task": "Remind Deni to give cats flea meds",
       "date": "every month on the 18th",
-      "time": null,
-      "input": "Remind Deni to give cats flea meds every month on the 18th"
+      "time": null
     },
-    "output": {
+    "our output": {
       "group": null,
       "task": "Remind Deni give cats flea meds on 18th",
-      "date": "month",
+      "date": "every month",
       "time": null
     }
   },
   {
-    "input": {
+    "original input": "Start bio HW tonight!!!",
+    "correct groups": {
       "group": "bio",
       "task": "Start bio HW",
       "date": null,
-      "time": null,
-      "input": "Start bio HW tonight!!!"
+      "time": "tonight"
     },
-    "output": {
+    "our output": {
       "group": "bio",
-      "task": "Start HW",
-      "date": null,
+      "task": "Start bio HW",
+      "date": "",
       "time": "tonight"
     }
   },
   {
-    "input": {
+    "original input": "Pick up books from lib on Thursday",
+    "correct groups": {
       "group": null,
       "task": "Pick up books from lib",
       "date": "Thursday",
-      "time": null,
-      "input": "Pick up books from lib on Thursday"
+      "time": null
     },
-    "output": {
+    "our output": {
       "group": null,
       "task": "Pick up books from lib on",
       "date": "Thursday",
@@ -60,17 +60,17 @@
     }
   },
   {
-    "input": {
+    "original input": "Use leftover rice in the next two days",
+    "correct groups": {
       "group": "cooking",
       "task": "use leftover rice",
       "date": "the next two days",
-      "time": null,
-      "input": "Use leftover rice in the next two days"
+      "time": null
     },
-    "output": {
+    "our output": {
       "group": null,
       "task": "Use leftover rice in",
-      "date": "days",
+      "date": "the next two days",
       "time": null
     }
   }
