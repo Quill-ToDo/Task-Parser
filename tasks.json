@@ -110,5 +110,54 @@
         "task": "do push-ups",
         "date": "every day this week",
         "time": null
+    },
+    {
+        "input": "Finish English paper by next Thursday",
+        "group": "English",
+        "task": "Finish English Paper",
+        "date": "next Thursday",
+        "time": null
+    },
+    {
+        "input": "Reminder to take antibiotic at 8:00 PM every night for the next week",
+        "group": null,
+        "task": "Take antibiotic",
+        "date": "every night for the next week",
+        "time": "8:00 PM"
+    },
+    {
+        "input": "Send posters to print shop by 5:30 PM Wednesday",
+        "group": "posters",
+        "task": "Send posters to print shop",
+        "date": "Wednesday",
+        "time": "5:30 PM"
+    },
+    {
+        "input": "Grab Eggs on my way home from work",
+        "group": null,
+        "task": "Grab Eggs",
+        "date": null,
+        "time": null
+    },
+    {
+        "input": "Is this thing on? I can't tell",
+        "group": null,
+        "task": "Is this thing on? I can't tell",
+        "date": null,
+        "time": null
+    },
+    {
+        "input": "Leave for the airport by 7:30",
+        "group": null,
+        "task": "Leave for the airport",
+        "date": null,
+        "time": "7:30"
+    },
+    {
+        "input": "Add more test cases by 11/18",
+        "group": null,
+        "task": "Add more test cases",
+        "date": "11/18",
+        "time": null
     }
 ]
