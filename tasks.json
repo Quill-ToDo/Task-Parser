@@ -50,7 +50,7 @@
     },
     {
         "input": "eat dinner",
-        "group": "None",
+        "group": null,
         "task": "eat dinner",
         "date": null,
         "time": null
@@ -64,15 +64,15 @@
     },
     {
         "input": "Prepare for MarketBridge interview on Friday",
-        "group": "jobs",
+        "group": null,
         "task": "Prepare for MarketBridge interview",
         "date": "Friday",
         "time": null
     },
     {
-        "input": "practice speech for 2 hours tonight",
+        "input": "practice japanese speech for 2 hours tonight",
         "group": "japanese",
-        "task": "practice speech for 2 hours",
+        "task": "practice japanese speech for 2 hours",
         "date": "tonight",
         "time": "tonight"
     },
@@ -92,21 +92,21 @@
     },
     {
         "input": "Go to the grocery store for food on December 14th",
-        "group": "chores",
+        "group": null,
         "task": "Go to the grocery store for food",
         "date": "December 14th",
         "time": null
     },
     {
         "input": "Take down the lights the day after Christmas!",
-        "group": "chores",
+        "group": null,
         "task": "Take down the lights",
         "date": "the day after Christmas",
         "time": null
     },
     {
         "input": "do push-ups every day this week",
-        "group": "exercise",
+        "group": null,
         "task": "do push-ups",
         "date": "every day this week",
         "time": null
