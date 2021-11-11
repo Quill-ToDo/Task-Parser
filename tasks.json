@@ -38,66 +38,77 @@
         "input": "Use leftover rice in the next two days",
         "group": "cooking",
         "task": "use leftover rice",
-        "date": "the next two days"
+        "date": "the next two days",
+        "time": null
     },
     {
         "input": "Go to class tomorrow",
         "group": null,
         "task": "Go to class",
-        "date": "tomorrow"
+        "date": "tomorrow",
+        "time": null
     },
     {
         "input": "eat dinner",
         "group": "None",
         "task": "eat dinner",
-        "date": null
+        "date": null,
+        "time": null
     },
     {
         "input": "",
         "group": null,
         "task": null,
-        "date": null
+        "date": null,
+        "time": null
     },
     {
         "input": "Prepare for MarketBridge interview on Friday",
         "group": "jobs",
         "task": "Prepare for MarketBridge interview",
-        "date": "Friday"
+        "date": "Friday",
+        "time": null
     },
     {
         "input": "practice speech for 2 hours tonight",
         "group": "japanese",
         "task": "practice speech for 2 hours",
-        "date": "tonight"
+        "date": "tonight",
+        "time": "tonight"
     },
     {
         "input": "take medicine",
         "group": null,
         "task": "take medicine",
-        "date": null
+        "date": null,
+        "time": null
     },
     {
         "input": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
         "group": null,
         "task": "DON'T LET THE DOG EAT THE HOMEWORK",
-        "date": null
+        "date": null,
+        "time": null
     },
     {
         "input": "Go to the grocery store for food on December 14th",
         "group": "chores",
         "task": "Go to the grocery store for food",
-        "date": "December 14th"
+        "date": "December 14th",
+        "time": null
     },
     {
         "input": "Take down the lights the day after Christmas!",
         "group": "chores",
         "task": "Take down the lights",
-        "date": "the day after Christmas"
+        "date": "the day after Christmas",
+        "time": null
     },
     {
         "input": "do push-ups every day this week",
         "group": "exercise",
         "task": "do push-ups",
-        "date": "every day this week"
+        "date": "every day this week",
+        "time": null
     }
 ]
