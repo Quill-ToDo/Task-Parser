@@ -1,233 +1,240 @@
 [
-    {
-        "input": "Do computer science reading on Friday",
-        "group": "computer science",
-        "task": "Do computer science reading",
-        "date": "Friday",
-        "time": null
-    },
-    {
-        "input": "Work on cosc lab Thursday evening",
-        "group": "cosc",
-        "task": "Work on cosc lab",
-        "date": "Thursday",
-        "time": "evening"
-    },
-    {
-        "input": "Remind Deni to give cats flea meds every month on the 18th",
-        "group": null,
-        "task": "Remind Deni to give cats flea meds",
-        "date": "every month on the 18th",
-        "time": null
-    },
-    {
-        "input": "Start bio HW tonight!!!",
-        "group": "bio",
-        "task": "Start bio HW",
-        "date": null,
-        "time": "tonight"
-    },
-    {
-        "input": "Pick up books from lib on Thursday",
-        "group": null,
-        "task": "Pick up books from lib",
-        "date": "Thursday",
-        "time": null
-    },
-    {
-        "input": "Use leftover rice in the next two days",
-        "group": "cooking",
-        "task": "use leftover rice",
-        "date": "the next two days",
-        "time": null
-    },
-    {
-        "input": "Go to class tomorrow",
-        "group": null,
-        "task": "Go to class",
-        "date": "tomorrow",
-        "time": null
-    },
-    {
-        "input": "eat dinner",
-        "group": null,
-        "task": "eat dinner",
-        "date": null,
-        "time": null
-    },
-    {
-        "input": "",
-        "group": null,
-        "task": null,
-        "date": null,
-        "time": null
-    },
-    {
-        "input": "Prepare for MarketBridge interview on Friday",
-        "group": null,
-        "task": "Prepare for MarketBridge interview",
-        "date": "Friday",
-        "time": null
-    },
-    {
-        "input": "practice japanese speech for 2 hours tonight",
-        "group": "japanese",
-        "task": "practice japanese speech for 2 hours",
-        "date": "tonight",
-        "time": "tonight"
-    },
-    {
-        "input": "take medicine",
-        "group": null,
-        "task": "take medicine",
-        "date": null,
-        "time": null
-    },
-    {
-        "input": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
-        "group": null,
-        "task": "DON'T LET THE DOG EAT THE HOMEWORK",
-        "date": null,
-        "time": null
-    },
-    {
-        "input": "Go to the grocery store for food on December 14th",
-        "group": null,
-        "task": "Go to the grocery store for food",
-        "date": "December 14th",
-        "time": null
-    },
-    {
-        "input": "Take down the lights the day after Christmas!",
-        "group": null,
-        "task": "Take down the lights",
-        "date": "the day after Christmas",
-        "time": null
-    },
-    {
-        "input": "do push-ups every day this week",
-        "group": null,
-        "task": "do push-ups",
-        "date": "every day this week",
-        "time": null
-    },
-    {
-        "input": "call friend in two weeks",
-        "group": null,
-        "task": "call friend",
-        "date": "in two weeks",
-        "time": null
-    },
-    {
-        "input": "take 1se video every day at 12pm",
-        "group": null,
-        "task": "take 1se video",
-        "date": "every day",
-        "time": "12pm"
-    },
-    {
-        "input": "go to work at noon",
-        "group": null,
-        "task": "go to work",
-        "date": null,
-        "time": "noon"
-    },
-    {
-        "input": "doctor's appointment on 9/22/22",
-        "group": null,
-        "task": "doctor's appointment",
-        "date": "9/22/22",
-        "time": null
-    },
-    {
-        "input": "NLP group meeting at 5:00",
-        "group": null,
-        "task": "NLP group meeting",
-        "date": null,
-        "time": "5:00"
-    },
-    {
-        "input": "send email to recruiter",
-        "group": null,
-        "task": "send email to recruiter",
-        "date": null,
-        "time": null
-    },
-    {
-        "input": "mail package next month",
-        "group": null,
-        "task": "mail package",
-        "date": "next month",
-        "time": null
-    },
-    {
-        "input": "hello, world!",
-        "group": null,
-        "task": "hello, world!",
-        "date": null,
-        "time": null
-    },
-    {
-        "input": "Finish English paper by next Thursday",
-        "group": "English",
-        "task": "Finish English Paper",
-        "date": "next Thursday",
-        "time": null
-    },
-    {
-        "input": "Reminder to take antibiotic at 8:00 PM every night for the next week",
-        "group": null,
-        "task": "Take antibiotic",
-        "date": "every night for the next week",
-        "time": "8:00 PM"
-    },
-    {
-        "input": "Send posters to print shop by 5:30 PM Wednesday",
-        "group": "posters",
-        "task": "Send posters to print shop",
-        "date": "Wednesday",
-        "time": "5:30 PM"
-    },
-    {
-        "input": "Grab Eggs on my way home from work",
-        "group": null,
-        "task": "Grab Eggs",
-        "date": null,
-        "time": null
-    },
-    {
-        "input": "Is this thing on? I can't tell",
-        "group": null,
-        "task": "Is this thing on? I can't tell",
-        "date": null,
-        "time": null
-    },
-    {
-        "input": "this is a task for today",
-        "group": null,
-        "task": "this is a task",
-        "date": "today",
-        "time": null
-    },
-    {
-        "input": "go to class every day until December 6th",
-        "group": null,
-        "task": "go to class",
-        "date": "every day until Decemeber 6th",
-        "time": null
-    },
-    {
-        "input": "Leave for the airport by 7:30",
-        "group": null,
-        "task": "Leave for the airport",
-        "date": null,
-        "time": "7:30"
-    },
-    {
-        "input": "Add more test cases by 11/18",
-        "group": null,
-        "task": "Add more test cases",
-        "date": "11/18",
-        "time": null
-    }
+  {
+    "input": "Don't worry, be happy :)",
+    "group": null,
+    "task": "Don't worry, be happy :)",
+    "date": null,
+    "time": null
+  },
+  {
+    "input": "Do computer science reading on Friday",
+    "group": "computer science",
+    "task": "Do computer science reading",
+    "date": "Friday",
+    "time": null
+  },
+  {
+    "input": "Work on cosc lab Thursday evening",
+    "group": "cosc",
+    "task": "Work on cosc lab",
+    "date": "Thursday",
+    "time": "evening"
+  },
+  {
+    "input": "Remind Deni to give cats flea meds every month on the 18th",
+    "group": null,
+    "task": "Remind Deni to give cats flea meds",
+    "date": "every month on the 18th",
+    "time": null
+  },
+  {
+    "input": "Start bio HW tonight!!!",
+    "group": "bio",
+    "task": "Start bio HW",
+    "date": null,
+    "time": "tonight"
+  },
+  {
+    "input": "Pick up books from lib on Thursday",
+    "group": null,
+    "task": "Pick up books from lib",
+    "date": "Thursday",
+    "time": null
+  },
+  {
+    "input": "Use leftover rice in the next two days",
+    "group": null,
+    "task": "Use leftover rice",
+    "date": "the next two days",
+    "time": null
+  },
+  {
+    "input": "Go to class tomorrow",
+    "group": null,
+    "task": "Go to class",
+    "date": "tomorrow",
+    "time": null
+  },
+  {
+    "input": "eat dinner",
+    "group": null,
+    "task": "eat dinner",
+    "date": null,
+    "time": null
+  },
+  {
+    "input": "",
+    "group": null,
+    "task": null,
+    "date": null,
+    "time": null
+  },
+  {
+    "input": "Prepare for MarketBridge interview on Friday",
+    "group": null,
+    "task": "Prepare for MarketBridge interview",
+    "date": "Friday",
+    "time": null
+  },
+  {
+    "input": "practice japanese speech for 2 hours tonight",
+    "group": "japanese",
+    "task": "practice japanese speech for 2 hours",
+    "date": "tonight",
+    "time": "tonight"
+  },
+  {
+    "input": "take medicine",
+    "group": null,
+    "task": "take medicine",
+    "date": null,
+    "time": null
+  },
+  {
+    "input": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
+    "group": null,
+    "task": "DON'T LET THE DOG EAT THE HOMEWORK",
+    "date": null,
+    "time": null
+  },
+  {
+    "input": "Go to the grocery store for food on December 14th",
+    "group": null,
+    "task": "Go to the grocery store for food",
+    "date": "December 14th",
+    "time": null
+  },
+  {
+    "input": "Take down the lights the day after Christmas!",
+    "group": null,
+    "task": "Take down the lights",
+    "date": "the day after Christmas",
+    "time": null
+  },
+  {
+    "input": "do push-ups every day this week",
+    "group": null,
+    "task": "do push-ups",
+    "date": "every day this week",
+    "time": null
+  },
+  {
+    "input": "call friend in two weeks",
+    "group": null,
+    "task": "call friend",
+    "date": "in two weeks",
+    "time": null
+  },
+  {
+    "input": "take 1se video every day at 12pm",
+    "group": null,
+    "task": "take 1se video",
+    "date": "every day",
+    "time": "12pm"
+  },
+  {
+    "input": "go to work at noon",
+    "group": null,
+    "task": "go to work",
+    "date": null,
+    "time": "noon"
+  },
+  {
+    "input": "doctor's appointment on 9/22/22",
+    "group": null,
+    "task": "doctor's appointment",
+    "date": "9/22/22",
+    "time": null
+  },
+  {
+    "input": "NLP group meeting at 5:00",
+    "group": null,
+    "task": "NLP group meeting",
+    "date": null,
+    "time": "5:00"
+  },
+  {
+    "input": "send email to recruiter",
+    "group": null,
+    "task": "send email to recruiter",
+    "date": null,
+    "time": null
+  },
+  {
+    "input": "mail package next month",
+    "group": null,
+    "task": "mail package",
+    "date": "next month",
+    "time": null
+  },
+  {
+    "input": "hello, world!",
+    "group": null,
+    "task": "hello, world!",
+    "date": null,
+    "time": null
+  },
+  {
+    "input": "Finish English paper by next Thursday",
+    "group": "English",
+    "task": "Finish English Paper",
+    "date": "next Thursday",
+    "time": null
+  },
+  {
+    "input": "Reminder to take antibiotic at 8:00 PM every night for the next week",
+    "group": null,
+    "task": "Take antibiotic",
+    "date": "every night for the next week",
+    "time": "8:00 PM"
+  },
+  {
+    "input": "Send posters to print shop by 5:30 PM Wednesday",
+    "group": "posters",
+    "task": "Send posters to print shop",
+    "date": "Wednesday",
+    "time": "5:30 PM"
+  },
+  {
+    "input": "Grab Eggs on my way home from work",
+    "group": null,
+    "task": "Grab Eggs",
+    "date": null,
+    "time": null
+  },
+  {
+    "input": "Is this thing on? I can't tell",
+    "group": null,
+    "task": "Is this thing on? I can't tell",
+    "date": null,
+    "time": null
+  },
+  {
+    "input": "this is a task for today",
+    "group": null,
+    "task": "this is a task",
+    "date": "today",
+    "time": null
+  },
+  {
+    "input": "go to class every day until December 6th",
+    "group": null,
+    "task": "go to class",
+    "date": "every day until Decemeber 6th",
+    "time": null
+  },
+  {
+    "input": "Leave for the airport by 7:30",
+    "group": null,
+    "task": "Leave for the airport",
+    "date": null,
+    "time": "7:30"
+  },
+  {
+    "input": "Add more test cases by 11/18",
+    "group": null,
+    "task": "Add more test cases",
+    "date": "11/18",
+    "time": null
+  }
 ]
