@@ -42,10 +42,12 @@ def set_pipes(groups):
 
     entity_patterns = []
     for group in groups:
-        p = [{"LOWER": word} for word in group.split(" ")] 
+        # if the lowercase version of the token matches our word then add it
+        p = [{"LOWER": word.lower()} for word in group.split(" ")] 
         ep = {"label": "GROUP", "pattern": p}
         entity_patterns.append(ep)
 
+    # Don't think we need these
     nlp = spacy.load("en_core_web_sm", disable=[
         "DependencyParser",
         "EntityLinker",
@@ -57,7 +59,8 @@ def set_pipes(groups):
         "TrainablePipe",
         "Transformer"])
 
-    ruler = nlp.add_pipe("entity_ruler")
+    # Set ER to assign our groups over other entity types
+    ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True})
     ruler.add_patterns(entity_patterns)
 
     return nlp
@@ -78,9 +81,8 @@ def include_in_task(token):
                     or token.pos_ == "PART" \
                     or token.pos_ == "PUNCT" \
                     or token.pos_ == "INTJ"
-    is_excluded = token.text == "!"
     
-    return in_included_pos and not (ADP_before_date or is_excluded or is_date_or_time(word))
+    return in_included_pos and not (ADP_before_date or is_date_or_time(word))
 
 def attached_to_last_word(token):
     '''
@@ -103,7 +105,7 @@ if __name__ == "__main__":
     dataset = json.load(open(FILE))
 
     # These will be set by the user.
-    predefined_groups = ["bio", "cosc", "computer science", "japanese", "English"]
+    predefined_groups = ["bio", "cosc", "computer science", "japanese", "english"]
 
     nlp = set_pipes(predefined_groups)
     

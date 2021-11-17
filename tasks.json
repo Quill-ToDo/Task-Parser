@@ -30,7 +30,7 @@
   {
     "input": "Start bio HW tonight!!!",
     "group": "bio",
-    "task": "Start bio HW",
+    "task": "Start bio HW!!!",
     "date": null,
     "time": "tonight"
   },
@@ -177,7 +177,7 @@
   {
     "input": "Finish English paper by next Thursday",
     "group": "English",
-    "task": "Finish English Paper",
+    "task": "Finish English paper",
     "date": "next Thursday",
     "time": null
   },

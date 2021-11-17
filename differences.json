@@ -30,6 +30,21 @@
     }
   },
   {
+    "original input": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
+    "correct groups": {
+      "group": null,
+      "task": "DON'T LET THE DOG EAT THE HOMEWORK",
+      "date": null,
+      "time": null
+    },
+    "our output": {
+      "group": null,
+      "task": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
+      "date": null,
+      "time": null
+    }
+  },
+  {
     "original input": "Take down the lights the day after Christmas!",
     "correct groups": {
       "group": null,
@@ -39,7 +54,7 @@
     },
     "our output": {
       "group": null,
-      "task": "Take down the lights Christmas",
+      "task": "Take down the lights Christmas!",
       "date": "the day after",
       "time": null
     }
@@ -116,36 +131,6 @@
       "group": null,
       "task": "send emailto recruiter",
       "date": null,
-      "time": null
-    }
-  },
-  {
-    "original input": "hello, world!",
-    "correct groups": {
-      "group": null,
-      "task": "hello, world!",
-      "date": null,
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "hello, world",
-      "date": null,
-      "time": null
-    }
-  },
-  {
-    "original input": "Finish English paper by next Thursday",
-    "correct groups": {
-      "group": "English",
-      "task": "Finish English Paper",
-      "date": "next Thursday",
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "Finish English paper",
-      "date": "next Thursday",
       "time": null
     }
   },
