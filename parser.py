@@ -26,8 +26,26 @@ def validate(input, output):
         print("There were", len(differences), "different outputs between the input and output files, check differences.json")
 
 def include_in_task(word):
-    return word.pos_ == "VERB" or word.pos_ == "ADJ" or word.pos_ == "AUX" or word.pos_ == "NOUN" or word.pos_ == "PROPN" or \
-            word.pos_ == "ADP" or word.pos_ == "ADV" or word.pos_ == "DET" or word.pos_ == "PART"
+    ADP_before_date = word.i + 1 < len(word.doc) and word.pos_ == "ADP" and (word.nbor().ent_type_ == "DATE" or word.nbor().ent_type_ == "TIME")
+    in_included_pos = word.pos_ == "VERB" \
+                    or word.pos_ == "ADJ" \
+                    or word.pos_ == "AUX" \
+                    or word.pos_ == "NOUN" \
+                    or word.pos_ == "PROPN" \
+                    or word.pos_ == "ADP" \
+                    or word.pos_ == "ADV" \
+                    or word.pos_ == "DET" \
+                    or word.pos_ == "PART" \
+                    or word.pos_ == "PUNCT" \
+                    or word.pos_ == "INTJ"
+    if word.text == "HW":
+        print()
+    is_excluded = word.text == "!"
+    
+    return in_included_pos and not (ADP_before_date or is_excluded)
+
+def attached_to_last_word(word):
+    return word.pos_ == "PART" or word.pos_ == "PUNCT"
 
 
 if __name__ == "__main__":
@@ -41,22 +59,13 @@ if __name__ == "__main__":
     results = []
     for data in dataset:
         input_task = data["input"]
-        # split_input = input_task.split(" ")
         doc = nlp(input_task)
         answers = { "group": None, "task": [], "date": [], "time": None }
 
-        for index, word in enumerate(doc):
-            # actual_word = split_input[index]
-            # check for acronyms before this because something like bio is recognized as an adjective
-            # check if it's in a group before these:
-            if word.text == "at":
-                print()
+        for word in doc:
             if word.text in predefined_groups:
                 # Must be checked separately because these group names could be nouns, adjectives, etc.
                 answers["group"] = word.text
-                # if include_in_task(word): 
-                #     # Must come after date/time because dates are proper noun
-                #     answers["task"].append(word.text)
 
             if word.ent_type_ == "DATE":
                 answers["date"].append(word.text)
@@ -65,15 +74,11 @@ if __name__ == "__main__":
             elif include_in_task(word): 
                 # THIS SHOULD NOT BE CHECKED TWICE BECAUSE THE WORD WILL BE ADDED TWICE
                 # Must come after date/time because dates are proper noun
-
-                if index + 1 < len(doc) and word.pos_ == "ADP" and (doc[index + 1].ent_type_ == "DATE" or doc[index + 1].ent_type_ == "TIME"):
-                    # Don't include ADP if next word is a date
-                    continue
-
-                if word.pos_ == "PART":
+                if attached_to_last_word(word):
                     answers["task"][-1] += word.text
                 else:
                     answers["task"].append(word.text)
+            
         
         if len(answers["task"]) != 0:
             answers["task"] = " ".join(answers["task"])
@@ -90,10 +95,6 @@ if __name__ == "__main__":
         json.dump(results, f)
 
     validate(dataset, results)
-
-
-
-    # print(word.text, "pos:", word.pos_, "tag:", word.tag_, "ent type:", word.ent_type_)
 
 
 
