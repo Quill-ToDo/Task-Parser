@@ -22,7 +22,7 @@ def validate(input, output):
             differences.append({"original input": original, "correct groups": input_task, "our output": output_task})
     
     with open("differences.json", "w") as f:
-        json.dump(differences, f)
+        json.dump(differences, f, indent=4, separators=(', ', ': '))
     if len(differences) != 0:
         print("There were", len(differences), "different outputs between the input and output files, check differences.json")
 
@@ -87,8 +87,9 @@ def include_in_task(token):
 def attached_to_last_word(token):
     '''
     True if token should be appended to the last token
+    (Should attach to last word if it's a contraction or punctuation)
     '''
-    return token.pos_ == "PART" or token.pos_ == "PUNCT"
+    return (token.pos_ == "PART" and "'" in token.text) or token.pos_ == "PUNCT"
 
 def add_ents(doc, answers):
     for ent in doc.ents:
@@ -140,8 +141,8 @@ if __name__ == "__main__":
         results.append(answers)
     
     with open("parsed_tasks.json", "w") as f:
-        json.dump(results, f)
-
+        json.dump(results, f, indent=4, separators=(', ', ': '))
+        
     validate(dataset, results)
 
 
