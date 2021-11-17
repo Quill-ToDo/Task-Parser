@@ -1,20 +1,5 @@
 [
   {
-    "original input": "Do computer science reading on Friday",
-    "correct groups": {
-      "group": "computer science",
-      "task": "Do computer science reading",
-      "date": "Friday",
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "Do computer science reading",
-      "date": "Friday",
-      "time": null
-    }
-  },
-  {
     "original input": "Remind Deni to give cats flea meds every month on the 18th",
     "correct groups": {
       "group": null,
@@ -101,7 +86,7 @@
       "group": null,
       "task": "take 1se video every day",
       "date": null,
-      "time": "pm"
+      "time": "12pm"
     }
   },
   {
@@ -158,7 +143,7 @@
       "time": null
     },
     "our output": {
-      "group": "English",
+      "group": null,
       "task": "Finish English paper",
       "date": "next Thursday",
       "time": null
@@ -176,7 +161,7 @@
       "group": null,
       "task": "Reminderto take antibiotic",
       "date": "the next week",
-      "time": "night"
+      "time": "8:00 PM every night"
     }
   },
   {
@@ -191,7 +176,7 @@
       "group": null,
       "task": "Send postersto print shop",
       "date": "Wednesday",
-      "time": "PM"
+      "time": "5:30 PM"
     }
   },
   {
