@@ -85,8 +85,9 @@ def include_in_task(token):
 def attached_to_last_word(token):
     '''
     True if token should be appended to the last token
+    (Should attach to last word if it's a contraction or punctuation
     '''
-    return (token.pos_ == "PART" or token.pos_ == "PUNCT") and  ("'" in token.text)
+    return (token.pos_ == "PART" and "'" in token.text) or token.pos_ == "PUNCT"
 
 def add_ents(doc, answers):
     for ent in doc.ents:
