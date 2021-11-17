@@ -48,7 +48,7 @@ def set_pipes(groups):
         entity_patterns.append(ep)
 
     # Don't think we need these
-    nlp = spacy.load("en_core_web_sm", disable=[
+    nlp = spacy.load("en_core_web_sm", exclude=[
         "DependencyParser",
         "EntityLinker",
         "Morphologizer",
@@ -60,8 +60,11 @@ def set_pipes(groups):
         "Transformer"])
 
     # Set ER to assign our groups over other entity types
-    ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True})
+    ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"})
     ruler.add_patterns(entity_patterns)
+    # Needs to be after entity ruler
+    nlp.add_pipe("merge_noun_chunks", after="entity_ruler")
+    # nlp.add_pipe("merge_subtokens")
 
     return nlp
 
@@ -92,6 +95,7 @@ def attached_to_last_word(token):
     return (token.pos_ == "PART" and "'" in token.text) or token.pos_ == "PUNCT"
 
 def add_ents(doc, answers):
+    print()
     for ent in doc.ents:
         if ent.label_ == "GROUP":
             answers["group"] = ent.text
@@ -121,13 +125,15 @@ if __name__ == "__main__":
         add_ents(doc, answers)
 
         for word in doc:
+            # print("'"+word.text+"'" + " ", end="")
+            # if word.text == "push":
+            #     print()
             if include_in_task(word): 
                 if attached_to_last_word(word):
                     answers["task"][-1] += word.text
                 else:
                     answers["task"].append(word.text)
-            
-        
+
         # Format outputs for validate()
         if len(answers["task"]) != 0:
             answers["task"] = " ".join(answers["task"])
