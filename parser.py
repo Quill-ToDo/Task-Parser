@@ -86,7 +86,7 @@ def attached_to_last_word(token):
     '''
     True if token should be appended to the last token
     '''
-    return token.pos_ == "PART" or token.pos_ == "PUNCT"
+    return (token.pos_ == "PART" or token.pos_ == "PUNCT") and  ("'" in token.text)
 
 def add_ents(doc, answers):
     for ent in doc.ents:
