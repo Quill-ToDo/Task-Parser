@@ -139,8 +139,8 @@ if __name__ == "__main__":
         results.append(answers)
     
     with open("parsed_tasks.json", "w") as f:
-        json.dump(results, f)
-
+        json.dump(results, f, indent=4, separators=(', ', ': '))
+        
     validate(dataset, results)
 
 
