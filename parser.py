@@ -6,7 +6,7 @@ import json
 FILE = "tasks.json"
     
 
-def validate(input, output):
+def validate(input, output, total_inputs):
     '''
     Visualize differences between input and output dataset and output in "differences.json"
     '''
@@ -24,9 +24,22 @@ def validate(input, output):
     with open("differences.json", "w") as f:
         json.dump(differences, f, indent=4, separators=(', ', ': '))
     if len(differences) != 0:
-        print("There were", len(differences), "different outputs between the input and output files, check differences.json")
+        print("There were", str(len(differences)) + "/" + str(total_inputs), "different outputs between the input and output files, check differences.json")
 
-def set_pipes(groups):
+def format_answers(answers):
+    '''
+    Format outputs for validate()
+    '''
+    if len(answers["task"]) != 0:
+            answers["task"] = " ".join(answers["task"])
+    else: 
+        answers["task"] = None
+    if len(answers["date"]) == 0:
+        answers["date"] = None
+    else:
+        answers["date"] = " ".join(answers["date"])
+
+def get_nlp_with_er(groups, exclude_list):
     '''
     Set up nlp object with desired pipes.
     
@@ -47,25 +60,17 @@ def set_pipes(groups):
         ep = {"label": "GROUP", "pattern": p}
         entity_patterns.append(ep)
 
-    # Don't think we need these
-    nlp = spacy.load("en_core_web_sm", exclude=[
-        "DependencyParser",
-        "EntityLinker",
-        "Morphologizer",
-        "SentenceRecognizer",
-        "Sentencizer", 
-        "TextCategorizer",
-        "Tok2Vec",
-        "TrainablePipe",
-        "Transformer"])
+    nlp = spacy.load("en_core_web_sm", exclude=exclude_list)
 
     # Set ER to assign our groups over other entity types
     ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"})
     ruler.add_patterns(entity_patterns)
-    # Needs to be after entity ruler
-    nlp.add_pipe("merge_noun_chunks", after="entity_ruler")
-    # nlp.add_pipe("merge_subtokens")
+    return nlp
 
+
+def get_nlp_with_noun(exclude_list):
+    nlp = spacy.load("en_core_web_sm", exclude=exclude_list)
+    nlp.add_pipe("merge_noun_chunks")
     return nlp
 
 def is_date_or_time(token):
@@ -85,17 +90,17 @@ def include_in_task(token):
                     or token.pos_ == "PUNCT" \
                     or token.pos_ == "INTJ"
     
-    return in_included_pos and not (ADP_before_date or is_date_or_time(word))
+    return in_included_pos and not (ADP_before_date or is_date_or_time(token))
 
 def attached_to_last_word(token):
     '''
     True if token should be appended to the last token
     (Should attach to last word if it's a contraction or punctuation)
     '''
+    # Includes things like "n't" and "to"
     return (token.pos_ == "PART" and "'" in token.text) or token.pos_ == "PUNCT"
 
 def add_ents(doc, answers):
-    print()
     for ent in doc.ents:
         if ent.label_ == "GROUP":
             answers["group"] = ent.text
@@ -105,51 +110,55 @@ def add_ents(doc, answers):
             if ent.label_ == "TIME":
                 answers["time"] = ent.text
 
+def add_task_body(doc, answers):
+    for word in doc:
+        if include_in_task(word): 
+            if attached_to_last_word(word):
+                answers["task"][-1] += word.text
+            else:
+                answers["task"].append(word.text)
+
 if __name__ == "__main__":
     # !!!Make sure you run this: $ python -m spacy download en_core_web_sm
     dataset = json.load(open(FILE))
 
     # These will be set by the user.
-    predefined_groups = ["bio", "cosc", "computer science", "japanese", "english"]
+    predefined_groups = ["Bio", "Cosc", "Computer Science", "Japanese", "English"]
 
-    nlp = set_pipes(predefined_groups)
-    
+    # Pipes we don't need
+    exclude_list = [
+        "DependencyParser",
+        "EntityLinker",
+        "Morphologizer",
+        "SentenceRecognizer",
+        "Sentencizer", 
+        "TextCategorizer",
+        "Tok2Vec",
+        "TrainablePipe",
+        "Transformer"]
+
+    er_nlp = get_nlp_with_er(predefined_groups, exclude_list)
+    noun_nlp = get_nlp_with_noun(exclude_list)
+
     results = []
-
 
     for data in dataset:
         input_task = data["input"]
-        doc = nlp(input_task)
+        er_doc = er_nlp(input_task)
+        noun_doc = noun_nlp(input_task)
         answers = { "group": None, "task": [], "date": [], "time": None }
 
-        add_ents(doc, answers)
+        add_ents(er_doc, answers)
+        add_task_body(noun_doc, answers)
 
-        for word in doc:
-            # print("'"+word.text+"'" + " ", end="")
-            # if word.text == "push":
-            #     print()
-            if include_in_task(word): 
-                if attached_to_last_word(word):
-                    answers["task"][-1] += word.text
-                else:
-                    answers["task"].append(word.text)
-
-        # Format outputs for validate()
-        if len(answers["task"]) != 0:
-            answers["task"] = " ".join(answers["task"])
-        else: 
-            answers["task"] = None
-        if len(answers["date"]) == 0:
-            answers["date"] = None
-        else:
-            answers["date"] = " ".join(answers["date"])
+        format_answers(answers)
         
         results.append(answers)
     
     with open("parsed_tasks.json", "w") as f:
         json.dump(results, f, indent=4, separators=(', ', ': '))
         
-    validate(dataset, results)
+    validate(dataset, results, total_inputs=len(dataset))
 
 
 

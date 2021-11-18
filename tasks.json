@@ -93,7 +93,7 @@
   {
     "input": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
     "group": null,
-    "task": "DON'T LET THE DOG EAT THE HOMEWORK",
+    "task": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
     "date": null,
     "time": null
   },
@@ -107,7 +107,7 @@
   {
     "input": "Take down the lights the day after Christmas!",
     "group": null,
-    "task": "Take down the lights",
+    "task": "Take down the lights!",
     "date": "the day after Christmas",
     "time": null
   },
@@ -122,7 +122,7 @@
     "input": "call friend in two weeks",
     "group": null,
     "task": "call friend",
-    "date": "in two weeks",
+    "date": "two weeks",
     "time": null
   },
   {
@@ -190,7 +190,7 @@
   },
   {
     "input": "Send posters to print shop by 5:30 PM Wednesday",
-    "group": "posters",
+    "group": null,
     "task": "Send posters to print shop",
     "date": "Wednesday",
     "time": "5:30 PM"
@@ -198,7 +198,7 @@
   {
     "input": "Grab Eggs on my way home from work",
     "group": null,
-    "task": "Grab Eggs",
+    "task": "Grab Eggs on my way home from work",
     "date": null,
     "time": null
   },
