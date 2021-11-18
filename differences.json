@@ -73,5 +73,140 @@
       "date": "days",
       "time": null
     }
+  },
+  {
+    "input": {
+      "group": "None",
+      "task": "eat dinner",
+      "date": null,
+      "time": null,
+      "input": "eat dinner"
+    },
+    "output": {
+      "group": null,
+      "task": "eat dinner",
+      "date": null,
+      "time": null
+    }
+  },
+  {
+    "input": {
+      "group": null,
+      "task": null,
+      "date": null,
+      "time": null,
+      "input": ""
+    },
+    "output": {
+      "group": null,
+      "task": "",
+      "date": null,
+      "time": null
+    }
+  },
+  {
+    "input": {
+      "group": "jobs",
+      "task": "Prepare for MarketBridge interview",
+      "date": "Friday",
+      "time": null,
+      "input": "Prepare for MarketBridge interview on Friday"
+    },
+    "output": {
+      "group": null,
+      "task": "Prepare for MarketBridge interview on",
+      "date": "Friday",
+      "time": null
+    }
+  },
+  {
+    "input": {
+      "group": "japanese",
+      "task": "practice speech for 2 hours",
+      "date": "tonight",
+      "time": "tonight",
+      "input": "practice speech for 2 hours tonight"
+    },
+    "output": {
+      "group": null,
+      "task": "practice speech for",
+      "date": null,
+      "time": "tonight"
+    }
+  },
+  {
+    "input": {
+      "group": null,
+      "task": "DON'T LET THE DOG EAT THE HOMEWORK",
+      "date": null,
+      "time": null,
+      "input": "DON'T LET THE DOG EAT THE HOMEWORK!!!"
+    },
+    "output": {
+      "group": null,
+      "task": "DON'T LET DOG EAT HOMEWORK",
+      "date": null,
+      "time": null
+    }
+  },
+  {
+    "input": {
+      "group": "chores",
+      "task": "Go to the grocery store for food",
+      "date": "December 14th",
+      "time": null,
+      "input": "Go to the grocery store for food on December 14th"
+    },
+    "output": {
+      "group": null,
+      "task": "Go to grocery store for food on",
+      "date": "14th",
+      "time": null
+    }
+  },
+  {
+    "input": {
+      "group": "chores",
+      "task": "Take down the lights",
+      "date": "the day after Christmas",
+      "time": null,
+      "input": "Take down the lights the day after Christmas!"
+    },
+    "output": {
+      "group": null,
+      "task": "Take down lights Christmas",
+      "date": "after",
+      "time": null
+    }
+  },
+  {
+    "input": {
+      "group": "exercise",
+      "task": "do push-ups",
+      "date": "every day this week",
+      "time": null,
+      "input": "do push-ups every day this week"
+    },
+    "output": {
+      "group": null,
+      "task": "do push ups day",
+      "date": "week",
+      "time": null
+    }
+  },
+  {
+    "input": {
+      "group": "computer science",
+      "task": "do SWE HW",
+      "date": "Thursday",
+      "time": null,
+      "input": "On Thursday do SWE HW for 2 hours"
+    },
+    "output": {
+      "group": null,
+      "task": "On do SWE HW for",
+      "date": "Thursday",
+      "time": "hours"
+    }
   }
 ]

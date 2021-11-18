@@ -110,5 +110,12 @@
         "task": "do push-ups",
         "date": "every day this week",
         "time": null
+    },
+    {
+      "input": "On Thursday do SWE HW for 2 hours",
+      "group": "computer science",
+      "task": "do SWE HW",
+      "date": "Thursday",
+      "time": null
     }
 ]
