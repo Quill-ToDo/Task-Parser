@@ -26,7 +26,7 @@ def validate(input, output):
     if len(differences) != 0:
         print("There were", len(differences), "different outputs between the input and output files, check differences.json")
 
-def set_pipes(groups):
+def set_pipes(groups, holidays):
     '''
     Set up nlp object with desired pipes.
     
@@ -47,6 +47,13 @@ def set_pipes(groups):
         ep = {"label": "GROUP", "pattern": p}
         entity_patterns.append(ep)
 
+    entity_patterns2 = []
+    for holiday in holidays:
+        # if the lowercase version of the token matches our word then add it
+        p = [{"LOWER": word.lower()} for word in holiday.split(" ")] 
+        ep = {"label": "HOLIDAY", "pattern": p}
+        entity_patterns2.append(ep)
+
     # Don't think we need these
     nlp = spacy.load("en_core_web_sm", disable=[
         "DependencyParser",
@@ -61,12 +68,14 @@ def set_pipes(groups):
 
     # Set ER to assign our groups over other entity types
     ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True})
+    ruler.add_patterns(entity_patterns2)
     ruler.add_patterns(entity_patterns)
+
 
     return nlp
 
 def is_date_or_time(token):
-    return token.ent_type_ == "DATE" or token.ent_type_ == "TIME"
+    return token.ent_type_ == "DATE" or token.ent_type_ == "TIME" or token.ent_type_ == "HOLIDAY"
 
 def include_in_task(token):
     ADP_before_date = token.i + 1 < len(token.doc) and token.pos_ == "ADP" and is_date_or_time(token.nbor())
@@ -96,7 +105,7 @@ def add_ents(doc, answers):
         if ent.label_ == "GROUP":
             answers["group"] = ent.text
         else:
-            if ent.label_ == "DATE":
+            if ent.label_ == "DATE" or ent.label_ == "HOLIDAY":
                 answers["date"].append(ent.text)
             if ent.label_ == "TIME":
                 answers["time"] = ent.text
@@ -107,8 +116,10 @@ if __name__ == "__main__":
 
     # These will be set by the user.
     predefined_groups = ["bio", "cosc", "computer science", "japanese", "english"]
+    holidays = ["Christmas", "Valentine's Day", "Halloween", "Easter", "Passover", "Hanukkah", "New Year's Eve", "New Year's Day", "Diwali", "Eid al-Fitr",
+            "Saint Patrick's Day", "Thanksgiving"]
 
-    nlp = set_pipes(predefined_groups)
+    nlp = set_pipes(predefined_groups, holidays)
     
     results = []
 
@@ -119,6 +130,8 @@ if __name__ == "__main__":
         answers = { "group": None, "task": [], "date": [], "time": None }
 
         add_ents(doc, answers)
+
+
 
         for word in doc:
             if include_in_task(word): 

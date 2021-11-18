@@ -1,227 +1,227 @@
 [
-  {
-    "original input": "Remind Deni to give cats flea meds every month on the 18th",
-    "correct groups": {
-      "group": null,
-      "task": "Remind Deni to give cats flea meds",
-      "date": "every month on the 18th",
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "Remind Denito give cats flea meds on the 18th",
-      "date": "every month",
-      "time": null
+    {
+        "original input": "Don't worry, be happy :)", 
+        "correct groups": {
+            "group": null, 
+            "task": "Don't worry, be happy :)", 
+            "date": null, 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Don't worry, be happy:)", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Remind Deni to give cats flea meds every month on the 18th", 
+        "correct groups": {
+            "group": null, 
+            "task": "Remind Deni to give cats flea meds", 
+            "date": "every month on the 18th", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Remind Deni to give cats flea meds on the 18th", 
+            "date": "every month", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "practice japanese speech for 2 hours tonight", 
+        "correct groups": {
+            "group": "japanese", 
+            "task": "practice japanese speech for 2 hours", 
+            "date": "tonight", 
+            "time": "tonight"
+        }, 
+        "our output": {
+            "group": "japanese", 
+            "task": "practice japanese speech", 
+            "date": null, 
+            "time": "tonight"
+        }
+    }, 
+    {
+        "original input": "DON'T LET THE DOG EAT THE HOMEWORK!!!", 
+        "correct groups": {
+            "group": null, 
+            "task": "DON'T LET THE DOG EAT THE HOMEWORK", 
+            "date": null, 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "DON'T LET THE DOG EAT THE HOMEWORK!!!", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Take down the lights the day after Christmas!", 
+        "correct groups": {
+            "group": null, 
+            "task": "Take down the lights", 
+            "date": "the day after Christmas", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Take down the lights!", 
+            "date": "the day after Christmas", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "do push-ups every day this week", 
+        "correct groups": {
+            "group": null, 
+            "task": "do push-ups", 
+            "date": "every day this week", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "do push- ups every day this week", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "call friend in two weeks", 
+        "correct groups": {
+            "group": null, 
+            "task": "call friend", 
+            "date": "in two weeks", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "call friend", 
+            "date": "two weeks", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "take 1se video every day at 12pm", 
+        "correct groups": {
+            "group": null, 
+            "task": "take 1se video", 
+            "date": "every day", 
+            "time": "12pm"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "take video", 
+            "date": "1se every day", 
+            "time": "12pm"
+        }
+    }, 
+    {
+        "original input": "doctor's appointment on 9/22/22", 
+        "correct groups": {
+            "group": null, 
+            "task": "doctor's appointment", 
+            "date": "9/22/22", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "doctor's appointment on", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Reminder to take antibiotic at 8:00 PM every night for the next week", 
+        "correct groups": {
+            "group": null, 
+            "task": "Take antibiotic", 
+            "date": "every night for the next week", 
+            "time": "8:00 PM"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Reminder to take antibiotic", 
+            "date": "the next week", 
+            "time": "8:00 PM every night"
+        }
+    }, 
+    {
+        "original input": "Send posters to print shop by 5:30 PM Wednesday", 
+        "correct groups": {
+            "group": "posters", 
+            "task": "Send posters to print shop", 
+            "date": "Wednesday", 
+            "time": "5:30 PM"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Send posters to print shop", 
+            "date": "Wednesday", 
+            "time": "5:30 PM"
+        }
+    }, 
+    {
+        "original input": "Grab Eggs on my way home from work", 
+        "correct groups": {
+            "group": null, 
+            "task": "Grab Eggs", 
+            "date": null, 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Grab Eggs on way home from work", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Is this thing on? I can't tell", 
+        "correct groups": {
+            "group": null, 
+            "task": "Is this thing on? I can't tell", 
+            "date": null, 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Is this thing on? can't tell", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "go to class every day until December 6th", 
+        "correct groups": {
+            "group": null, 
+            "task": "go to class", 
+            "date": "every day until Decemeber 6th", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "go to class every day", 
+            "date": "December 6th", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Add more test cases by 11/18", 
+        "correct groups": {
+            "group": null, 
+            "task": "Add more test cases", 
+            "date": "11/18", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Add more test cases by", 
+            "date": null, 
+            "time": null
+        }
     }
-  },
-  {
-    "original input": "practice japanese speech for 2 hours tonight",
-    "correct groups": {
-      "group": "japanese",
-      "task": "practice japanese speech for 2 hours",
-      "date": "tonight",
-      "time": "tonight"
-    },
-    "our output": {
-      "group": "japanese",
-      "task": "practice japanese speech",
-      "date": null,
-      "time": "tonight"
-    }
-  },
-  {
-    "original input": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
-    "correct groups": {
-      "group": null,
-      "task": "DON'T LET THE DOG EAT THE HOMEWORK",
-      "date": null,
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
-      "date": null,
-      "time": null
-    }
-  },
-  {
-    "original input": "Take down the lights the day after Christmas!",
-    "correct groups": {
-      "group": null,
-      "task": "Take down the lights",
-      "date": "the day after Christmas",
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "Take down the lights Christmas!",
-      "date": "the day after",
-      "time": null
-    }
-  },
-  {
-    "original input": "do push-ups every day this week",
-    "correct groups": {
-      "group": null,
-      "task": "do push-ups",
-      "date": "every day this week",
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "do push- ups every day",
-      "date": "this week",
-      "time": null
-    }
-  },
-  {
-    "original input": "call friend in two weeks",
-    "correct groups": {
-      "group": null,
-      "task": "call friend",
-      "date": "in two weeks",
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "call friend",
-      "date": "two weeks",
-      "time": null
-    }
-  },
-  {
-    "original input": "take 1se video every day at 12pm",
-    "correct groups": {
-      "group": null,
-      "task": "take 1se video",
-      "date": "every day",
-      "time": "12pm"
-    },
-    "our output": {
-      "group": null,
-      "task": "take 1se video every day",
-      "date": null,
-      "time": "12pm"
-    }
-  },
-  {
-    "original input": "doctor's appointment on 9/22/22",
-    "correct groups": {
-      "group": null,
-      "task": "doctor's appointment",
-      "date": "9/22/22",
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "doctor's appointment on",
-      "date": null,
-      "time": null
-    }
-  },
-  {
-    "original input": "send email to recruiter",
-    "correct groups": {
-      "group": null,
-      "task": "send email to recruiter",
-      "date": null,
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "send emailto recruiter",
-      "date": null,
-      "time": null
-    }
-  },
-  {
-    "original input": "Reminder to take antibiotic at 8:00 PM every night for the next week",
-    "correct groups": {
-      "group": null,
-      "task": "Take antibiotic",
-      "date": "every night for the next week",
-      "time": "8:00 PM"
-    },
-    "our output": {
-      "group": null,
-      "task": "Reminderto take antibiotic",
-      "date": "the next week",
-      "time": "8:00 PM every night"
-    }
-  },
-  {
-    "original input": "Send posters to print shop by 5:30 PM Wednesday",
-    "correct groups": {
-      "group": "posters",
-      "task": "Send posters to print shop",
-      "date": "Wednesday",
-      "time": "5:30 PM"
-    },
-    "our output": {
-      "group": null,
-      "task": "Send postersto print shop",
-      "date": "Wednesday",
-      "time": "5:30 PM"
-    }
-  },
-  {
-    "original input": "Grab Eggs on my way home from work",
-    "correct groups": {
-      "group": null,
-      "task": "Grab Eggs",
-      "date": null,
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "Grab Eggs on way home from work",
-      "date": null,
-      "time": null
-    }
-  },
-  {
-    "original input": "Is this thing on? I can't tell",
-    "correct groups": {
-      "group": null,
-      "task": "Is this thing on? I can't tell",
-      "date": null,
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "Is this thing on? can't tell",
-      "date": null,
-      "time": null
-    }
-  },
-  {
-    "original input": "go to class every day until December 6th",
-    "correct groups": {
-      "group": null,
-      "task": "go to class",
-      "date": "every day until Decemeber 6th",
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "go to class every day",
-      "date": "December 6th",
-      "time": null
-    }
-  },
-  {
-    "original input": "Add more test cases by 11/18",
-    "correct groups": {
-      "group": null,
-      "task": "Add more test cases",
-      "date": "11/18",
-      "time": null
-    },
-    "our output": {
-      "group": null,
-      "task": "Add more test cases by",
-      "date": null,
-      "time": null
-    }
-  }
 ]
