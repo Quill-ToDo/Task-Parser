@@ -1,9 +1,19 @@
 from microtc.utils import tweet_iterator
 from os.path import join
+from scispacy.abbreviation import AbbreviationDetector
 import spacy
 import json
 
 FILE = "tasks.json"
+
+def de_acronymize(input, nlp):
+    nlp.add_pipe("abbreviation_detector")
+    # "I'm going to do CS homework"
+    doc = nlp(input)
+    altered_tok = [tok.text for tok in doc]
+    for abrv in doc._.abbreviations:
+        altered_tok[abrv.start] = str(abrv._.long_form)
+    return(" ".join(altered_tok))
 
 def validate(input, output):
     '''
@@ -42,14 +52,15 @@ if __name__ == "__main__":
 
     nlp = spacy.load("en_core_web_sm")
 
-    predefined_groups = {"bio", "cosc", "computer science"}
+    predefined_groups = {"bio", "cosc", "computer science", "cooking", "jobs", "japanese", "chores", "exercise"}
     
     results = []
     for data in dataset:
         input_task = data["input"]
         doc = nlp(input_task)
         answers = { "group": None, "task": [], "date": None, "time": None }
-
+        input_task = de_acronymize(input_task, nlp)
+        print(input_task)
         for word in doc:
             # check for acronyms before this because something like bio is recognized as an adjective
             # check if it's in a group before these:
@@ -79,7 +90,7 @@ if __name__ == "__main__":
         print("There were differences between the input and output files, check differences.json")
 
 
-    # print(word.text, "pos:", word.pos_, "tag:", word.tag_, "ent type:", word.ent_type_)
+    print(word.text, "pos:", word.pos_, "tag:", word.tag_, "ent type:", word.ent_type_)
 
 
 
