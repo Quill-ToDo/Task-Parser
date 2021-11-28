@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "rrule": "^2.6.8"
+  },
+  "name": "nlp-task-parser",
+  "description": "Our final for NLP! Parsing todo task inputs to convert to meaningful info.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilyosah/NLP-Task-Parser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lilyosah/NLP-Task-Parser/issues"
+  },
+  "homepage": "https://github.com/lilyosah/NLP-Task-Parser#readme"
+}
