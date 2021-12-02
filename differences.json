@@ -1,5 +1,37 @@
 [
     {
+        "original input": "Do computer science reading on Friday", 
+        "correct groups": {
+            "group": "computer science", 
+            "task": "Do computer science reading", 
+            "date": "Friday", 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": "computer science", 
+            "task": "Do computer science reading", 
+            "date": "Friday", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Work on cosc lab Thursday evening", 
+        "correct groups": {
+            "group": "cosc", 
+            "task": "Work on cosc lab", 
+            "date": "Thursday", 
+            "time": "evening", 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": "cosc", 
+            "task": "Work on cosc lab", 
+            "date": "Thursday", 
+            "time": "evening"
+        }
+    }, 
+    {
         "original input": "Remind Deni to give cats flea meds every month on the 18th", 
         "correct groups": {
             "group": null, 
@@ -31,6 +63,54 @@
             "date": null, 
             "time": "tonight", 
             "recurrence": null
+        }
+    }, 
+    {
+        "original input": "take medicine", 
+        "correct groups": {
+            "group": null, 
+            "task": "take medicine", 
+            "date": null, 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "take medicine", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "DON'T LET THE DOG EAT THE HOMEWORK!!!", 
+        "correct groups": {
+            "group": null, 
+            "task": "DON'T LET THE DOG EAT THE HOMEWORK!!!", 
+            "date": null, 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "DON'T LET THE DOG EAT THE HOMEWORK!!!", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Go to the grocery store for food on December 14th", 
+        "correct groups": {
+            "group": null, 
+            "task": "Go to the grocery store for food", 
+            "date": "December 14th", 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Go to the grocery store for food", 
+            "date": "December 14th", 
+            "time": null
         }
     }, 
     {
@@ -68,6 +148,22 @@
         }
     }, 
     {
+        "original input": "call friend in two weeks", 
+        "correct groups": {
+            "group": null, 
+            "task": "call friend", 
+            "date": "two weeks", 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "call friend", 
+            "date": "two weeks", 
+            "time": null
+        }
+    }, 
+    {
         "original input": "take 1se video every day at 12pm", 
         "correct groups": {
             "group": null, 
@@ -82,6 +178,22 @@
             "date": null, 
             "time": "12pm", 
             "recurrence": null
+        }
+    }, 
+    {
+        "original input": "go to work at noon", 
+        "correct groups": {
+            "group": null, 
+            "task": "go to work", 
+            "date": null, 
+            "time": "noon", 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "go to work", 
+            "date": null, 
+            "time": "noon"
         }
     }, 
     {
@@ -102,6 +214,86 @@
         }
     }, 
     {
+        "original input": "NLP group meeting at 5:00", 
+        "correct groups": {
+            "group": null, 
+            "task": "NLP group meeting", 
+            "date": null, 
+            "time": "5:00", 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "NLP group meeting", 
+            "date": null, 
+            "time": "5:00"
+        }
+    }, 
+    {
+        "original input": "send email to recruiter", 
+        "correct groups": {
+            "group": null, 
+            "task": "send email to recruiter", 
+            "date": null, 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "send email to recruiter", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "mail package next month", 
+        "correct groups": {
+            "group": null, 
+            "task": "mail package", 
+            "date": "next month", 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "mail package", 
+            "date": "next month", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "hello, world!", 
+        "correct groups": {
+            "group": null, 
+            "task": "hello, world!", 
+            "date": null, 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "hello, world!", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Finish English paper by next Thursday", 
+        "correct groups": {
+            "group": "English", 
+            "task": "Finish English paper", 
+            "date": "next Thursday", 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": "English", 
+            "task": "Finish English paper", 
+            "date": "next Thursday", 
+            "time": null
+        }
+    }, 
+    {
         "original input": "Reminder to take antibiotic at 8:00 PM every night for the next week", 
         "correct groups": {
             "group": null, 
@@ -116,6 +308,38 @@
             "date": "the next week", 
             "time": "8:00 PM every night", 
             "recurrence": null
+        }
+    }, 
+    {
+        "original input": "Send posters to print shop by 5:30 PM Wednesday", 
+        "correct groups": {
+            "group": null, 
+            "task": "Send posters to print shop", 
+            "date": "Wednesday", 
+            "time": "5:30 PM", 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Send posters to print shop", 
+            "date": "Wednesday", 
+            "time": "5:30 PM"
+        }
+    }, 
+    {
+        "original input": "Grab Eggs on my way home from work", 
+        "correct groups": {
+            "group": null, 
+            "task": "Grab Eggs on my way home from work", 
+            "date": null, 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Grab Eggs on my way home from work", 
+            "date": null, 
+            "time": null
         }
     }, 
     {
@@ -136,6 +360,22 @@
         }
     }, 
     {
+        "original input": "this is a task for today", 
+        "correct groups": {
+            "group": null, 
+            "task": "this is a task", 
+            "date": "today", 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "this is a task", 
+            "date": "today", 
+            "time": null
+        }
+    }, 
+    {
         "original input": "go to class every day until December 6th", 
         "correct groups": {
             "group": null, 
@@ -150,6 +390,22 @@
             "date": "December 6th", 
             "time": null, 
             "recurrence": null
+        }
+    }, 
+    {
+        "original input": "Leave for the airport by 7:30", 
+        "correct groups": {
+            "group": null, 
+            "task": "Leave for the airport", 
+            "date": null, 
+            "time": "7:30", 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Leave for the airport", 
+            "date": null, 
+            "time": "7:30"
         }
     }, 
     {
@@ -269,6 +525,102 @@
             "date": null, 
             "time": "every 5 seconds", 
             "recurrence": null
+        }
+    }, 
+    {
+        "original input": "Water the plants every day from 10 May until 20 May", 
+        "correct groups": {
+            "group": null, 
+            "task": "Water the plants", 
+            "date": null, 
+            "time": null, 
+            "recurrence": "every day from 10 May until 20 May"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Water the plants every day", 
+            "date": "10 May 20 May", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Shower every six days", 
+        "correct groups": {
+            "group": null, 
+            "task": "Shower", 
+            "date": null, 
+            "time": null, 
+            "recurrence": "every six days"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Shower every days", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Harass my neighbors every 14th", 
+        "correct groups": {
+            "group": null, 
+            "task": "Harass my neighbors", 
+            "date": null, 
+            "time": null, 
+            "recurrence": "every 14th"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Harass my neighbors every 14th", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Grind leetcode every day for three weeks", 
+        "correct groups": {
+            "group": null, 
+            "task": "Grind leetcode", 
+            "date": null, 
+            "time": null, 
+            "recurrence": "every day for three weeks"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Grind leetcode every day", 
+            "date": "three weeks", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "work stuff every third friday", 
+        "correct groups": {
+            "group": null, 
+            "task": "work stuff", 
+            "date": null, 
+            "time": null, 
+            "recurrence": "every third friday"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "work stuff every third friday", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "blink every 5 seconds", 
+        "correct groups": {
+            "group": null, 
+            "task": "blink", 
+            "date": null, 
+            "time": null, 
+            "recurrence": "every 5 seconds"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "blink", 
+            "date": null, 
+            "time": "every 5 seconds"
         }
     }
 ]

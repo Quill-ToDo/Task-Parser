@@ -73,6 +73,35 @@ def get_recurrence_entities(doc):
     return doc
 
 
+@spacy.Language.component("expand_dates")
+def expand_dates(doc):
+    new_dates = []
+    orig_ents = list(doc.ents)
+    for ent in doc.ents:
+        if ent.label_ == "ORDINAL":
+            if ent.start != 0:
+                prev_token = doc[ent.start - 1]
+                if prev_token.text == "the":
+                    new_ent = spacy.tokens.Span(doc, ent.start - 1, ent.end, label="DATE")
+                else:
+                    continue
+            else: 
+                continue
+            orig_ents.remove(ent)
+            new_dates.append(new_ent)
+    if new_dates:
+        doc.set_ents(orig_ents + new_dates)
+    return doc
+
+@spacy.Language.component("get_recurrence_entities")
+def get_recurrence_entities(doc):
+    recurrences = []
+    if "every" in doc.text:
+        print([token.text + ": " + token.label_ for token in doc.ents])
+
+    return doc
+
+
 def get_nlp_with_er(groups, exclude_list):
     '''
     Set up nlp object with desired pipes.
