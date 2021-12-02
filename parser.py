@@ -31,13 +31,47 @@ def format_answers(answers):
     Format outputs for validate()
     '''
     if len(answers["task"]) != 0:
-            answers["task"] = " ".join(answers["task"])
+        answers["task"] = " ".join(answers["task"])
     else: 
         answers["task"] = None
     if len(answers["date"]) == 0:
         answers["date"] = None
     else:
         answers["date"] = " ".join(answers["date"])
+    if len(answers["recurrence"]) != 0:
+        answers["recurrence"] = " ".join(answers["recurrence"])
+    else: 
+        answers["recurrence"] = None
+
+
+@spacy.Language.component("expand_dates")
+def expand_dates(doc):
+    new_dates = []
+    orig_ents = list(doc.ents)
+    for ent in doc.ents:
+        if ent.label_ == "ORDINAL":
+            if ent.start != 0:
+                prev_token = doc[ent.start - 1]
+                if prev_token.text == "the":
+                    new_ent = spacy.tokens.Span(doc, ent.start - 1, ent.end, label="DATE")
+                else:
+                    continue
+            else: 
+                continue
+            orig_ents.remove(ent)
+            new_dates.append(new_ent)
+    if new_dates:
+        doc.set_ents(orig_ents + new_dates)
+    return doc
+
+@spacy.Language.component("get_recurrence_entities")
+def get_recurrence_entities(doc):
+    recurrences = []
+    if "every" in doc.text:
+        print([token.text + ": " + token.label_ for token in doc.ents], doc.text)
+
+    return doc
+
 
 def get_nlp_with_er(groups, exclude_list):
     '''
@@ -63,8 +97,11 @@ def get_nlp_with_er(groups, exclude_list):
     nlp = spacy.load("en_core_web_sm", exclude=exclude_list)
 
     # Set ER to assign our groups over other entity types
-    ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"})
+    ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"}, after="ner")
     ruler.add_patterns(entity_patterns)
+    # Add recurrence pipe
+    nlp.add_pipe("expand_dates")
+    nlp.add_pipe("get_recurrence_entities", after="expand_dates")
     return nlp
 
 
@@ -104,6 +141,8 @@ def add_ents(doc, answers):
     for ent in doc.ents:
         if ent.label_ == "GROUP":
             answers["group"] = ent.text
+        elif ent.label == "RECURRENCE":
+            answers["recurrence"] = ent.text
         else:
             if ent.label_ == "DATE":
                 answers["date"].append(ent.text)
@@ -146,7 +185,7 @@ if __name__ == "__main__":
         input_task = data["input"]
         er_doc = er_nlp(input_task)
         noun_doc = noun_nlp(input_task)
-        answers = { "group": None, "task": [], "date": [], "time": None }
+        answers = { "group": None, "task": [], "date": [], "time": None, "recurrence": [] }
 
         add_ents(er_doc, answers)
         add_task_body(noun_doc, answers)
@@ -161,5 +200,11 @@ if __name__ == "__main__":
     validate(dataset, results, total_inputs=len(dataset))
 
 
+# expand date to include days, number of days, 14th (ORDINAL?)
+# from every / each to last date/time ent
 
+# counter cases:
+# - Do each problem in HW set on friday 
+# - Do every HW assignment on Friday
 
+# Every is a DET POS

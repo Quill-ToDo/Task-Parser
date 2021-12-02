@@ -3,204 +3,280 @@
         "group": null, 
         "task": "Don't worry, be happy :)", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": "computer science", 
         "task": "Do computer science reading", 
         "date": "Friday", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": "cosc", 
         "task": "Work on cosc lab", 
         "date": "Thursday", 
-        "time": "evening"
+        "time": "evening", 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Remind Deni to give cats flea meds on the 18th", 
-        "date": "every month", 
-        "time": null
+        "date": "every month the 18th", 
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": "bio", 
         "task": "Start bio HW!!!", 
         "date": null, 
-        "time": "tonight"
+        "time": "tonight", 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Pick up books from lib", 
         "date": "Thursday", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Use leftover rice", 
         "date": "the next two days", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Go to class", 
         "date": "tomorrow", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "eat dinner", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": null, 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Prepare for MarketBridge interview", 
         "date": "Friday", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": "japanese", 
         "task": "practice japanese speech", 
         "date": null, 
-        "time": "tonight"
+        "time": "tonight", 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "take medicine", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "DON'T LET THE DOG EAT THE HOMEWORK!!!", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Go to the grocery store for food", 
         "date": "December 14th", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Take down the lights Christmas!", 
         "date": "the day after", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "do push-ups every day", 
         "date": "this week", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "call friend", 
         "date": "two weeks", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "take 1se video every day", 
         "date": null, 
-        "time": "12pm"
+        "time": "12pm", 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "go to work", 
         "date": null, 
-        "time": "noon"
+        "time": "noon", 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "doctor's appointment on", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "NLP group meeting", 
         "date": null, 
-        "time": "5:00"
+        "time": "5:00", 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "send email to recruiter", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "mail package", 
         "date": "next month", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "hello, world!", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": "English", 
         "task": "Finish English paper", 
         "date": "next Thursday", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Reminder to take antibiotic", 
         "date": "the next week", 
-        "time": "8:00 PM every night"
+        "time": "8:00 PM every night", 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Send posters to print shop", 
         "date": "Wednesday", 
-        "time": "5:30 PM"
+        "time": "5:30 PM", 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Grab Eggs on my way home from work", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Is this thing on? can't tell", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "this is a task", 
         "date": "today", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "go to class every day", 
         "date": "December 6th", 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Leave for the airport", 
         "date": null, 
-        "time": "7:30"
+        "time": "7:30", 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "Add more test cases by", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
+    }, 
+    {
+        "group": null, 
+        "task": "Water the plants every day", 
+        "date": "10 May 20 May", 
+        "time": null, 
+        "recurrence": null
+    }, 
+    {
+        "group": null, 
+        "task": "Shower every days", 
+        "date": null, 
+        "time": null, 
+        "recurrence": null
+    }, 
+    {
+        "group": null, 
+        "task": "Harass my neighbors every 14th", 
+        "date": null, 
+        "time": null, 
+        "recurrence": null
+    }, 
+    {
+        "group": null, 
+        "task": "Grind leetcode every day", 
+        "date": "three weeks", 
+        "time": null, 
+        "recurrence": null
+    }, 
+    {
+        "group": null, 
+        "task": "work stuff every third friday", 
+        "date": null, 
+        "time": null, 
+        "recurrence": null
+    }, 
+    {
+        "group": null, 
+        "task": "blink", 
+        "date": null, 
+        "time": "every 5 seconds", 
+        "recurrence": null
     }
 ]
