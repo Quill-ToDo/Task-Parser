@@ -1,3 +1,4 @@
+from logging import disable
 from microtc.utils import tweet_iterator
 from os.path import join
 import spacy
@@ -39,6 +40,44 @@ def format_answers(answers):
     else:
         answers["date"] = " ".join(answers["date"])
 
+
+
+@spacy.Language.component("expand_dates")
+def expand_dates(doc):
+    new_dates = []
+    orig_ents = list(doc.ents)
+    for ent in doc.ents:
+        if ent.label_ == "ORDINAL":
+            if ent.start != 0:
+                prev_token = doc[ent.start - 1]
+                if prev_token.text == "the":
+                    new_ent = spacy.tokens.Span(doc, ent.start - 1, ent.end, label="DATE")
+                else:
+                    continue
+            else: 
+                continue
+            orig_ents.remove(ent)
+            new_dates.append(new_ent)
+        elif ent.label_ == "HOLIDAY":
+            if ent.start != 0:
+                prev_token = doc[ent.start - 1]
+                if prev_token.ent_type_ == "DATE":
+                    EntLoc = orig_ents.index(ent)
+                    prev_ent = orig_ents[EntLoc - 1]
+                    new_ent = spacy.tokens.Span(doc, prev_ent.start , ent.end, label="DATE")
+                    
+                    
+                    orig_ents.remove(orig_ents[EntLoc - 1])
+                else:
+                    continue
+            else: 
+                continue
+            orig_ents.remove(ent)
+            new_dates.append(new_ent)
+    if new_dates:
+        doc.set_ents(orig_ents + new_dates)
+    return doc
+
 def get_nlp_with_er(groups, holidays, exclude_list):
     '''
     Set up nlp object with desired pipes.
@@ -75,17 +114,21 @@ def get_nlp_with_er(groups, holidays, exclude_list):
     #ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True})
     ruler.add_patterns(entity_patterns2)
     ruler.add_patterns(entity_patterns)
+
+    nlp.add_pipe("expand_dates")
+
     return nlp
 
 
 def get_nlp_with_noun(exclude_list):
     nlp = spacy.load("en_core_web_sm", exclude=exclude_list)
-    nlp.add_pipe("merge_noun_chunks")
+    nlp.add_pipe("expand_dates")
+    nlp.add_pipe("merge_noun_chunks", after="expand_dates")
     return nlp
 
 def is_date_or_time(token):
     #HOLIDAY ent_type_ does not work, it appears as if it is never assigned
-    return token.ent_type_ == "DATE" or token.ent_type_ == "TIME" or token.ent_type_ == "HOLIDAY"
+    return token.ent_type_ == "DATE" or token.ent_type_ == "TIME" #or token.ent_type_ == "HOLIDAY"
 
 def include_in_task(token):
     ADP_before_date = token.i + 1 < len(token.doc) and token.pos_ == "ADP" and is_date_or_time(token.nbor())
@@ -101,9 +144,12 @@ def include_in_task(token):
                     or token.pos_ == "PUNCT" \
                     or token.pos_ == "INTJ"
     
-    #print(token.text + ":", is_date_or_time(token))
+    print(token.text + ":", is_date_or_time(token))
     #print("ent_type_:", token.ent_type_ == "HOLIDAY")
     #print("is_date_or_time:", is_date_or_time(token))
+    if token.text == "japanese speech":
+        print()
+
     return in_included_pos and not (ADP_before_date or is_date_or_time(token))
 
 def attached_to_last_word(token):
@@ -119,12 +165,14 @@ def add_ents(doc, answers):
         if ent.label_ == "GROUP":
             answers["group"] = ent.text
         else:
-            if ent.label_ == "DATE" or ent.label_ == "HOLIDAY":
+            if ent.label_ == "DATE" :
                 answers["date"].append(ent.text)
             if ent.label_ == "TIME":
                 answers["time"] = ent.text
 
 def add_task_body(doc, answers):
+    if "Christmas" in doc.text:
+        print()
     for word in doc:
         if include_in_task(word): 
             #print(word.text)

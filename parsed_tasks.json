@@ -19,8 +19,8 @@
     }, 
     {
         "group": null, 
-        "task": "Remind Deni to give cats flea meds on the 18th", 
-        "date": "every month", 
+        "task": "Remind Deni to give cats flea meds", 
+        "date": "every month the 18th", 
         "time": null
     }, 
     {
@@ -202,5 +202,11 @@
         "task": "Add more test cases by", 
         "date": null, 
         "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Go to the store to get Christmas Dinner", 
+        "date": null, 
+        "time": "6:00 PM"
     }
 ]

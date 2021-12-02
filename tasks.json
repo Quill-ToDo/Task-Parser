@@ -236,5 +236,12 @@
     "task": "Add more test cases",
     "date": "11/18",
     "time": null
+  },
+  {
+    "input": "Go to the store at 6:00 PM to get Christmas Dinner",
+    "group": null,
+    "task": "Go to the store to get Christmas Dinner",
+    "date": null,
+    "time": "6:00 PM"
   }
 ]

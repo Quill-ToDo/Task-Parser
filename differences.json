@@ -24,8 +24,8 @@
         }, 
         "our output": {
             "group": null, 
-            "task": "Remind Deni to give cats flea meds on the 18th", 
-            "date": "every month", 
+            "task": "Remind Deni to give cats flea meds", 
+            "date": "every month the 18th", 
             "time": null
         }
     }, 
