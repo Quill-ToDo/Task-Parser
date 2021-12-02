@@ -1,5 +1,20 @@
 [
     {
+        "original input": "Don't worry, be happy :)", 
+        "correct groups": {
+            "group": null, 
+            "task": "Don't worry, be happy :)", 
+            "date": null, 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Don't worry, be happy:)", 
+            "date": null, 
+            "time": null
+        }
+    }, 
+    {
         "original input": "Remind Deni to give cats flea meds every month on the 18th", 
         "correct groups": {
             "group": null, 
@@ -40,7 +55,7 @@
         "our output": {
             "group": null, 
             "task": "Take down the lights Christmas!", 
-            "date": "the day after", 
+            "date": "the day after Christmas", 
             "time": null
         }
     }, 
@@ -54,8 +69,8 @@
         }, 
         "our output": {
             "group": null, 
-            "task": "do push-ups every day", 
-            "date": "this week", 
+            "task": "do push-ups every day this week", 
+            "date": null, 
             "time": null
         }
     }, 
@@ -69,8 +84,8 @@
         }, 
         "our output": {
             "group": null, 
-            "task": "take 1se video every day", 
-            "date": null, 
+            "task": "take 1se video", 
+            "date": "1se every day", 
             "time": "12pm"
         }
     }, 

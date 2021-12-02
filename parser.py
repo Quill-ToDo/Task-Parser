@@ -39,7 +39,7 @@ def format_answers(answers):
     else:
         answers["date"] = " ".join(answers["date"])
 
-def get_nlp_with_er(groups, exclude_list):
+def get_nlp_with_er(groups, holidays, exclude_list):
     '''
     Set up nlp object with desired pipes.
     
@@ -64,6 +64,16 @@ def get_nlp_with_er(groups, exclude_list):
 
     # Set ER to assign our groups over other entity types
     ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"})
+    entity_patterns2 = []
+    for holiday in holidays:
+        # if the lowercase version of the token matches our word then add it
+        p = [{"LOWER": word.lower()} for word in holiday.split(" ")] 
+        ep = {"label": "HOLIDAY", "pattern": p}
+        entity_patterns2.append(ep)
+
+    # Set ER to assign our groups over other entity types
+    #ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True})
+    ruler.add_patterns(entity_patterns2)
     ruler.add_patterns(entity_patterns)
     return nlp
 
@@ -74,7 +84,8 @@ def get_nlp_with_noun(exclude_list):
     return nlp
 
 def is_date_or_time(token):
-    return token.ent_type_ == "DATE" or token.ent_type_ == "TIME"
+    #HOLIDAY ent_type_ does not work, it appears as if it is never assigned
+    return token.ent_type_ == "DATE" or token.ent_type_ == "TIME" or token.ent_type_ == "HOLIDAY"
 
 def include_in_task(token):
     ADP_before_date = token.i + 1 < len(token.doc) and token.pos_ == "ADP" and is_date_or_time(token.nbor())
@@ -90,6 +101,9 @@ def include_in_task(token):
                     or token.pos_ == "PUNCT" \
                     or token.pos_ == "INTJ"
     
+    #print(token.text + ":", is_date_or_time(token))
+    #print("ent_type_:", token.ent_type_ == "HOLIDAY")
+    #print("is_date_or_time:", is_date_or_time(token))
     return in_included_pos and not (ADP_before_date or is_date_or_time(token))
 
 def attached_to_last_word(token):
@@ -105,7 +119,7 @@ def add_ents(doc, answers):
         if ent.label_ == "GROUP":
             answers["group"] = ent.text
         else:
-            if ent.label_ == "DATE":
+            if ent.label_ == "DATE" or ent.label_ == "HOLIDAY":
                 answers["date"].append(ent.text)
             if ent.label_ == "TIME":
                 answers["time"] = ent.text
@@ -113,7 +127,9 @@ def add_ents(doc, answers):
 def add_task_body(doc, answers):
     for word in doc:
         if include_in_task(word): 
+            #print(word.text)
             if attached_to_last_word(word):
+                
                 answers["task"][-1] += word.text
             else:
                 answers["task"].append(word.text)
@@ -124,6 +140,8 @@ if __name__ == "__main__":
 
     # These will be set by the user.
     predefined_groups = ["Bio", "Cosc", "Computer Science", "Japanese", "English"]
+    holidays = ["Christmas", "Valentine's Day", "Halloween", "Easter", "Passover", "Hanukkah", "New Year's Eve", "New Year's Day", "Diwali", "Eid al-Fitr",
+            "Saint Patrick's Day", "Thanksgiving"]
 
     # Pipes we don't need
     exclude_list = [
@@ -137,7 +155,7 @@ if __name__ == "__main__":
         "TrainablePipe",
         "Transformer"]
 
-    er_nlp = get_nlp_with_er(predefined_groups, exclude_list)
+    er_nlp = get_nlp_with_er(predefined_groups, holidays, exclude_list)
     noun_nlp = get_nlp_with_noun(exclude_list)
 
     results = []

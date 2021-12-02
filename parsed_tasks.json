@@ -1,7 +1,7 @@
 [
     {
         "group": null, 
-        "task": "Don't worry, be happy :)", 
+        "task": "Don't worry, be happy:)", 
         "date": null, 
         "time": null
     }, 
@@ -92,13 +92,13 @@
     {
         "group": null, 
         "task": "Take down the lights Christmas!", 
-        "date": "the day after", 
+        "date": "the day after Christmas", 
         "time": null
     }, 
     {
         "group": null, 
-        "task": "do push-ups every day", 
-        "date": "this week", 
+        "task": "do push-ups every day this week", 
+        "date": null, 
         "time": null
     }, 
     {
@@ -109,8 +109,8 @@
     }, 
     {
         "group": null, 
-        "task": "take 1se video every day", 
-        "date": null, 
+        "task": "take 1se video", 
+        "date": "1se every day", 
         "time": "12pm"
     }, 
     {
