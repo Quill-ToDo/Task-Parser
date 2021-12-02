@@ -268,5 +268,53 @@
     "date": "11/18",
     "time": null,
     "recurrence": null
+  },
+  {
+    "input": "Water the plants every day from 10 May until 20 May",
+    "group": null,
+    "task": "Water the plants",
+    "date": null,
+    "time": null,
+    "recurrence": "every day from 10 May until 20 May"
+  },
+  {
+    "input": "Shower every six days",
+    "group": null,
+    "task": "Shower",
+    "date": null,
+    "time": null,
+    "recurrence": "every six days"
+  },
+  {
+    "input": "Harass my neighbors every 14th",
+    "group": null,
+    "task": "Harass my neighbors",
+    "date": null,
+    "time": null,
+    "recurrence": "every 14th"
+  },
+  {
+    "input": "Grind leetcode every day for three weeks",
+    "group": null,
+    "task": "Grind leetcode",
+    "date": null,
+    "time": null,
+    "recurrence": "every day for three weeks"
+  },
+  {
+    "input": "work stuff every third friday",
+    "group": null,
+    "task": "work stuff",
+    "date": null,
+    "time": null,
+    "recurrence": "every third friday"
+  },
+  {
+    "input": "blink every 5 seconds",
+    "group": null,
+    "task": "blink",
+    "date": null,
+    "time": null,
+    "recurrence": "every 5 seconds"
   }
 ]

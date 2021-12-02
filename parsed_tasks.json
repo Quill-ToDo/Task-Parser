@@ -20,7 +20,7 @@
     {
         "group": null, 
         "task": "Remind Deni to give cats flea meds on the 18th", 
-        "date": "every month", 
+        "date": "every month the 18th", 
         "time": null
     }, 
     {
@@ -202,5 +202,41 @@
         "task": "Add more test cases by", 
         "date": null, 
         "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Water the plants every day", 
+        "date": "10 May 20 May", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Shower every days", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Harass my neighbors every 14th", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Grind leetcode every day", 
+        "date": "three weeks", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "work stuff every third friday", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "blink", 
+        "date": null, 
+        "time": "every 5 seconds"
     }
 ]
