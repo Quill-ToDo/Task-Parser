@@ -1,1 +1,206 @@
-[{"group": null, "task": "Do computer science reading on", "date": "Friday", "time": null}, {"group": "cosc", "task": "Work on cosc lab", "date": "Thursday", "time": "evening"}, {"group": null, "task": "Remind Deni give cats flea meds on 18th", "date": "month", "time": null}, {"group": "bio", "task": "Start HW", "date": null, "time": "tonight"}, {"group": null, "task": "Pick up books from lib on", "date": "Thursday", "time": null}, {"group": null, "task": "Use leftover rice in", "date": "days", "time": null}, {"group": null, "task": "Go to class", "date": "tomorrow", "time": null}, {"group": null, "task": "eat dinner", "date": null, "time": null}, {"group": null, "task": "", "date": null, "time": null}, {"group": null, "task": "Prepare for MarketBridge interview on", "date": "Friday", "time": null}, {"group": null, "task": "practice speech for", "date": null, "time": "tonight"}, {"group": null, "task": "take medicine", "date": null, "time": null}, {"group": null, "task": "DON'T LET DOG EAT HOMEWORK", "date": null, "time": null}, {"group": null, "task": "Go to grocery store for food on", "date": "14th", "time": null}, {"group": null, "task": "Take down lights Christmas", "date": "after", "time": null}, {"group": null, "task": "do push ups day", "date": "week", "time": null}, {"group": null, "task": "On do SWE HW for", "date": "Thursday", "time": "hours"}]
+[
+    {
+        "group": null, 
+        "task": "Don't worry, be happy:)", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": "computer science", 
+        "task": "Do computer science reading", 
+        "date": "Friday", 
+        "time": null
+    }, 
+    {
+        "group": "cosc", 
+        "task": "Work on cosc lab", 
+        "date": "Thursday", 
+        "time": "evening"
+    }, 
+    {
+        "group": null, 
+        "task": "Remind Deni to give cats flea meds on the 18th", 
+        "date": "every month", 
+        "time": null
+    }, 
+    {
+        "group": "bio", 
+        "task": "Start bio HW!!!", 
+        "date": null, 
+        "time": "tonight"
+    }, 
+    {
+        "group": null, 
+        "task": "Pick up books from lib", 
+        "date": "Thursday", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Use leftover rice", 
+        "date": "the next two days", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Go to class", 
+        "date": "tomorrow", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "eat dinner", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": null, 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Prepare for MarketBridge interview", 
+        "date": "Friday", 
+        "time": null
+    }, 
+    {
+        "group": "japanese", 
+        "task": "practice japanese speech", 
+        "date": null, 
+        "time": "tonight"
+    }, 
+    {
+        "group": null, 
+        "task": "take medicine", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "DON'T LET THE DOG EAT THE HOMEWORK!!!", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Go to the grocery store for food", 
+        "date": "December 14th", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Take down the lights Christmas!", 
+        "date": "the day after Christmas", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "do push-ups every day this week", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "call friend", 
+        "date": "two weeks", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "take 1se video", 
+        "date": "1se every day", 
+        "time": "12pm"
+    }, 
+    {
+        "group": null, 
+        "task": "go to work", 
+        "date": null, 
+        "time": "noon"
+    }, 
+    {
+        "group": null, 
+        "task": "doctor's appointment on", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "NLP group meeting", 
+        "date": null, 
+        "time": "5:00"
+    }, 
+    {
+        "group": null, 
+        "task": "send email to recruiter", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "mail package", 
+        "date": "next month", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "hello, world!", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": "English", 
+        "task": "Finish English paper", 
+        "date": "next Thursday", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Reminder to take antibiotic", 
+        "date": "the next week", 
+        "time": "8:00 PM every night"
+    }, 
+    {
+        "group": null, 
+        "task": "Send posters to print shop", 
+        "date": "Wednesday", 
+        "time": "5:30 PM"
+    }, 
+    {
+        "group": null, 
+        "task": "Grab Eggs on my way home from work", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Is this thing on? can't tell", 
+        "date": null, 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "this is a task", 
+        "date": "today", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "go to class every day", 
+        "date": "December 6th", 
+        "time": null
+    }, 
+    {
+        "group": null, 
+        "task": "Leave for the airport", 
+        "date": null, 
+        "time": "7:30"
+    }, 
+    {
+        "group": null, 
+        "task": "Add more test cases by", 
+        "date": null, 
+        "time": null
+    }
+]
