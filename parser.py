@@ -99,7 +99,8 @@ def include_in_task(token):
                     or token.pos_ == "DET" \
                     or token.pos_ == "PART" \
                     or token.pos_ == "PUNCT" \
-                    or token.pos_ == "INTJ"
+                    or token.pos_ == "INTJ" \
+                    or token.pos_ == "PRON"
     
     #print(token.text + ":", is_date_or_time(token))
     #print("ent_type_:", token.ent_type_ == "HOLIDAY")
