@@ -148,7 +148,6 @@ def acronym_detection(input):
     for key in entities.keys():
         for group in predefined_groups:
             if str(key)[0].lower() == group[0].lower() and str(key).lower() in group.lower():
-                print(key, group)
                 return group
     return None
 
