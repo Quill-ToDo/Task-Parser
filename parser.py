@@ -141,20 +141,21 @@ def acronym_detection(input, acronym_dict):
     abbrev = re.compile("[a-zA-Z]{2,}")
     output = abbrev.findall(input)
     entities = Counter(output)
-    print(entities)
-
+    
     for key in entities.keys():
         # check if it's an abbreviation for a group
         for group in predefined_groups:
             if str(key)[0].lower() == group[0].lower() and str(key).lower() in group.lower():
                 return group
         # check if it's an acronym for a group
-        for group in acronym_dict.keys():
-            if str(key).lower() == group.lower():
-                return acronym_dict.get(group)
+        if str(key).lower() in acronym_dict.keys():
+            return acronym_dict.get(str(key).lower())
     return None
 
 def get_acronym_dict(groups):
+    '''
+    Makes dictionary of acronyms from predefined group names
+    '''
     acronym_dict = {}
     for i in range(len(groups)):
         group = groups[i]
@@ -163,7 +164,7 @@ def get_acronym_dict(groups):
             acronym = ""
             for t in group_terms:
                 acronym += t[0]
-            acronym_dict[acronym] = group
+            acronym_dict[acronym.lower()] = group
     return acronym_dict
 
 if __name__ == "__main__":
