@@ -14,9 +14,16 @@
     "time": null
   },
   {
-    "input": "Work on cosc lab Thursday evening",
-    "group": "cosc",
-    "task": "Work on cosc lab",
+    "input": "Study for compsci",
+    "group": "Computer Science",
+    "task": "Study for compsci",
+    "date": null,
+    "time": null
+  },
+  {
+    "input": "Work on cs lab Thursday evening",
+    "group": "Computer Science",
+    "task": "Work on cs lab",
     "date": "Thursday",
     "time": "evening"
   },
@@ -29,7 +36,7 @@
   },
   {
     "input": "Start bio HW tonight!!!",
-    "group": "bio",
+    "group": "Biology",
     "task": "Start bio HW!!!",
     "date": null,
     "time": "tonight"
