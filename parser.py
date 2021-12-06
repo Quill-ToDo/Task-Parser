@@ -134,7 +134,7 @@ def add_task_body(doc, answers):
             else:
                 answers["task"].append(word.text)
 
-def acronym_detection(input, acronym_dict, abbrev_dict):
+def acronym_detection(input, abbrev_dict):
     '''
     Finds acronyms or abbreviations for a group name in the user input task
     '''
@@ -144,32 +144,24 @@ def acronym_detection(input, acronym_dict, abbrev_dict):
     
     for key in entities.keys():
         key = str(key).lower()
-        # check if it's an abbreviation for a group
         for group in predefined_groups:
+            # check if it's an acronym or if we have already seen it
             if key in abbrev_dict.get(group):
                 return group
+            # check if it's an abbreviation of a group name
             if key[0] == group[0].lower() and key in group.lower():
                 abbrev_dict[key] = abbrev_dict.get(group).append(key)
                 return group
-        # check if it's an acronym for a group
-        if key in acronym_dict.keys():
-            return acronym_dict.get(key)
     return None
 
-def get_acronym_dict(groups):
-    '''
-    Makes dictionary of acronyms from predefined group names
-    '''
-    acronym_dict = {}
-    for i in range(len(groups)):
-        group = groups[i]
-        if len(group.split(" ")) > 1:
-            group_terms = group.split(" ")
+def add_acronyms(groups, abbrev_dict):
+    for group in groups:
+        group_terms = group.split(" ")
+        if len(group_terms) > 1:
             acronym = ""
             for t in group_terms:
                 acronym += t[0]
-            acronym_dict[acronym.lower()] = group
-    return acronym_dict
+            abbrev_dict[group] = [acronym.lower()]
 
 if __name__ == "__main__":
     # !!!Make sure you run this: $ python -m spacy download en_core_web_sm
@@ -202,8 +194,8 @@ if __name__ == "__main__":
 
     er_nlp = get_nlp_with_er(predefined_groups, holidays, exclude_list)
     noun_nlp = get_nlp_with_noun(exclude_list)
-    acronym_dict = get_acronym_dict(predefined_groups)
     abbrev_dict = {group : [] for group in predefined_groups} # keep track of all abbreviations for group names that we have seen
+    add_acronyms(predefined_groups, abbrev_dict)
 
     results = []
 
@@ -216,7 +208,7 @@ if __name__ == "__main__":
 
         add_ents(er_doc, answers)
         if (answers["group"] is None):
-            group = acronym_detection(input_task, acronym_dict, abbrev_dict)
+            group = acronym_detection(input_task, abbrev_dict)
             answers["group"] = group
 
         add_task_body(noun_doc, answers)
