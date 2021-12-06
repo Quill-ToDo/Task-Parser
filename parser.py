@@ -134,22 +134,37 @@ def add_task_body(doc, answers):
             else:
                 answers["task"].append(word.text)
 
-def acronym_detection(input):
+def acronym_detection(input, acronym_dict):
     '''
     Finds acronyms or abbreviations for a group name in the user input task
     '''
     abbrev = re.compile("[a-zA-Z]{2,}")
-    acronym = re.compile("\b(?:[a-zA-Z][\.]?){2,}")
     output = abbrev.findall(input)
-    output += acronym.findall(input)
-
     entities = Counter(output)
+    print(entities)
 
     for key in entities.keys():
+        # check if it's an abbreviation for a group
         for group in predefined_groups:
             if str(key)[0].lower() == group[0].lower() and str(key).lower() in group.lower():
                 return group
+        # check if it's an acronym for a group
+        for group in acronym_dict.keys():
+            if str(key).lower() == group.lower():
+                return acronym_dict.get(group)
     return None
+
+def get_acronym_dict(groups):
+    acronym_dict = {}
+    for i in range(len(groups)):
+        group = groups[i]
+        if len(group.split(" ")) > 1:
+            group_terms = group.split(" ")
+            acronym = ""
+            for t in group_terms:
+                acronym += t[0]
+            acronym_dict[acronym] = group
+    return acronym_dict
 
 if __name__ == "__main__":
     # !!!Make sure you run this: $ python -m spacy download en_core_web_sm
@@ -163,7 +178,7 @@ if __name__ == "__main__":
     dataset = json.load(open(FILE))
 
     # These will be set by the user.
-    predefined_groups = ["Biology", "Cosc", "Computer Science", "Japanese", "English"]
+    predefined_groups = ["Biology", "Computer Science", "Japanese", "English"]
     predefined_groups.sort()
     holidays = ["Christmas", "Valentine's Day", "Halloween", "Easter", "Passover", "Hanukkah", "New Year's Eve", "New Year's Day", "Diwali", "Eid al-Fitr",
             "Saint Patrick's Day", "Thanksgiving"]
@@ -182,6 +197,7 @@ if __name__ == "__main__":
 
     er_nlp = get_nlp_with_er(predefined_groups, holidays, exclude_list)
     noun_nlp = get_nlp_with_noun(exclude_list)
+    acronym_dict = get_acronym_dict(predefined_groups)
 
     results = []
 
@@ -194,7 +210,7 @@ if __name__ == "__main__":
 
         add_ents(er_doc, answers)
         if (answers["group"] is None):
-            group = acronym_detection(input_task)
+            group = acronym_detection(input_task, acronym_dict)
             answers["group"] = group
 
         add_task_body(noun_doc, answers)
