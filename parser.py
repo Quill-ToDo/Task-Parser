@@ -1,20 +1,9 @@
-from microtc.utils import tweet_iterator
-from os.path import join
-from scispacy.abbreviation import AbbreviationDetector
 import spacy
 import json
+import re
+from collections import Counter
 
 FILE = "tasks.json"
-    
-
-def de_acronymize(input, nlp):
-    # "I'm going to do CS homework"
-    doc = nlp(input)
-    altered_tok = [tok.text for tok in doc]
-    for abrv in doc._.abbreviations:
-        altered_tok[abrv.start] = str(abrv._.long_form)
-    return(" ".join(altered_tok))
-
 
 def validate(input, output, total_inputs):
     '''
@@ -145,6 +134,24 @@ def add_task_body(doc, answers):
             else:
                 answers["task"].append(word.text)
 
+def acronym_detection(input):
+    '''
+    Finds acronyms or abbreviations for a group name in the user input task
+    '''
+    abbrev = re.compile("[a-zA-Z]{2,}")
+    acronym = re.compile("\b(?:[a-zA-Z][\.]?){2,}")
+    output = abbrev.findall(input)
+    output += acronym.findall(input)
+
+    entities = Counter(output)
+
+    for key in entities.keys():
+        for group in predefined_groups:
+            if str(key)[0].lower() == group[0].lower() and str(key).lower() in group.lower():
+                print(key, group)
+                return group
+    return None
+
 if __name__ == "__main__":
     # !!!Make sure you run this: $ python -m spacy download en_core_web_sm
 
@@ -157,7 +164,8 @@ if __name__ == "__main__":
     dataset = json.load(open(FILE))
 
     # These will be set by the user.
-    predefined_groups = ["Bio", "Cosc", "Computer Science", "Japanese", "English"]
+    predefined_groups = ["Biology", "Cosc", "Computer Science", "Japanese", "English"]
+    predefined_groups.sort()
     holidays = ["Christmas", "Valentine's Day", "Halloween", "Easter", "Passover", "Hanukkah", "New Year's Eve", "New Year's Day", "Diwali", "Eid al-Fitr",
             "Saint Patrick's Day", "Thanksgiving"]
 
@@ -175,46 +183,21 @@ if __name__ == "__main__":
 
     er_nlp = get_nlp_with_er(predefined_groups, holidays, exclude_list)
     noun_nlp = get_nlp_with_noun(exclude_list)
-    
-    # abbrev_nlp = get_nlp_with_abbrev()
-    #nlp.add_pipe("abbreviation_detector")
 
     results = []
 
     for data in dataset:
         input_task = data["input"]
-        '''
-        CODE FROM BEFORE MERGE:
-        doc = nlp(input_task)
-        answers = {"group": None, "task": [], "date": None, "time": None}
-        input_task = de_acronymize(input_task, nlp)
-        print(input_task)
-        for word in doc:
-            # check for acronyms before this because something like bio is recognized as an adjective
-            # check if it's in a group before these:
-            if word.text in predefined_groups:
-                # Must be checked separately because these group names could be nouns, adjectives, etc.
-                answers["group"] = word.text
-                # if include_in_task(word):
-                #     # Must come after date/time because dates are proper noun
-                #     answers["task"].append(word.text)
 
-            if word.ent_type_ == "DATE":
-                answers["date"] = word.text
-            elif word.ent_type_ == "TIME":
-                answers["time"] = word.text
-            elif include_in_task(word):
-                # THIS SHOULD NOT BE CHECKED TWICE BECAUSE THE WORD WILL BE ADDED TWICE
-                # Must come after date/time because dates are proper noun
-                answers["task"].append(word.text)
-
-        answers["task"] = " ".join(answers["task"])
-        '''
         er_doc = er_nlp(input_task)
         noun_doc = noun_nlp(input_task)
         answers = { "group": None, "task": [], "date": [], "time": None }
 
         add_ents(er_doc, answers)
+        if (answers["group"] is None):
+            group = acronym_detection(input_task)
+            answers["group"] = group
+
         add_task_body(noun_doc, answers)
 
         format_answers(answers)
