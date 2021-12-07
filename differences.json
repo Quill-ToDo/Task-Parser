@@ -125,7 +125,8 @@
             "group": "japanese", 
             "task": "practice japanese speech for 2 hours", 
             "date": "tonight", 
-            "time": "tonight"
+            "time": "tonight", 
+            "recurrence": null
         }, 
         "our output": {
             "group": "japanese", 
@@ -230,13 +231,15 @@
             "group": null, 
             "task": "doctor's appointment", 
             "date": "9/22/22", 
-            "time": null
+            "time": null, 
+            "recurrence": null
         }, 
         "our output": {
             "group": null, 
             "task": "doctor's appointment on", 
             "date": null, 
-            "time": null
+            "time": null, 
+            "recurrence": null
         }
     }, 
     {
@@ -320,11 +323,12 @@
             "group": null, 
             "task": "Is this thing on? I can't tell", 
             "date": null, 
-            "time": null
+            "time": null, 
+            "recurrence": "8:00 PM every night for the next week"
         }, 
         "our output": {
             "group": null, 
-            "task": "Is this thing on? can't tell", 
+            "task": "Reminder to take antibiotic", 
             "date": null, 
             "time": null
         }
@@ -380,13 +384,15 @@
             "group": null, 
             "task": "Add more test cases", 
             "date": "11/18", 
-            "time": null
+            "time": null, 
+            "recurrence": null
         }, 
         "our output": {
             "group": null, 
             "task": "Add more test cases by", 
             "date": null, 
-            "time": null
+            "time": null, 
+            "recurrence": null
         }
     }
 ]

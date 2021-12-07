@@ -3,7 +3,8 @@
         "group": null, 
         "task": "Don't worry, be happy :)", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": "computer science", 
@@ -24,7 +25,7 @@
         "time": null
     }, 
     {
-        "group": "bio", 
+        "group": "Biology", 
         "task": "Start bio HW!!!", 
         "date": "12/06/21 21:00", 
         "time": null
@@ -51,13 +52,15 @@
         "group": null, 
         "task": "eat dinner", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": null, 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
@@ -75,13 +78,15 @@
         "group": null, 
         "task": "take medicine", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
         "task": "DON'T LET THE DOG EAT THE HOMEWORK!!!", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
@@ -123,7 +128,8 @@
         "group": null, 
         "task": "doctor's appointment on", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
@@ -135,7 +141,8 @@
         "group": null, 
         "task": "send email to recruiter", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
@@ -147,7 +154,8 @@
         "group": null, 
         "task": "hello, world!", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": "English", 
@@ -171,13 +179,15 @@
         "group": null, 
         "task": "Grab Eggs on my way home from work", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
-        "task": "Is this thing on? can't tell", 
+        "task": "Is this thing on? I can't tell", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
     }, 
     {
         "group": null, 
@@ -201,6 +211,49 @@
         "group": null, 
         "task": "Add more test cases by", 
         "date": null, 
-        "time": null
+        "time": null, 
+        "recurrence": null
+    }, 
+    {
+        "group": null, 
+        "task": "Water the plants", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "every day from 10 May until 20 May"
+    }, 
+    {
+        "group": null, 
+        "task": "Shower", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "every six days"
+    }, 
+    {
+        "group": null, 
+        "task": "Harass my neighbors", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "every 14th"
+    }, 
+    {
+        "group": null, 
+        "task": "Grind leetcode", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "every day for three weeks"
+    }, 
+    {
+        "group": null, 
+        "task": "work stuff", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "every third friday"
+    }, 
+    {
+        "group": null, 
+        "task": "blink", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "every 5 seconds"
     }
 ]
