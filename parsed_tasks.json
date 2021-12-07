@@ -22,10 +22,10 @@
     }, 
     {
         "group": null, 
-        "task": "Remind Deni to give cats flea meds on the 18th", 
-        "date": "every month the 18th", 
+        "task": "Remind Deni to give cats flea meds", 
+        "date": null, 
         "time": null, 
-        "recurrence": null
+        "recurrence": "every month on the 18th"
     }, 
     {
         "group": "bio", 
@@ -113,10 +113,10 @@
     }, 
     {
         "group": null, 
-        "task": "do push-ups every day", 
-        "date": "this week", 
+        "task": "do push-ups", 
+        "date": null, 
         "time": null, 
-        "recurrence": null
+        "recurrence": "every day this week"
     }, 
     {
         "group": null, 
@@ -127,10 +127,10 @@
     }, 
     {
         "group": null, 
-        "task": "take 1se video every day", 
+        "task": "take 1se video", 
         "date": null, 
-        "time": "12pm", 
-        "recurrence": null
+        "time": null, 
+        "recurrence": "every day at 12pm"
     }, 
     {
         "group": null, 
@@ -184,9 +184,9 @@
     {
         "group": null, 
         "task": "Reminder to take antibiotic", 
-        "date": "the next week", 
-        "time": "8:00 PM every night", 
-        "recurrence": null
+        "date": null, 
+        "time": "8:00 PM", 
+        "recurrence": "every night for the next week"
     }, 
     {
         "group": null, 
@@ -218,10 +218,10 @@
     }, 
     {
         "group": null, 
-        "task": "go to class every day", 
-        "date": "December 6th", 
+        "task": "go to class", 
+        "date": null, 
         "time": null, 
-        "recurrence": null
+        "recurrence": "every day until December 6th"
     }, 
     {
         "group": null, 
@@ -239,44 +239,44 @@
     }, 
     {
         "group": null, 
-        "task": "Water the plants every day", 
-        "date": "10 May 20 May", 
-        "time": null, 
-        "recurrence": null
-    }, 
-    {
-        "group": null, 
-        "task": "Shower every days", 
+        "task": "Water the plants", 
         "date": null, 
         "time": null, 
-        "recurrence": null
+        "recurrence": "every day from 10 May until 20 May"
     }, 
     {
         "group": null, 
-        "task": "Harass my neighbors every 14th", 
+        "task": "Shower", 
         "date": null, 
         "time": null, 
-        "recurrence": null
+        "recurrence": "every six days"
     }, 
     {
         "group": null, 
-        "task": "Grind leetcode every day", 
-        "date": "three weeks", 
-        "time": null, 
-        "recurrence": null
-    }, 
-    {
-        "group": null, 
-        "task": "work stuff every third friday", 
+        "task": "Harass my neighbors", 
         "date": null, 
         "time": null, 
-        "recurrence": null
+        "recurrence": "every 14th"
+    }, 
+    {
+        "group": null, 
+        "task": "Grind leetcode", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "every day for three weeks"
+    }, 
+    {
+        "group": null, 
+        "task": "work stuff", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "every third friday"
     }, 
     {
         "group": null, 
         "task": "blink", 
         "date": null, 
-        "time": "every 5 seconds", 
-        "recurrence": null
+        "time": null, 
+        "recurrence": "every 5 seconds"
     }
 ]
