@@ -38,67 +38,74 @@ def format_answers(answers):
         answers["date"] = None
     else:
         answers["date"] = " ".join(answers["date"])
-    if len(answers["recurrence"]) != 0:
-        answers["recurrence"] = " ".join(answers["recurrence"])
-    else: 
+    if len(answers["recurrence"]) == 0:
         answers["recurrence"] = None
 
 
-@spacy.Language.component("expand_dates")
-def expand_dates(doc):
-    new_dates = []
-    orig_ents = list(doc.ents)
-    for ent in doc.ents:
-        if ent.label_ == "ORDINAL":
-            if ent.start != 0:
-                prev_token = doc[ent.start - 1]
-                if prev_token.text == "the":
-                    new_ent = spacy.tokens.Span(doc, ent.start - 1, ent.end, label="DATE")
-                else:
-                    continue
-            else: 
-                continue
-            orig_ents.remove(ent)
-            new_dates.append(new_ent)
-    if new_dates:
-        doc.set_ents(orig_ents + new_dates)
-    return doc
+# @spacy.Language.component("re")
+# def expand_dates(doc):
+#     new_dates = []
+#     orig_ents = list(doc.ents)
+#     for ent in doc.ents:
+#         if ent.label_ == "ORDINAL":
+#             if ent.start != 0:
+#                 prev_token = doc[ent.start - 1]
+#                 if prev_token.text == "the":
+#                     new_ent = spacy.tokens.Span(doc, ent.start - 1, ent.end, label="DATE")
+#                 else:
+#                     continue
+#             else: 
+#                 continue
+#             orig_ents.remove(ent)
+#             new_dates.append(new_ent)
+#     if new_dates:
+#         doc.set_ents(orig_ents + new_dates)
+#     return doc
 
-@spacy.Language.component("get_recurrence_entities")
+@spacy.Language.component(
+    "get_recurrence_entities",
+    retokenizes=True
+)
 def get_recurrence_entities(doc):
-    recurrences = []
     if "every" in doc.text:
-        print([token.text + ": " + token.label_ for token in doc.ents], doc.text)
-
+        with doc.retokenize() as retokenizer:
+            for i, token in enumerate(doc):
+                if token.text == "every":
+                    start = i
+                    end = len(doc)
+                    recurrences = spacy.tokens.Span(doc, start, end, label="RECURRENCE")
+                    retokenizer.merge(recurrences, attrs={"ent_type": 7884667884033787756})
+                    break
     return doc
 
 
-@spacy.Language.component("expand_dates")
-def expand_dates(doc):
-    new_dates = []
-    orig_ents = list(doc.ents)
-    for ent in doc.ents:
-        if ent.label_ == "ORDINAL":
-            if ent.start != 0:
-                prev_token = doc[ent.start - 1]
-                if prev_token.text == "the":
-                    new_ent = spacy.tokens.Span(doc, ent.start - 1, ent.end, label="DATE")
-                else:
-                    continue
-            else: 
-                continue
-            orig_ents.remove(ent)
-            new_dates.append(new_ent)
-    if new_dates:
-        doc.set_ents(orig_ents + new_dates)
-    return doc
+def is_group(np):
+    for token in np:
+        if token.ent_type_ != "GROUP":
+            return False 
+    return True
 
-@spacy.Language.component("get_recurrence_entities")
-def get_recurrence_entities(doc):
-    recurrences = []
-    if "every" in doc.text:
-        print([token.text + ": " + token.label_ for token in doc.ents])
+def does_not_contain_group(np):
+    for token in np:
+        if token.ent_type_ == "GROUP":
+            return False 
+    return True
 
+@spacy.Language.component(
+    "merge_nouns_without_group",
+    requires=["token.dep", "token.tag", "token.pos"],
+    retokenizes=True
+)
+def merge_nouns_without_group(doc):
+    if not doc.has_annotation("DEP"):
+        return doc
+    with doc.retokenize() as retokenizer:
+        for np in doc.noun_chunks:
+            if does_not_contain_group(np):
+                attrs = {"tag": np.root.tag, "dep": np.root.dep}
+                retokenizer.merge(np, attrs=attrs)  # type: ignore[arg-type]
+            elif is_group(np):
+                retokenizer.merge(np, attrs={"ent_type_": "GROUP"})  # type: ignore[arg-type]
     return doc
 
 
@@ -129,14 +136,24 @@ def get_nlp_with_er(groups, exclude_list):
     ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"}, after="ner")
     ruler.add_patterns(entity_patterns)
     # Add recurrence pipe
-    nlp.add_pipe("expand_dates")
-    nlp.add_pipe("get_recurrence_entities", after="expand_dates")
+    # nlp.add_pipe("expand_dates")
+    nlp.add_pipe("get_recurrence_entities")
     return nlp
 
 
-def get_nlp_with_noun(exclude_list):
+def get_nlp_with_noun(exclude_list, groups):
+    entity_patterns = []
+    for group in groups:
+        # if the lowercase version of the token matches our word then add it
+        p = [{"LOWER": word.lower()} for word in group.split(" ")] 
+        ep = {"label": "GROUP", "pattern": p}
+        entity_patterns.append(ep)
+
     nlp = spacy.load("en_core_web_sm", exclude=exclude_list)
-    nlp.add_pipe("merge_noun_chunks")
+    ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"}, after="ner")
+    ruler.add_patterns(entity_patterns)
+    nlp.add_pipe("get_recurrence_entities")
+    nlp.add_pipe("merge_nouns_without_group", after="get_recurrence_entities")
     return nlp
 
 def is_date_or_time(token):
@@ -156,7 +173,8 @@ def include_in_task(token):
                     or token.pos_ == "PUNCT" \
                     or token.pos_ == "INTJ"
     
-    return in_included_pos and not (ADP_before_date or is_date_or_time(token))
+    # return in_included_pos and not (ADP_before_date or is_date_or_time(token) or token.ent_type_ == "RECURRENCE")
+    return in_included_pos and not (ADP_before_date)
 
 def attached_to_last_word(token):
     '''
@@ -166,17 +184,24 @@ def attached_to_last_word(token):
     # Includes things like "n't" and "to"
     return (token.pos_ == "PART" and "'" in token.text) or token.pos_ == "PUNCT"
 
+
 def add_ents(doc, answers):
-    for ent in doc.ents:
-        if ent.label_ == "GROUP":
-            answers["group"] = ent.text
-        elif ent.label == "RECURRENCE":
-            answers["recurrence"] = ent.text
-        else:
-            if ent.label_ == "DATE":
-                answers["date"].append(ent.text)
-            if ent.label_ == "TIME":
-                answers["time"] = ent.text
+    for token in doc:
+        if token.ent_type_ == "GROUP":
+            answers["group"] = token.text
+        
+        if token.ent_type_ == "RECURRENCE":
+            answers["recurrence"] = token.text
+        elif token.ent_type_ == "DATE":
+            answers["date"].append(token.text)
+        elif token.ent_type_ == "TIME":
+            answers["time"] = token.text
+        elif include_in_task(token):
+            if attached_to_last_word(token):
+                answers["task"][-1] += token.text
+            else:
+                answers["task"].append(token.text)
+
 
 def add_task_body(doc, answers):
     for word in doc:
@@ -205,19 +230,19 @@ if __name__ == "__main__":
         "TrainablePipe",
         "Transformer"]
 
-    er_nlp = get_nlp_with_er(predefined_groups, exclude_list)
-    noun_nlp = get_nlp_with_noun(exclude_list)
+    # er_nlp = get_nlp_with_er(predefined_groups, exclude_list)
+    noun_nlp = get_nlp_with_noun(exclude_list, predefined_groups)
 
     results = []
 
     for data in dataset:
         input_task = data["input"]
-        er_doc = er_nlp(input_task)
+        # er_doc = er_nlp(input_task)
         noun_doc = noun_nlp(input_task)
         answers = { "group": None, "task": [], "date": [], "time": None, "recurrence": [] }
 
-        add_ents(er_doc, answers)
-        add_task_body(noun_doc, answers)
+        add_ents(noun_doc, answers)
+        # add_task_body(noun_doc, answers)
 
         format_answers(answers)
         
