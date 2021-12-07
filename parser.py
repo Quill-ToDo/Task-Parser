@@ -1,11 +1,14 @@
 from microtc.utils import tweet_iterator
 from os.path import join
+from datetime import datetime
 import spacy
 import json
+import parsedatetime
+import holidays
+import re
 
 FILE = "tasks.json"
     
-
 def validate(input, output, total_inputs):
     '''
     Visualize differences between input and output dataset and output in "differences.json"
@@ -39,7 +42,7 @@ def format_answers(answers):
     else:
         answers["date"] = " ".join(answers["date"])
 
-def get_nlp_with_er(groups, holidays, exclude_list):
+def get_nlp_with_er(groups, holidays_set, exclude_list):
     '''
     Set up nlp object with desired pipes.
     
@@ -65,11 +68,13 @@ def get_nlp_with_er(groups, holidays, exclude_list):
     # Set ER to assign our groups over other entity types
     ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"})
     entity_patterns2 = []
-    for holiday in holidays:
+    for holiday in holidays_set:
         # if the lowercase version of the token matches our word then add it
         p = [{"LOWER": word.lower()} for word in holiday.split(" ")] 
         ep = {"label": "HOLIDAY", "pattern": p}
         entity_patterns2.append(ep)
+
+    # figure out duration parsing somewhere in here
 
     # Set ER to assign our groups over other entity types
     #ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True})
@@ -87,6 +92,7 @@ def is_date_or_time(token):
     #HOLIDAY ent_type_ does not work, it appears as if it is never assigned
     return token.ent_type_ == "DATE" or token.ent_type_ == "TIME" or token.ent_type_ == "HOLIDAY"
 
+#includes almost all words in task unless they're a date or time or adposition before date or time
 def include_in_task(token):
     ADP_before_date = token.i + 1 < len(token.doc) and token.pos_ == "ADP" and is_date_or_time(token.nbor())
     in_included_pos = token.pos_ == "VERB" \
@@ -114,14 +120,44 @@ def attached_to_last_word(token):
     # Includes things like "n't" and "to"
     return (token.pos_ == "PART" and "'" in token.text) or token.pos_ == "PUNCT"
 
+def get_holidays():
+    all_holidays = holidays.US()
+    country_list = re.findall(r"\b[A-Z][a-z\W]*?\b", ' '.join(holidays.list_supported_countries()))
+    i = 0
+    for country in country_list:
+        all_holidays += holidays.CountryHoliday(country, years=datetime.now().year)
+        print(i)
+        i += 1
+    holiday_dict = {}
+    for date, name in sorted(all_holidays.items()):
+        holiday_dict[name] = str(date).split("-", 1)[1]
+    with open("holiday_list.json", "w") as f:
+        json.dump(holiday_dict, f, indent=4, separators=(', ', ': '))
+
 def add_ents(doc, answers):
-    for ent in doc.ents:
+    to_parse = doc.copy()
+    for i in range(len(to_parse.ents)):
+        ent = to_parse.ents[i]
         if ent.label_ == "GROUP":
             answers["group"] = ent.text
         else:
-            if ent.label_ == "DATE" or ent.label_ == "HOLIDAY":
-                answers["date"].append(ent.text)
-            if ent.label_ == "TIME":
+            if ent.label_ == "DATE" or ent.label_ == "ORDINAL" or ent.label_ == "TIME":
+                p = parsedatetime.Calendar()
+                if ent.label_ == "ORDINAL":
+                    is_noun = ent.end < len(doc) \
+                            and (doc[ent.end].pos_ == 'NOUN' \
+                                or doc[ent.end].pos_ == 'PROPN' \
+                                or doc[ent.end].pos_ == 'ADJ' \
+                                or (doc[ent.end].pos_ == 'ADP' \
+                                    and ent.end + 1 < len(doc) \
+                                    and ent.end + 1 in doc.ents \
+                                    and ent.end + 1 ))
+                    
+                    # if ent.end < len(doc) and doc[ent.end].pos_ != 'NOUN':
+                    #     print()
+                answers["date"].append(p.parseDT(to_parse.text)[0].strftime("%m/%d/%y %H:%M"))
+            # to fix
+            elif ent.label_ == "HOLIDAY":
                 answers["time"] = ent.text
 
 def add_task_body(doc, answers):
@@ -129,7 +165,6 @@ def add_task_body(doc, answers):
         if include_in_task(word): 
             #print(word.text)
             if attached_to_last_word(word):
-                
                 answers["task"][-1] += word.text
             else:
                 answers["task"].append(word.text)
@@ -140,7 +175,7 @@ if __name__ == "__main__":
 
     # These will be set by the user.
     predefined_groups = ["Bio", "Cosc", "Computer Science", "Japanese", "English"]
-    holidays = ["Christmas", "Valentine's Day", "Halloween", "Easter", "Passover", "Hanukkah", "New Year's Eve", "New Year's Day", "Diwali", "Eid al-Fitr",
+    holidays_set = ["Christmas", "Valentine's Day", "Halloween", "Easter", "Passover", "Hanukkah", "Chanukah", "New Year's Eve", "New Year's Day", "Diwali", "Eid al-Fitr",
             "Saint Patrick's Day", "Thanksgiving"]
 
     # Pipes we don't need
@@ -155,10 +190,12 @@ if __name__ == "__main__":
         "TrainablePipe",
         "Transformer"]
 
-    er_nlp = get_nlp_with_er(predefined_groups, holidays, exclude_list)
+    er_nlp = get_nlp_with_er(predefined_groups, holidays_set, exclude_list)
     noun_nlp = get_nlp_with_noun(exclude_list)
 
     results = []
+
+    get_holidays()
 
     for data in dataset:
         input_task = data["input"]
@@ -177,7 +214,3 @@ if __name__ == "__main__":
         json.dump(results, f, indent=4, separators=(', ', ': '))
         
     validate(dataset, results, total_inputs=len(dataset))
-
-
-
-

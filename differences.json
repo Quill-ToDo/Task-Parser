@@ -1,16 +1,31 @@
 [
     {
-        "original input": "Don't worry, be happy :)", 
+        "original input": "Do computer science reading on Friday", 
         "correct groups": {
-            "group": null, 
-            "task": "Don't worry, be happy :)", 
-            "date": null, 
+            "group": "computer science", 
+            "task": "Do computer science reading", 
+            "date": "Friday", 
             "time": null
         }, 
         "our output": {
-            "group": null, 
-            "task": "Don't worry, be happy:)", 
-            "date": null, 
+            "group": "computer science", 
+            "task": "Do computer science reading", 
+            "date": "12/10/21 21:04", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Work on cosc lab Thursday evening", 
+        "correct groups": {
+            "group": "cosc", 
+            "task": "Work on cosc lab", 
+            "date": "Thursday", 
+            "time": "evening"
+        }, 
+        "our output": {
+            "group": "cosc", 
+            "task": "Work on cosc lab", 
+            "date": "12/09/21 18:00 12/09/21 18:00", 
             "time": null
         }
     }, 
@@ -25,7 +40,82 @@
         "our output": {
             "group": null, 
             "task": "Remind Deni to give cats flea meds on the 18th", 
-            "date": "every month", 
+            "date": "12/06/21 21:04 12/06/21 21:04", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Start bio HW tonight!!!", 
+        "correct groups": {
+            "group": "bio", 
+            "task": "Start bio HW!!!", 
+            "date": null, 
+            "time": "tonight"
+        }, 
+        "our output": {
+            "group": "bio", 
+            "task": "Start bio HW!!!", 
+            "date": "12/06/21 21:00", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Pick up books from lib on Thursday", 
+        "correct groups": {
+            "group": null, 
+            "task": "Pick up books from lib", 
+            "date": "Thursday", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Pick up books from lib", 
+            "date": "12/09/21 21:04", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Use leftover rice in the next two days", 
+        "correct groups": {
+            "group": null, 
+            "task": "Use leftover rice", 
+            "date": "the next two days", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Use leftover rice", 
+            "date": "12/08/21 21:04", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Go to class tomorrow", 
+        "correct groups": {
+            "group": null, 
+            "task": "Go to class", 
+            "date": "tomorrow", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Go to class", 
+            "date": "12/07/21 09:00", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Prepare for MarketBridge interview on Friday", 
+        "correct groups": {
+            "group": null, 
+            "task": "Prepare for MarketBridge interview", 
+            "date": "Friday", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Prepare for MarketBridge interview", 
+            "date": "12/10/21 21:04", 
             "time": null
         }
     }, 
@@ -40,8 +130,23 @@
         "our output": {
             "group": "japanese", 
             "task": "practice japanese speech", 
-            "date": null, 
-            "time": "tonight"
+            "date": "12/06/21 21:00 12/06/21 21:00", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Go to the grocery store for food on December 14th", 
+        "correct groups": {
+            "group": null, 
+            "task": "Go to the grocery store for food", 
+            "date": "December 14th", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Go to the grocery store for food", 
+            "date": "12/14/21 21:04", 
+            "time": null
         }
     }, 
     {
@@ -55,8 +160,8 @@
         "our output": {
             "group": null, 
             "task": "Take down the lights Christmas!", 
-            "date": "the day after Christmas", 
-            "time": null
+            "date": "12/06/21 21:04", 
+            "time": "Christmas"
         }
     }, 
     {
@@ -69,8 +174,23 @@
         }, 
         "our output": {
             "group": null, 
-            "task": "do push-ups every day this week", 
-            "date": null, 
+            "task": "do push-ups every day", 
+            "date": "12/10/21 17:00", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "call friend in two weeks", 
+        "correct groups": {
+            "group": null, 
+            "task": "call friend", 
+            "date": "two weeks", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "call friend", 
+            "date": "12/20/21 21:04", 
             "time": null
         }
     }, 
@@ -84,9 +204,24 @@
         }, 
         "our output": {
             "group": null, 
-            "task": "take 1se video", 
-            "date": "1se every day", 
-            "time": "12pm"
+            "task": "take 1se video every day", 
+            "date": "12/06/21 12:00", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "go to work at noon", 
+        "correct groups": {
+            "group": null, 
+            "task": "go to work", 
+            "date": null, 
+            "time": "noon"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "go to work", 
+            "date": "12/06/21 12:00", 
+            "time": null
         }
     }, 
     {
@@ -105,6 +240,51 @@
         }
     }, 
     {
+        "original input": "NLP group meeting at 5:00", 
+        "correct groups": {
+            "group": null, 
+            "task": "NLP group meeting", 
+            "date": null, 
+            "time": "5:00"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "NLP group meeting", 
+            "date": "12/06/21 05:00", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "mail package next month", 
+        "correct groups": {
+            "group": null, 
+            "task": "mail package", 
+            "date": "next month", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "mail package", 
+            "date": "01/01/22 09:00", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Finish English paper by next Thursday", 
+        "correct groups": {
+            "group": "English", 
+            "task": "Finish English paper", 
+            "date": "next Thursday", 
+            "time": null
+        }, 
+        "our output": {
+            "group": "English", 
+            "task": "Finish English paper", 
+            "date": "12/16/21 09:00", 
+            "time": null
+        }
+    }, 
+    {
         "original input": "Reminder to take antibiotic at 8:00 PM every night for the next week", 
         "correct groups": {
             "group": null, 
@@ -115,8 +295,23 @@
         "our output": {
             "group": null, 
             "task": "Reminder to take antibiotic", 
-            "date": "the next week", 
-            "time": "8:00 PM every night"
+            "date": "12/13/21 20:00 12/13/21 20:00", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Send posters to print shop by 5:30 PM Wednesday", 
+        "correct groups": {
+            "group": null, 
+            "task": "Send posters to print shop", 
+            "date": "Wednesday", 
+            "time": "5:30 PM"
+        }, 
+        "our output": {
+            "group": null,
+            "task": "Send posters to print shop", 
+            "date": "12/08/21 17:30 12/08/21 17:30", 
+            "time": null
         }
     }, 
     {
@@ -135,17 +330,47 @@
         }
     }, 
     {
+        "original input": "this is a task for today", 
+        "correct groups": {
+            "group": null, 
+            "task": "this is a task", 
+            "date": "today", 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "this is a task", 
+            "date": "12/06/21 09:00", 
+            "time": null
+        }
+    }, 
+    {
         "original input": "go to class every day until December 6th", 
         "correct groups": {
             "group": null, 
             "task": "go to class", 
-            "date": "every day until Decemeber 6th", 
+            "date": "every day until December 6th", 
             "time": null
         }, 
         "our output": {
             "group": null, 
             "task": "go to class every day", 
-            "date": "December 6th", 
+            "date": "12/06/21 21:04", 
+            "time": null
+        }
+    }, 
+    {
+        "original input": "Leave for the airport by 7:30", 
+        "correct groups": {
+            "group": null, 
+            "task": "Leave for the airport", 
+            "date": null, 
+            "time": "7:30"
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Leave for the airport", 
+            "date": "12/06/21 07:30", 
             "time": null
         }
     }, 

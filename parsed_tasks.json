@@ -1,50 +1,50 @@
 [
     {
         "group": null, 
-        "task": "Don't worry, be happy:)", 
+        "task": "Don't worry, be happy :)", 
         "date": null, 
         "time": null
     }, 
     {
         "group": "computer science", 
         "task": "Do computer science reading", 
-        "date": "Friday", 
+        "date": "12/10/21 21:04", 
         "time": null
     }, 
     {
         "group": "cosc", 
         "task": "Work on cosc lab", 
-        "date": "Thursday", 
-        "time": "evening"
+        "date": "12/09/21 18:00 12/09/21 18:00", 
+        "time": null
     }, 
     {
         "group": null, 
         "task": "Remind Deni to give cats flea meds on the 18th", 
-        "date": "every month", 
+        "date": "12/06/21 21:04 12/06/21 21:04", 
         "time": null
     }, 
     {
         "group": "bio", 
         "task": "Start bio HW!!!", 
-        "date": null, 
-        "time": "tonight"
+        "date": "12/06/21 21:00", 
+        "time": null
     }, 
     {
         "group": null, 
         "task": "Pick up books from lib", 
-        "date": "Thursday", 
+        "date": "12/09/21 21:04", 
         "time": null
     }, 
     {
         "group": null, 
         "task": "Use leftover rice", 
-        "date": "the next two days", 
+        "date": "12/08/21 21:04", 
         "time": null
     }, 
     {
         "group": null, 
         "task": "Go to class", 
-        "date": "tomorrow", 
+        "date": "12/07/21 09:00", 
         "time": null
     }, 
     {
@@ -62,14 +62,14 @@
     {
         "group": null, 
         "task": "Prepare for MarketBridge interview", 
-        "date": "Friday", 
+        "date": "12/10/21 21:04", 
         "time": null
     }, 
     {
         "group": "japanese", 
         "task": "practice japanese speech", 
-        "date": null, 
-        "time": "tonight"
+        "date": "12/06/21 21:00 12/06/21 21:00", 
+        "time": null
     }, 
     {
         "group": null, 
@@ -86,38 +86,38 @@
     {
         "group": null, 
         "task": "Go to the grocery store for food", 
-        "date": "December 14th", 
+        "date": "12/14/21 21:04", 
         "time": null
     }, 
     {
         "group": null, 
         "task": "Take down the lights Christmas!", 
-        "date": "the day after Christmas", 
-        "time": null
+        "date": "12/06/21 21:04", 
+        "time": "Christmas"
     }, 
     {
         "group": null, 
-        "task": "do push-ups every day this week", 
-        "date": null, 
+        "task": "do push-ups every day", 
+        "date": "12/10/21 17:00", 
         "time": null
     }, 
     {
         "group": null, 
         "task": "call friend", 
-        "date": "two weeks", 
+        "date": "12/20/21 21:04", 
         "time": null
     }, 
     {
         "group": null, 
-        "task": "take 1se video", 
-        "date": "1se every day", 
-        "time": "12pm"
+        "task": "take 1se video every day", 
+        "date": "12/06/21 12:00", 
+        "time": null
     }, 
     {
         "group": null, 
         "task": "go to work", 
-        "date": null, 
-        "time": "noon"
+        "date": "12/06/21 12:00", 
+        "time": null
     }, 
     {
         "group": null, 
@@ -128,8 +128,8 @@
     {
         "group": null, 
         "task": "NLP group meeting", 
-        "date": null, 
-        "time": "5:00"
+        "date": "12/06/21 05:00", 
+        "time": null
     }, 
     {
         "group": null, 
@@ -140,7 +140,7 @@
     {
         "group": null, 
         "task": "mail package", 
-        "date": "next month", 
+        "date": "01/01/22 09:00", 
         "time": null
     }, 
     {
@@ -152,20 +152,20 @@
     {
         "group": "English", 
         "task": "Finish English paper", 
-        "date": "next Thursday", 
+        "date": "12/16/21 09:00", 
         "time": null
     }, 
     {
         "group": null, 
         "task": "Reminder to take antibiotic", 
-        "date": "the next week", 
-        "time": "8:00 PM every night"
+        "date": "12/13/21 20:00 12/13/21 20:00", 
+        "time": null
     }, 
     {
         "group": null, 
         "task": "Send posters to print shop", 
-        "date": "Wednesday", 
-        "time": "5:30 PM"
+        "date": "12/08/21 17:30 12/08/21 17:30", 
+        "time": null
     }, 
     {
         "group": null, 
@@ -182,20 +182,20 @@
     {
         "group": null, 
         "task": "this is a task", 
-        "date": "today", 
+        "date": "12/06/21 09:00", 
         "time": null
     }, 
     {
         "group": null, 
         "task": "go to class every day", 
-        "date": "December 6th", 
+        "date": "12/06/21 21:04", 
         "time": null
     }, 
     {
         "group": null, 
         "task": "Leave for the airport", 
-        "date": null, 
-        "time": "7:30"
+        "date": "12/06/21 07:30", 
+        "time": null
     }, 
     {
         "group": null, 
