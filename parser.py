@@ -172,7 +172,7 @@ def acronym_detection(input, abbrev_dict):
                 return group
             # check if it's an abbreviation of a group name
             if key[0] == group[0].lower() and key in group.lower():
-                abbrev_dict[key] = abbrev_dict.get(group).append(key)
+                abbrev_dict[key] = abbrev_dict.get(group).add(key)
                 return group
     return None
 
@@ -215,7 +215,7 @@ if __name__ == "__main__":
         "Transformer"]
 
     nlp = get_nlp(exclude_list, predefined_groups, holidays)
-    abbrev_dict = {group : [] for group in predefined_groups} # keep track of all abbreviations for group names that we have seen
+    abbrev_dict = {group : set() for group in predefined_groups} # keep track of all abbreviations for group names that we have seen
     add_acronyms(predefined_groups, abbrev_dict)
 
     results = []
