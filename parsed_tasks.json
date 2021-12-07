@@ -14,8 +14,15 @@
         "recurrence": null
     }, 
     {
-        "group": "cosc", 
-        "task": "Work on cosc lab", 
+        "group": null, 
+        "task": "Study for compsci", 
+        "date": null, 
+        "time": null, 
+        "recurrence": null
+    }, 
+    {
+        "group": "Computer Science", 
+        "task": "Work on cs lab", 
         "date": "Thursday", 
         "time": "evening", 
         "recurrence": null
@@ -28,7 +35,7 @@
         "recurrence": "every month on the 18th"
     }, 
     {
-        "group": "bio", 
+        "group": "Biology", 
         "task": "Start bio HW!!!", 
         "date": null, 
         "time": "tonight", 
@@ -106,8 +113,8 @@
     }, 
     {
         "group": null, 
-        "task": "Take down the lights Christmas!", 
-        "date": "the day after", 
+        "task": "Take down the lights!", 
+        "date": "the day after Christmas", 
         "time": null, 
         "recurrence": null
     }, 
@@ -204,7 +211,7 @@
     }, 
     {
         "group": null, 
-        "task": "Is this thing on? can't tell", 
+        "task": "Is this thing on? I can't tell", 
         "date": null, 
         "time": null, 
         "recurrence": null

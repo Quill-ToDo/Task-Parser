@@ -1,5 +1,21 @@
 [
     {
+        "original input": "Study for compsci", 
+        "correct groups": {
+            "group": "Computer Science", 
+            "task": "Study for compsci", 
+            "date": null, 
+            "time": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Study for compsci", 
+            "date": null, 
+            "time": null, 
+            "recurrence": null
+        }
+    }, 
+    {
         "original input": "practice japanese speech for 2 hours tonight", 
         "correct groups": {
             "group": "japanese", 
@@ -13,23 +29,6 @@
             "task": "practice japanese speech", 
             "date": null, 
             "time": "tonight", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Take down the lights the day after Christmas!", 
-        "correct groups": {
-            "group": null, 
-            "task": "Take down the lights!", 
-            "date": "the day after Christmas", 
-            "time": null, 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "Take down the lights Christmas!", 
-            "date": "the day after", 
-            "time": null, 
             "recurrence": null
         }
     }, 
@@ -65,23 +64,6 @@
             "date": null, 
             "time": "8:00 PM", 
             "recurrence": "every night for the next week"
-        }
-    }, 
-    {
-        "original input": "Is this thing on? I can't tell", 
-        "correct groups": {
-            "group": null, 
-            "task": "Is this thing on? I can't tell", 
-            "date": null, 
-            "time": null, 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "Is this thing on? can't tell", 
-            "date": null, 
-            "time": null, 
-            "recurrence": null
         }
     }, 
     {
