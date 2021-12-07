@@ -2,7 +2,9 @@
     {
         "original input": "Study for compsci", 
         "correct groups": {
-            "group": "Computer Science", 
+            "group": [
+                "Computer Science"
+            ], 
             "task": "Study for compsci", 
             "date": null, 
             "time": null, 
@@ -19,14 +21,18 @@
     {
         "original input": "practice japanese speech for 2 hours tonight", 
         "correct groups": {
-            "group": "japanese", 
+            "group": [
+                "Japanese"
+            ], 
             "task": "practice japanese speech for 2 hours", 
             "date": "tonight", 
             "time": "tonight", 
             "recurrence": null
         }, 
         "our output": {
-            "group": "japanese", 
+            "group": [
+                "Japanese"
+            ], 
             "task": "practice japanese speech", 
             "date": null, 
             "time": "tonight", 
@@ -79,6 +85,50 @@
         "our output": {
             "group": null, 
             "task": "Add more test cases by", 
+            "date": null, 
+            "time": null, 
+            "recurrence": null
+        }
+    }, 
+    {
+        "original input": "Do every page of my bio HW", 
+        "correct groups": {
+            "group": [
+                "Biology"
+            ], 
+            "task": "Do every page of my bio HW", 
+            "date": null, 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": [
+                "Biology"
+            ], 
+            "task": "Do", 
+            "date": null, 
+            "time": null, 
+            "recurrence": "every page of my bio HW"
+        }
+    }, 
+    {
+        "original input": "Do my combined japanese and cs HW", 
+        "correct groups": {
+            "group": [
+                "Computer Science", 
+                "Japanese"
+            ], 
+            "task": "Do my combined japanese and cs HW", 
+            "date": null, 
+            "time": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": [
+                "Computer Science", 
+                "Japanese"
+            ], 
+            "task": "Do my combined japanese cs HW", 
             "date": null, 
             "time": null, 
             "recurrence": null
