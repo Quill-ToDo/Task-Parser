@@ -193,12 +193,6 @@ if __name__ == "__main__":
     # [ ] change input to include group in task
     # [ ] Include auxillary words like do in task
     # [ ] Only include ADP in task if it is not before a date or in a date
-
-    dataset = json.load(open(FILE))
-
-    # These will be set by the user.
-    predefined_groups = ["Biology", "Computer Science", "Japanese", "English"]
-    predefined_groups.sort()
     holidays = ["Christmas", "Valentine's Day", "Halloween", "Easter", "Passover", "Hanukkah", "New Year's Eve", "New Year's Day", "Diwali", "Eid al-Fitr",
             "Saint Patrick's Day", "Thanksgiving"]
 
@@ -214,28 +208,31 @@ if __name__ == "__main__":
         "TrainablePipe",
         "Transformer"]
 
-    nlp = get_nlp(exclude_list, predefined_groups, holidays)
-    abbrev_dict = {group : set() for group in predefined_groups} # keep track of all abbreviations for group names that we have seen
-    add_acronyms(predefined_groups, abbrev_dict)
+    c = ":)"
+    while c.lower() != "q":
+        # These will be set by the user.
+        predefined_groups = input("Please enter groups within quotes separated by pipes: ")
+        predefined_groups = predefined_groups.split("|")
 
-    results = []
+        nlp = get_nlp(exclude_list, predefined_groups, holidays)
+        abbrev_dict = {group : set() for group in predefined_groups} # keep track of all abbreviations for group names that we have seen
+        add_acronyms(predefined_groups, abbrev_dict)
 
-    for data in dataset:
-        input_task = data["input"]
+        input_task = input("Task: ")
         doc = nlp(input_task)
         answers = { "group": None, "task": [], "date": [], "time": None, "recurrence": [] }
 
         parse_body(doc, answers)
- 
+
         if (answers["group"] is None):
             group = acronym_detection(input_task, abbrev_dict)
             answers["group"] = group
 
         format_answers(answers)
-        
-        results.append(answers)
 
-    with open("parsed_tasks.json", "w") as f:
-        json.dump(results, f, indent=4, separators=(', ', ': '))
+        print("\nOutput:")
+        print(json.dumps(answers, indent=4, separators=(', ', ': ')))
         
-    validate(dataset, results, total_inputs=len(dataset))
+        c = input("Q to quit, anything else to parse another: ")
+        print()
+    print("Goodbye")
