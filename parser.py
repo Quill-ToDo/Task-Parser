@@ -194,12 +194,6 @@ def add_acronyms(groups, abbrev_dict):
 if __name__ == "__main__":
     # !!!Make sure you run this: $ python -m spacy download en_core_web_sm
 
-    # TODO:
-    # [ ] Read computer science as one group and not two separate things
-    # [ ] change input to include group in task
-    # [ ] Include auxillary words like do in task
-    # [ ] Only include ADP in task if it is not before a date or in a date
-
     dataset = json.load(open(FILE))
 
     # These will be set by the user.
