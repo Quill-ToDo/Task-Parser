@@ -118,7 +118,6 @@ def attached_to_last_word(token):
     return (token.pos_ == "PART" and "'" in token.text) or token.pos_ == "PUNCT"
 
 def parse_body(doc, answers, p, holidays_set):
-    print(doc.text)
     for token in doc:
         if token.ent_type_ == "RECURRENCE":
             answers["recurrence"] = token.text
