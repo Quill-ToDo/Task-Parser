@@ -77,28 +77,16 @@ def is_date_or_time(token):
 
 def include_in_task(token):
     ADP_before_removed_portion = token.i + 1 < len(token.doc) and token.pos_ == "ADP" and (is_date_or_time(token.nbor()) or token.nbor().ent_type_ == "RECURRENCE")
-    in_included_pos = token.pos_ == "VERB" \
-                    or token.pos_ == "ADJ" \
-                    or token.pos_ == "AUX" \
-                    or token.pos_ == "NOUN" \
-                    or token.pos_ == "PROPN" \
-                    or token.pos_ == "ADP" \
-                    or token.pos_ == "ADV" \
-                    or token.pos_ == "DET" \
-                    or token.pos_ == "PART" \
-                    or token.pos_ == "PUNCT" \
-                    or token.pos_ == "INTJ" \
-                    or token.pos_ == "PRON" \
-                    or token.pos_ == "CCONJ"
-    return in_included_pos and not (ADP_before_removed_portion)
+    included_pos = set(["VERB", "ADJ", "AUX", "NOUN", "PROPN", "ADP", "ADV", "DET", "PART", "PUNCT", "INTJ", "PRON", "CCONJ"])
+    return token.pos_ in included_pos and not (ADP_before_removed_portion)
 
 def attached_to_last_word(token):
     '''
     True if token should be appended to the last token
-    (Should attach to last word if it's a contraction or punctuation)
+    (Should attach to last word if it's a contraction or punctuation but NOT if there was a space there in the original task)
     '''
     # Includes things like "n't" and "to"
-    return (token.pos_ == "PART" and "'" in token.text) or token.pos_ == "PUNCT"
+    return token.idx-1 >= 0 and ((token.pos_ == "PART" and "'" in token.text) or (token.pos_ == "PUNCT" and not doc.text[token.idx-1] == " "))
 
 def parse_body(doc, answers):
     for token in doc:

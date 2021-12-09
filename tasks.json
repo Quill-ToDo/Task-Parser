@@ -358,5 +358,21 @@
     "date": null,
     "time": null,
     "recurrence": "every thursday"
+  },
+  {
+    "input": "teehee ;)",
+    "group": null,
+    "task": "teehee ;)",
+    "date": null,
+    "time": null,
+    "recurrence": null
+  },
+  {
+    "input": "!!, . wow!!! super cool :)))",
+    "group": null,
+    "task": "!!, . wow!!! super cool :)))",
+    "date": null,
+    "time": null,
+    "recurrence": null
   }
 ]
