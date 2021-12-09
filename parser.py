@@ -1,6 +1,6 @@
 from microtc.utils import tweet_iterator
 from os.path import join
-from datetime import datetime, timedelta
+from datetime import datetime
 import spacy
 import json
 import parsedatetime
