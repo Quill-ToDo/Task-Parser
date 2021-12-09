@@ -253,7 +253,7 @@ if __name__ == "__main__":
         "TrainablePipe",
         "Transformer"]
 
-    nlp = get_nlp(exclude_list, predefined_groups, holidays)
+    nlp = get_nlp(exclude_list, predefined_groups, holidays_set)
     abbrev_dict = {group : set() for group in predefined_groups} # keep track of all abbreviations for group names that we have seen
     add_acronyms(predefined_groups, abbrev_dict)
 
