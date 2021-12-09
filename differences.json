@@ -261,66 +261,6 @@
         }
     }, 
     {
-        "original input": "Reminder to take antibiotic at 8:00 PM every night for the next week", 
-        "correct groups": {
-            "group": null, 
-            "task": "Take antibiotic", 
-            "datetime": null, 
-            "recurrence": "8:00 PM every night for the next week"
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "Reminder to take antibiotic", 
-            "datetime": "12/15/21 20:00", 
-            "recurrence": "every night for the next week"
-        }
-    }, 
-    {
-        "original input": "Send posters to print shop by 5:30 PM Wednesday", 
-        "correct groups": {
-            "group": null, 
-            "task": "Send posters to print shop", 
-            "datetime": "Wednesday 5:30 PM", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "Send posters to print shop", 
-            "datetime": "12/15/21 17:30 12/15/21 17:30", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "this is a task for today", 
-        "correct groups": {
-            "group": null, 
-            "task": "this is a task", 
-            "datetime": "today", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "this is a task", 
-            "datetime": "12/08/21 09:00", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Leave for the airport by 7:30", 
-        "correct groups": {
-            "group": null, 
-            "task": "Leave for the airport", 
-            "datetime": "7:30", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "Leave for the airport", 
-            "datetime": "12/08/21 07:30", 
-            "recurrence": null
-        }
-    }, 
-    {
         "original input": "Add more test cases by 11/18", 
         "correct groups": {
             "group": null, 
@@ -332,50 +272,6 @@
             "group": null, 
             "task": "Add more test cases by", 
             "datetime": null, 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Do every page of my bio HW", 
-        "correct groups": {
-            "group": [
-                "Biology"
-            ], 
-            "task": "Do every page of my bio HW", 
-            "date": null, 
-            "time": null, 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": [
-                "Biology"
-            ], 
-            "task": "Do", 
-            "date": null, 
-            "time": null, 
-            "recurrence": "every page of my bio HW"
-        }
-    }, 
-    {
-        "original input": "Do my combined japanese and cs HW", 
-        "correct groups": {
-            "group": [
-                "Computer Science", 
-                "Japanese"
-            ], 
-            "task": "Do my combined japanese and cs HW", 
-            "date": null, 
-            "time": null, 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": [
-                "Computer Science", 
-                "Japanese"
-            ], 
-            "task": "Do my combined japanese cs HW", 
-            "date": null, 
-            "time": null, 
             "recurrence": null
         }
     }
