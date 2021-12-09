@@ -7,7 +7,9 @@
         "recurrence": null
     }, 
     {
-        "group": "computer science", 
+        "group": [
+            "Computer Science"
+        ], 
         "task": "Do computer science reading", 
         "date": "Friday", 
         "time": null, 
@@ -21,7 +23,9 @@
         "recurrence": null
     }, 
     {
-        "group": "Computer Science", 
+        "group": [
+            "Computer Science"
+        ], 
         "task": "Work on cs lab", 
         "date": "Thursday", 
         "time": "evening", 
@@ -35,7 +39,9 @@
         "recurrence": "every month on the 18th"
     }, 
     {
-        "group": "Biology", 
+        "group": [
+            "Biology"
+        ], 
         "task": "Start bio HW!!!", 
         "date": null, 
         "time": "tonight", 
@@ -84,7 +90,9 @@
         "recurrence": null
     }, 
     {
-        "group": "japanese", 
+        "group": [
+            "Japanese"
+        ], 
         "task": "practice japanese speech", 
         "date": null, 
         "time": "tonight", 
@@ -182,7 +190,9 @@
         "recurrence": null
     }, 
     {
-        "group": "English", 
+        "group": [
+            "English"
+        ], 
         "task": "Finish English paper", 
         "date": "next Thursday", 
         "time": null, 
@@ -192,8 +202,8 @@
         "group": null, 
         "task": "Reminder to take antibiotic", 
         "date": null, 
-        "time": "8:00 PM", 
-        "recurrence": "every night for the next week"
+        "time": null, 
+        "recurrence": "8:00 PM every night for the next week"
     }, 
     {
         "group": null, 
@@ -285,5 +295,38 @@
         "date": null, 
         "time": null, 
         "recurrence": "every 5 seconds"
+    }, 
+    {
+        "group": [
+            "Biology"
+        ], 
+        "task": "Do every page of my bio HW", 
+        "date": null, 
+        "time": null, 
+        "recurrence": null
+    }, 
+    {
+        "group": [
+            "Computer Science", 
+            "Japanese"
+        ], 
+        "task": "Do my combined japanese and cs HW", 
+        "date": null, 
+        "time": null, 
+        "recurrence": null
+    }, 
+    {
+        "group": null, 
+        "task": "Do the dishes", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "thursdays"
+    }, 
+    {
+        "group": null, 
+        "task": "Do hw", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "every thursday"
     }
 ]

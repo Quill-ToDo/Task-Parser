@@ -2,7 +2,9 @@
     {
         "original input": "Study for compsci", 
         "correct groups": {
-            "group": "Computer Science", 
+            "group": [
+                "Computer Science"
+            ], 
             "task": "Study for compsci", 
             "date": null, 
             "time": null, 
@@ -19,14 +21,18 @@
     {
         "original input": "practice japanese speech for 2 hours tonight", 
         "correct groups": {
-            "group": "japanese", 
+            "group": [
+                "Japanese"
+            ], 
             "task": "practice japanese speech for 2 hours", 
             "date": "tonight", 
             "time": "tonight", 
             "recurrence": null
         }, 
         "our output": {
-            "group": "japanese", 
+            "group": [
+                "Japanese"
+            ], 
             "task": "practice japanese speech", 
             "date": null, 
             "time": "tonight", 
@@ -48,23 +54,6 @@
             "date": null, 
             "time": null, 
             "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Reminder to take antibiotic at 8:00 PM every night for the next week", 
-        "correct groups": {
-            "group": null, 
-            "task": "Take antibiotic", 
-            "date": null, 
-            "time": null, 
-            "recurrence": "8:00 PM every night for the next week"
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "Reminder to take antibiotic", 
-            "date": null, 
-            "time": "8:00 PM", 
-            "recurrence": "every night for the next week"
         }
     }, 
     {

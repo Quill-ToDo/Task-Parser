@@ -1,6 +1,7 @@
 import spacy
 import json
 import re
+import additional_pipelines
 from collections import Counter
 
 FILE = "tasks.json"
@@ -29,63 +30,25 @@ def format_answers(answers):
     '''
     Format outputs for validate()
     '''
-    if len(answers["task"]) != 0:
+    if answers["task"]:
         answers["task"] = " ".join(answers["task"])
     else: 
         answers["task"] = None
-    if len(answers["date"]) == 0:
-        answers["date"] = None
-    else:
+
+    if answers["date"]:
         answers["date"] = " ".join(answers["date"])
-    if len(answers["recurrence"]) == 0:
+    else:
+        answers["date"] = None
+
+    if not answers["recurrence"]:
         answers["recurrence"] = None
+    
+    if answers["group"]:
+        answers["group"] = list(answers["group"])
+    else:
+        answers["group"] = None
 
-@spacy.Language.component(
-    "get_recurrence_entities",
-    retokenizes=True
-)
-def get_recurrence_entities(doc):
-    if "every" in doc.text:
-        with doc.retokenize() as retokenizer:
-            for i, token in enumerate(doc):
-                if token.text == "every":
-                    start = i
-                    end = len(doc)
-                    recurrences = spacy.tokens.Span(doc, start, end, label="RECURRENCE")
-                    retokenizer.merge(recurrences, attrs={"ent_type": 7884667884033787756})
-                    break
-    return doc
-
-def is_group(np):
-    for token in np:
-        if token.ent_type_ != "GROUP":
-            return False 
-    return True
-
-def does_not_contain_group(np):
-    for token in np:
-        if token.ent_type_ == "GROUP":
-            return False 
-    return True
-
-@spacy.Language.component(
-    "merge_nouns_without_group",
-    requires=["token.dep", "token.tag", "token.pos"],
-    retokenizes=True
-)
-def merge_nouns_without_group(doc):
-    if not doc.has_annotation("DEP"):
-        return doc
-    with doc.retokenize() as retokenizer:
-        for np in doc.noun_chunks:
-            if does_not_contain_group(np):
-                attrs = {"tag": np.root.tag, "dep": np.root.dep}
-                retokenizer.merge(np, attrs=attrs)  # type: ignore[arg-type]
-            elif is_group(np):
-                retokenizer.merge(np, attrs={"ent_type_": "GROUP"})  # type: ignore[arg-type]
-    return doc
-
-def get_nlp(exclude_list, groups, holidays):
+def get_entity_patterns(groups):
     entity_patterns = []
     for group in groups:
         # if the lowercase version of the token matches our word then add it
@@ -97,15 +60,14 @@ def get_nlp(exclude_list, groups, holidays):
         p = [{"LOWER": word.lower()} for word in holiday.split(" ")] 
         ep = {"label": "HOLIDAY", "pattern": p}
         entity_patterns.append(ep)
+    return entity_patterns
 
+def get_nlp(exclude_list, groups, holidays):
     nlp = spacy.load("en_core_web_sm", exclude=exclude_list)
-
-    # Set ER to assign our groups over other entity types
-    ruler = nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"})
-
-    # Set ER to assign our groups over other entity types
-    ruler.add_patterns(entity_patterns)
-    nlp.add_pipe("get_recurrence_entities")
+    nlp.add_pipe("expand_weekday_dates")
+    # Set ER to assign our labels over other entity types
+    nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"}).add_patterns(get_entity_patterns(groups))
+    nlp.add_pipe("get_recurrence_entities", after="entity_ruler")
     nlp.add_pipe("merge_nouns_without_group", after="get_recurrence_entities")
     return nlp
 
@@ -114,7 +76,7 @@ def is_date_or_time(token):
     return token.ent_type_ == "DATE" or token.ent_type_ == "TIME" or token.ent_type_ == "HOLIDAY"
 
 def include_in_task(token):
-    ADP_before_date = token.i + 1 < len(token.doc) and token.pos_ == "ADP" and is_date_or_time(token.nbor())
+    ADP_before_removed_portion = token.i + 1 < len(token.doc) and token.pos_ == "ADP" and (is_date_or_time(token.nbor()) or token.nbor().ent_type_ == "RECURRENCE")
     in_included_pos = token.pos_ == "VERB" \
                     or token.pos_ == "ADJ" \
                     or token.pos_ == "AUX" \
@@ -126,10 +88,9 @@ def include_in_task(token):
                     or token.pos_ == "PART" \
                     or token.pos_ == "PUNCT" \
                     or token.pos_ == "INTJ" \
-                    or token.pos_ == "PRON"
-    
-    # return in_included_pos and not (ADP_before_date or is_date_or_time(token) or token.ent_type_ == "RECURRENCE")
-    return in_included_pos and not (ADP_before_date)
+                    or token.pos_ == "PRON" \
+                    or token.pos_ == "CCONJ"
+    return in_included_pos and not (ADP_before_removed_portion)
 
 def attached_to_last_word(token):
     '''
@@ -141,8 +102,6 @@ def attached_to_last_word(token):
 
 def parse_body(doc, answers):
     for token in doc:
-        if token.ent_type_ == "GROUP":
-            answers["group"] = token.text
         
         if token.ent_type_ == "RECURRENCE":
             answers["recurrence"] = token.text
@@ -156,25 +115,26 @@ def parse_body(doc, answers):
             else:
                 answers["task"].append(token.text)
 
-def acronym_detection(input, abbrev_dict):
+def groups_from_acronyms(input, abbrev_dict):
     '''
     Finds acronyms or abbreviations for a group name in the user input task
     '''
     abbrev = re.compile("[a-zA-Z]{2,}")
     output = abbrev.findall(input)
     entities = Counter(output)
+    found_groups = set()
     
     for key in entities.keys():
         key = str(key).lower()
         for group in predefined_groups:
             # check if it's an acronym or if we have already seen it
             if key in abbrev_dict.get(group):
-                return group
+                found_groups.add(group)
             # check if it's an abbreviation of a group name
             if key[0] == group[0].lower() and key in group.lower():
                 abbrev_dict[key] = abbrev_dict.get(group).add(key)
-                return group
-    return None
+                found_groups.add(group)
+    return found_groups
 
 def add_acronyms(groups, abbrev_dict):
     for group in groups:
@@ -183,16 +143,10 @@ def add_acronyms(groups, abbrev_dict):
             acronym = ""
             for t in group_terms:
                 acronym += t[0]
-            abbrev_dict[group] = [acronym.lower()]
+            abbrev_dict[group].add(acronym.lower())
 
 if __name__ == "__main__":
     # !!!Make sure you run this: $ python -m spacy download en_core_web_sm
-
-    # TODO:
-    # [ ] Read computer science as one group and not two separate things
-    # [ ] change input to include group in task
-    # [ ] Include auxillary words like do in task
-    # [ ] Only include ADP in task if it is not before a date or in a date
     holidays = ["Christmas", "Valentine's Day", "Halloween", "Easter", "Passover", "Hanukkah", "New Year's Eve", "New Year's Day", "Diwali", "Eid al-Fitr",
             "Saint Patrick's Day", "Thanksgiving"]
 
@@ -220,13 +174,11 @@ if __name__ == "__main__":
 
         input_task = input("Task: ")
         doc = nlp(input_task)
-        answers = { "group": None, "task": [], "date": [], "time": None, "recurrence": [] }
+        answers = { "group": set(), "task": [], "date": [], "time": None, "recurrence": [] }
 
         parse_body(doc, answers)
 
-        if (answers["group"] is None):
-            group = acronym_detection(input_task, abbrev_dict)
-            answers["group"] = group
+        answers["group"] = groups_from_acronyms(input_task, abbrev_dict)
 
         format_answers(answers)
 

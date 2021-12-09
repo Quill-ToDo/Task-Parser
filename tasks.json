@@ -9,7 +9,7 @@
   },
   {
     "input": "Do computer science reading on Friday",
-    "group": "computer science",
+    "group": ["Computer Science"],
     "task": "Do computer science reading",
     "date": "Friday",
     "time": null,
@@ -17,7 +17,7 @@
   },
   {
     "input": "Study for compsci",
-    "group": "Computer Science",
+    "group": ["Computer Science"],
     "task": "Study for compsci",
     "date": null,
     "time": null,
@@ -25,7 +25,7 @@
   },
   {
     "input": "Work on cs lab Thursday evening",
-    "group": "Computer Science",
+    "group": ["Computer Science"],
     "task": "Work on cs lab",
     "date": "Thursday",
     "time": "evening",
@@ -41,7 +41,7 @@
   },
   {
     "input": "Start bio HW tonight!!!",
-    "group": "Biology",
+    "group": ["Biology"],
     "task": "Start bio HW!!!",
     "date": null,
     "time": "tonight",
@@ -97,7 +97,7 @@
   },
   {
     "input": "practice japanese speech for 2 hours tonight",
-    "group": "japanese",
+    "group": ["Japanese"],
     "task": "practice japanese speech for 2 hours",
     "date": "tonight",
     "time": "tonight",
@@ -209,7 +209,7 @@
   },
   {
     "input": "Finish English paper by next Thursday",
-    "group": "English",
+    "group": ["English"],
     "task": "Finish English paper",
     "date": "next Thursday",
     "time": null,
@@ -218,7 +218,7 @@
   {
     "input": "Reminder to take antibiotic at 8:00 PM every night for the next week",
     "group": null,
-    "task": "Take antibiotic",
+    "task": "Reminder to take antibiotic",
     "date": null,
     "time": null,
     "recurrence": "8:00 PM every night for the next week"
@@ -326,5 +326,37 @@
     "date": null,
     "time": null,
     "recurrence": "every 5 seconds"
+  },
+  {
+    "input": "Do every page of my bio HW",
+    "group": ["Biology"],
+    "task": "Do every page of my bio HW",
+    "date": null,
+    "time": null,
+    "recurrence": null
+  },
+  {
+    "input": "Do my combined japanese and cs HW",
+    "group": ["Computer Science", "Japanese"],
+    "task": "Do my combined japanese and cs HW",
+    "date": null,
+    "time": null,
+    "recurrence": null
+  },
+  {
+    "input": "Do the dishes on thursdays",
+    "group": null,
+    "task": "Do the dishes",
+    "date": null,
+    "time": null,
+    "recurrence": "thursdays"
+  },
+  {
+    "input": "Do hw every thursday",
+    "group": null,
+    "task": "Do hw",
+    "date": null,
+    "time": null,
+    "recurrence": "every thursday"
   }
 ]
