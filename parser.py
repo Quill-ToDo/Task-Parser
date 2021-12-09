@@ -1,6 +1,6 @@
 from microtc.utils import tweet_iterator
 from os.path import join
-from datetime import datetime
+from datetime import datetime, timedelta
 import spacy
 import json
 import parsedatetime
@@ -80,7 +80,6 @@ def get_nlp(exclude_list, groups, holidays_set):
         # if the lowercase version of the token matches our word then add it
         p = [{"LOWER": word.lower()} for word in holiday.split(" ")] 
         ep = {"label": "HOLIDAY", "pattern": p}
-        entity_patterns2.append(ep)
     nlp.add_pipe("expand_weekday_dates")
     # Set ER to assign our labels over other entity types
     nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"}).add_patterns(get_entity_patterns(groups))
@@ -117,20 +116,6 @@ def attached_to_last_word(token):
     '''
     # Includes things like "n't" and "to"
     return (token.pos_ == "PART" and "'" in token.text) or token.pos_ == "PUNCT"
-
-# def get_holidays():
-#     all_holidays = holidays.US()
-#     country_list = re.findall(r"\b[A-Z][a-z\W]*?\b", ' '.join(holidays.list_supported_countries()))
-#     i = 0
-#     for country in country_list:
-#         all_holidays += holidays.CountryHoliday(country, years=datetime.now().year)
-#         print(i)
-#         i += 1
-#     holiday_dict = {}
-#     for date, name in sorted(all_holidays.items()):
-#         holiday_dict[name] = str(date).split("-", 1)[1]
-#     with open("holiday_list.json", "w") as f:
-#         json.dump(holiday_dict, f, indent=4, separators=(', ', ': '))
 
 def parse_body(doc, answers, p, holidays_set):
     print(doc.text)

@@ -1,20 +1,5 @@
 [
     {
-        "original input": "Do computer science reading on Friday", 
-        "correct groups": {
-            "group": "computer science", 
-            "task": "Do computer science reading", 
-            "datetime": "12/10/21", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": "computer science", 
-            "task": "Do computer science reading", 
-            "datetime": "12/10/21 20:39", 
-            "recurrence": null
-        }
-    }, 
-    {
         "original input": "Study for compsci", 
         "correct groups": {
             "group": [
@@ -28,96 +13,6 @@
             "group": null, 
             "task": "Study for compsci", 
             "datetime": null, 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Work on cs lab Thursday evening", 
-        "correct groups": {
-            "group": "Computer Science", 
-            "task": "Work on cs lab", 
-            "datetime": "12/09/21 18:00", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": "Computer Science", 
-            "task": "Work on cs lab", 
-            "datetime": "12/09/21 18:00 12/09/21 18:00", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Start bio HW tonight!!!", 
-        "correct groups": {
-            "group": "Biology", 
-            "task": "Start bio HW!!!", 
-            "datetime": "tonight", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": "Biology", 
-            "task": "Start bio HW!!!", 
-            "datetime": "12/08/21 21:00", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Pick up books from lib on Thursday", 
-        "correct groups": {
-            "group": null, 
-            "task": "Pick up books from lib", 
-            "datetime": "Thursday", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "Pick up books from lib", 
-            "datetime": "12/09/21 20:39", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Use leftover rice in the next two days", 
-        "correct groups": {
-            "group": null, 
-            "task": "Use leftover rice", 
-            "datetime": "the next two days", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "Use leftover rice", 
-            "datetime": "12/10/21 20:39", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Go to class tomorrow", 
-        "correct groups": {
-            "group": null, 
-            "task": "Go to class", 
-            "datetime": "tomorrow", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "Go to class", 
-            "datetime": "12/09/21 09:00", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Prepare for MarketBridge interview on Friday", 
-        "correct groups": {
-            "group": null, 
-            "task": "Prepare for MarketBridge interview", 
-            "datetime": "Friday", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "Prepare for MarketBridge interview", 
-            "datetime": "12/10/21 20:39", 
             "recurrence": null
         }
     }, 
@@ -136,22 +31,7 @@
                 "Japanese"
             ], 
             "task": "practice japanese speech", 
-            "datetime": "12/08/21 21:00 12/08/21 21:00", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Go to the grocery store for food on December 14th", 
-        "correct groups": {
-            "group": null, 
-            "task": "Go to the grocery store for food", 
-            "datetime": "December 14th", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "Go to the grocery store for food", 
-            "datetime": "12/14/21 20:39", 
+            "datetime": "12/09/21 21:00", 
             "recurrence": null
         }
     }, 
@@ -165,38 +45,8 @@
         }, 
         "our output": {
             "group": null, 
-            "task": "Take down the lights Christmas!", 
-            "datetime": "12/08/21 20:39 12/08/21 20:39 12/08/21 20:39", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "call friend in two weeks", 
-        "correct groups": {
-            "group": null, 
-            "task": "call friend", 
-            "datetime": "two weeks", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "call friend", 
-            "datetime": "12/22/21 20:39", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "go to work at noon", 
-        "correct groups": {
-            "group": null, 
-            "task": "go to work", 
-            "datetime": "noon", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "go to work", 
-            "datetime": "12/08/21 12:00", 
+            "task": "Take down the lights!", 
+            "datetime": "12/09/21 12:43", 
             "recurrence": null
         }
     }, 
@@ -216,51 +66,6 @@
         }
     }, 
     {
-        "original input": "NLP group meeting at 5:00", 
-        "correct groups": {
-            "group": null, 
-            "task": "NLP group meeting", 
-            "datetime": "5:00", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "NLP group meeting", 
-            "datetime": "12/08/21 05:00", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "mail package next month", 
-        "correct groups": {
-            "group": null, 
-            "task": "mail package", 
-            "datetime": "next month", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "mail package", 
-            "datetime": "01/01/22 09:00 01/01/22 09:00", 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Finish English paper by next Thursday", 
-        "correct groups": {
-            "group": "English", 
-            "task": "Finish English paper", 
-            "datetime": "next Thursday", 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": "English", 
-            "task": "Finish English paper", 
-            "datetime": "12/16/21 09:00", 
-            "recurrence": null
-        }
-    }, 
-    {
         "original input": "Add more test cases by 11/18", 
         "correct groups": {
             "group": null, 
@@ -271,6 +76,27 @@
         "our output": {
             "group": null, 
             "task": "Add more test cases by", 
+            "datetime": null, 
+            "recurrence": null
+        }
+    }, 
+    {
+        "original input": "Do my combined japanese and cs HW", 
+        "correct groups": {
+            "group": [
+                "Computer Science", 
+                "Japanese"
+            ], 
+            "task": "Do my combined japanese and cs HW", 
+            "datetime": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": [
+                "Japanese", 
+                "Computer Science"
+            ], 
+            "task": "Do my combined japanese and cs HW", 
             "datetime": null, 
             "recurrence": null
         }

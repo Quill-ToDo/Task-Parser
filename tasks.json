@@ -290,32 +290,28 @@
     "input": "Do every page of my bio HW",
     "group": ["Biology"],
     "task": "Do every page of my bio HW",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "Do my combined japanese and cs HW",
     "group": ["Computer Science", "Japanese"],
     "task": "Do my combined japanese and cs HW",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "Do the dishes on thursdays",
     "group": null,
     "task": "Do the dishes",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "thursdays"
   },
   {
     "input": "Do hw every thursday",
     "group": null,
     "task": "Do hw",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every thursday"
   }
 ]
