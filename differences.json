@@ -46,7 +46,7 @@
         "our output": {
             "group": null, 
             "task": "Take down the lights!", 
-            "datetime": "12/09/21 12:47", 
+            "datetime": "12/09/21 12:55", 
             "recurrence": null
         }
     }, 
@@ -76,27 +76,6 @@
         "our output": {
             "group": null, 
             "task": "Add more test cases by", 
-            "datetime": null, 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Do my combined japanese and cs HW", 
-        "correct groups": {
-            "group": [
-                "Computer Science", 
-                "Japanese"
-            ], 
-            "task": "Do my combined japanese and cs HW", 
-            "datetime": null, 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": [
-                "Japanese", 
-                "Computer Science"
-            ], 
-            "task": "Do my combined japanese and cs HW", 
             "datetime": null, 
             "recurrence": null
         }

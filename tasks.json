@@ -318,16 +318,14 @@
     "input": "teehee ;)",
     "group": null,
     "task": "teehee ;)",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "!!, . wow!!! super cool :)))",
     "group": null,
     "task": "!!, . wow!!! super cool :)))",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   }
 ]
