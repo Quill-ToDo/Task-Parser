@@ -142,10 +142,10 @@
     }, 
     {
         "group": null, 
-        "task": "take 1se video", 
+        "task": "take 1se video every day", 
         "date": null, 
         "time": null, 
-        "recurrence": "every day at 12pm"
+        "recurrence": "12pm"
     }, 
     {
         "group": null, 
@@ -202,8 +202,8 @@
         "group": null, 
         "task": "Reminder to take antibiotic", 
         "date": null, 
-        "time": "8:00 PM", 
-        "recurrence": "every night for the next week"
+        "time": null, 
+        "recurrence": "8:00 PM every night for the next week"
     }, 
     {
         "group": null, 
@@ -300,19 +300,33 @@
         "group": [
             "Biology"
         ], 
-        "task": "Do", 
+        "task": "Do every page of my bio HW", 
         "date": null, 
         "time": null, 
-        "recurrence": "every page of my bio HW"
+        "recurrence": null
     }, 
     {
         "group": [
             "Computer Science", 
             "Japanese"
         ], 
-        "task": "Do my combined japanese cs HW", 
+        "task": "Do my combined japanese and cs HW", 
         "date": null, 
         "time": null, 
         "recurrence": null
+    }, 
+    {
+        "group": null, 
+        "task": "Do the dishes", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "thursdays"
+    }, 
+    {
+        "group": null, 
+        "task": "Do hw", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "every thursday"
     }
 ]
