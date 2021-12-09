@@ -48,7 +48,7 @@ def format_answers(answers):
     else:
         answers["group"] = None
 
-def get_entity_patterns(groups):
+def get_entity_patterns(groups, holidays):
     entity_patterns = []
     for group in groups:
         # if the lowercase version of the token matches our word then add it
@@ -66,7 +66,7 @@ def get_nlp(exclude_list, groups, holidays):
     nlp = spacy.load("en_core_web_sm", exclude=exclude_list)
     nlp.add_pipe("expand_weekday_dates")
     # Set ER to assign our labels over other entity types
-    nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"}).add_patterns(get_entity_patterns(groups))
+    nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"}).add_patterns(get_entity_patterns(groups, holidays))
     nlp.add_pipe("get_recurrence_entities", after="entity_ruler")
     nlp.add_pipe("merge_nouns_without_group", after="get_recurrence_entities")
     return nlp
