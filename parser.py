@@ -22,6 +22,7 @@ def validate(input, output, total_inputs):
         output_task = output[i]
         original = input_task["input"]
         del input_task["input"]
+        
         if input_task != output_task:
             differences.append({"original input": original, "correct groups": input_task, "our output": output_task})
     
@@ -38,10 +39,10 @@ def format_answers(answers):
         answers["task"] = " ".join(answers["task"])
     else: 
         answers["task"] = None
-    if len(answers["date"]) == 0:
-        answers["date"] = None
+    if len(answers["datetime"]) == 0:
+        answers["datetime"] = None
     else:
-        answers["date"] = " ".join(answers["date"])
+        answers["datetime"] = " ".join(answers["datetime"])
     if len(answers["recurrence"]) == 0:
         answers["recurrence"] = None
 
@@ -97,7 +98,7 @@ def get_nlp(exclude_list, groups, holidays_set):
         p = [{"LOWER": word.lower()} for word in group.split(" ")] 
         ep = {"label": "GROUP", "pattern": p}
         entity_patterns.append(ep)
-    for holiday in holidays:
+    for holiday in holidays_set:
         # if the lowercase version of the token matches our word then add it
         p = [{"LOWER": word.lower()} for word in holiday.split(" ")] 
         ep = {"label": "HOLIDAY", "pattern": p}
@@ -153,19 +154,19 @@ def attached_to_last_word(token):
     # Includes things like "n't" and "to"
     return (token.pos_ == "PART" and "'" in token.text) or token.pos_ == "PUNCT"
 
-def get_holidays():
-    all_holidays = holidays.US()
-    country_list = re.findall(r"\b[A-Z][a-z\W]*?\b", ' '.join(holidays.list_supported_countries()))
-    i = 0
-    for country in country_list:
-        all_holidays += holidays.CountryHoliday(country, years=datetime.now().year)
-        print(i)
-        i += 1
-    holiday_dict = {}
-    for date, name in sorted(all_holidays.items()):
-        holiday_dict[name] = str(date).split("-", 1)[1]
-    with open("holiday_list.json", "w") as f:
-        json.dump(holiday_dict, f, indent=4, separators=(', ', ': '))
+# def get_holidays():
+#     all_holidays = holidays.US()
+#     country_list = re.findall(r"\b[A-Z][a-z\W]*?\b", ' '.join(holidays.list_supported_countries()))
+#     i = 0
+#     for country in country_list:
+#         all_holidays += holidays.CountryHoliday(country, years=datetime.now().year)
+#         print(i)
+#         i += 1
+#     holiday_dict = {}
+#     for date, name in sorted(all_holidays.items()):
+#         holiday_dict[name] = str(date).split("-", 1)[1]
+#     with open("holiday_list.json", "w") as f:
+#         json.dump(holiday_dict, f, indent=4, separators=(', ', ': '))
 
 def parse_body(doc, answers):
     for token in doc:
@@ -174,9 +175,9 @@ def parse_body(doc, answers):
         
         if token.ent_type_ == "RECURRENCE":
             answers["recurrence"] = token.text
-        elif token.label_ == "DATE" or token.label_ == "ORDINAL" or token.label_ == "TIME":
+        elif token.ent_type_ == "DATE" or token.ent_type_ == "ORDINAL" or token.ent_type_ == "TIME":
                 p = parsedatetime.Calendar()
-                if token.label_ == "ORDINAL":
+                if token.ent_type_ == "ORDINAL":
                     is_noun = token.end < len(doc) \
                             and (doc[token.end].pos_ == 'NOUN' \
                                 or doc[token.end].pos_ == 'PROPN' \
@@ -188,9 +189,7 @@ def parse_body(doc, answers):
                     
                     # if ent.end < len(doc) and doc[ent.end].pos_ != 'NOUN':
                     #     print()
-                answers["date"].append(p.parseDT(doc.text)[0].strftime("%m/%d/%y %H:%M"))
-        elif token.ent_type_ == "TIME":
-            answers["time"] = token.text
+                answers["datetime"].append(p.parseDT(doc.text)[0].strftime("%m/%d/%y %H:%M"))
         elif include_in_task(token):
             if attached_to_last_word(token):
                 answers["task"][-1] += token.text
@@ -261,12 +260,12 @@ if __name__ == "__main__":
 
     results = []
 
-    get_holidays()
+    # get_holidays()
 
     for data in dataset:
         input_task = data["input"]
         doc = nlp(input_task)
-        answers = { "group": None, "task": [], "date": [], "time": None, "recurrence": [] }
+        answers = { "group": None, "task": [], "datetime": [], "recurrence": [] }
 
         parse_body(doc, answers)
  
