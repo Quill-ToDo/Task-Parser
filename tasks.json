@@ -337,7 +337,7 @@
   },
   {
     "input": "Do my combined japanese and cs HW",
-    "group": ["Computer Science", "Japanese"],
+    "group": ["Japanese", "Computer Science"],
     "task": "Do my combined japanese and cs HW",
     "date": null,
     "time": null,
