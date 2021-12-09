@@ -35,16 +35,22 @@ def format_answers(answers):
     '''
     Format outputs for validate()
     '''
-    if len(answers["task"]) != 0:
+    if answers["task"]:
         answers["task"] = " ".join(answers["task"])
     else: 
         answers["task"] = None
+
     if len(answers["datetime"]) == 0:
         answers["datetime"] = None
     else:
         answers["datetime"] = " ".join(answers["datetime"])
-    if len(answers["recurrence"]) == 0:
+
+    if not answers["recurrence"]:
         answers["recurrence"] = None
+    
+    if answers["group"]:
+        answers["group"] = list(answers["group"])
+        answers["group"] = None
 
 @spacy.Language.component(
     "get_recurrence_entities",
@@ -170,8 +176,6 @@ def attached_to_last_word(token):
 
 def parse_body(doc, answers):
     for token in doc:
-        if token.ent_type_ == "GROUP":
-            answers["group"] = token.text
         
         if token.ent_type_ == "RECURRENCE":
             answers["recurrence"] = token.text
@@ -196,25 +200,26 @@ def parse_body(doc, answers):
             else:
                 answers["task"].append(token.text)
 
-def acronym_detection(input, abbrev_dict):
+def groups_from_acronyms(input, abbrev_dict):
     '''
     Finds acronyms or abbreviations for a group name in the user input task
     '''
     abbrev = re.compile("[a-zA-Z]{2,}")
     output = abbrev.findall(input)
     entities = Counter(output)
+    found_groups = set()
     
     for key in entities.keys():
         key = str(key).lower()
         for group in predefined_groups:
             # check if it's an acronym or if we have already seen it
             if key in abbrev_dict.get(group):
-                return group
+                found_groups.add(group)
             # check if it's an abbreviation of a group name
             if key[0] == group[0].lower() and key in group.lower():
-                abbrev_dict[key] = abbrev_dict.get(group).append(key)
-                return group
-    return None
+                abbrev_dict[key] = abbrev_dict.get(group).add(key)
+                found_groups.add(group)
+    return found_groups
 
 def add_acronyms(groups, abbrev_dict):
     for group in groups:
@@ -223,16 +228,10 @@ def add_acronyms(groups, abbrev_dict):
             acronym = ""
             for t in group_terms:
                 acronym += t[0]
-            abbrev_dict[group] = [acronym.lower()]
+            abbrev_dict[group].add(acronym.lower())
 
 if __name__ == "__main__":
     # !!!Make sure you run this: $ python -m spacy download en_core_web_sm
-
-    # TODO:
-    # [ ] Read computer science as one group and not two separate things
-    # [ ] change input to include group in task
-    # [ ] Include auxillary words like do in task
-    # [ ] Only include ADP in task if it is not before a date or in a date
 
     dataset = json.load(open(FILE))
 
@@ -254,8 +253,8 @@ if __name__ == "__main__":
         "TrainablePipe",
         "Transformer"]
 
-    nlp = get_nlp(exclude_list, predefined_groups, holidays_set)
-    abbrev_dict = {group : [] for group in predefined_groups} # keep track of all abbreviations for group names that we have seen
+    nlp = get_nlp(exclude_list, predefined_groups, holidays)
+    abbrev_dict = {group : set() for group in predefined_groups} # keep track of all abbreviations for group names that we have seen
     add_acronyms(predefined_groups, abbrev_dict)
 
     results = []
@@ -265,13 +264,11 @@ if __name__ == "__main__":
     for data in dataset:
         input_task = data["input"]
         doc = nlp(input_task)
-        answers = { "group": None, "task": [], "datetime": [], "recurrence": [] }
+        answers = { "group": set(), "task": [], "datetime": [], "recurrence": [] }
 
         parse_body(doc, answers)
- 
-        if (answers["group"] is None):
-            group = acronym_detection(input_task, abbrev_dict)
-            answers["group"] = group
+
+        answers["group"].update(groups_from_acronyms(input_task, abbrev_dict))
 
         format_answers(answers)
         

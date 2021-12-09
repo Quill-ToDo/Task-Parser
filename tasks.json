@@ -8,21 +8,21 @@
   },
   {
     "input": "Do computer science reading on Friday",
-    "group": "computer science",
+    "group": ["Computer Science"],
     "task": "Do computer science reading",
     "datetime": "Friday",
     "recurrence": null
   },
   {
     "input": "Study for compsci",
-    "group": "Computer Science",
+    "group": ["Computer Science"],
     "task": "Study for compsci",
     "datetime": null,
     "recurrence": null
   },
   {
     "input": "Work on cs lab Thursday evening",
-    "group": "Computer Science",
+    "group": ["Computer Science"],
     "task": "Work on cs lab",
     "datetime": "Thursday evening",
     "recurrence": null
@@ -36,7 +36,7 @@
   },
   {
     "input": "Start bio HW tonight!!!",
-    "group": "Biology",
+    "group": ["Biology"],
     "task": "Start bio HW!!!",
     "datetime": "tonight",
     "recurrence": null
@@ -85,7 +85,7 @@
   },
   {
     "input": "practice japanese speech for 2 hours tonight",
-    "group": "japanese",
+    "group": ["Japanese"],
     "task": "practice japanese speech for 2 hours",
     "datetime": "tonight",
     "recurrence": null
@@ -183,7 +183,7 @@
   },
   {
     "input": "Finish English paper by next Thursday",
-    "group": "English",
+    "group": ["English"],
     "task": "Finish English paper",
     "datetime": "next Thursday",
     "recurrence": null
@@ -285,5 +285,21 @@
     "task": "blink",
     "datetime": null,
     "recurrence": "every 5 seconds"
+  },
+  {
+    "input": "Do every page of my bio HW",
+    "group": ["Biology"],
+    "task": "Do every page of my bio HW",
+    "date": null,
+    "time": null,
+    "recurrence": null
+  },
+  {
+    "input": "Do my combined japanese and cs HW",
+    "group": ["Computer Science", "Japanese"],
+    "task": "Do my combined japanese and cs HW",
+    "date": null,
+    "time": null,
+    "recurrence": null
   }
 ]

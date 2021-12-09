@@ -6,7 +6,9 @@
         "recurrence": null
     }, 
     {
-        "group": "computer science", 
+        "group": [
+            "Computer Science"
+        ], 
         "task": "Do computer science reading", 
         "datetime": "12/10/21 20:39", 
         "recurrence": null
@@ -18,7 +20,9 @@
         "recurrence": null
     }, 
     {
-        "group": "Computer Science", 
+        "group": [
+            "Computer Science"
+        ], 
         "task": "Work on cs lab", 
         "datetime": "12/09/21 18:00 12/09/21 18:00", 
         "recurrence": null
@@ -30,7 +34,9 @@
         "recurrence": "every month on the 18th"
     }, 
     {
-        "group": "Biology", 
+        "group": [
+            "Biology"
+        ], 
         "task": "Start bio HW!!!", 
         "datetime": "12/08/21 21:00", 
         "recurrence": null
@@ -72,7 +78,9 @@
         "recurrence": null
     }, 
     {
-        "group": "japanese", 
+        "group": [
+            "Japanese"
+        ], 
         "task": "practice japanese speech", 
         "datetime": "12/08/21 21:00 12/08/21 21:00", 
         "recurrence": null
@@ -156,7 +164,9 @@
         "recurrence": null
     }, 
     {
-        "group": "English", 
+        "group": [
+            "English"
+        ], 
         "task": "Finish English paper", 
         "datetime": "12/16/21 09:00", 
         "recurrence": null
@@ -244,5 +254,24 @@
         "task": "blink", 
         "datetime": null, 
         "recurrence": "every 5 seconds"
+    }, 
+    {
+        "group": [
+            "Biology"
+        ], 
+        "task": "Do", 
+        "date": null, 
+        "time": null, 
+        "recurrence": "every page of my bio HW"
+    }, 
+    {
+        "group": [
+            "Computer Science", 
+            "Japanese"
+        ], 
+        "task": "Do my combined japanese cs HW", 
+        "date": null, 
+        "time": null, 
+        "recurrence": null
     }
 ]
