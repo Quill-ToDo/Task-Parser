@@ -295,7 +295,7 @@
   },
   {
     "input": "Do my combined japanese and cs HW",
-    "group": ["Computer Science", "Japanese"],
+    "group": ["Japanese", "Computer Science"],
     "task": "Do my combined japanese and cs HW",
     "datetime": null,
     "recurrence": null
@@ -313,5 +313,21 @@
     "task": "Do hw",
     "datetime": null,
     "recurrence": "every thursday"
+  },
+  {
+    "input": "teehee ;)",
+    "group": null,
+    "task": "teehee ;)",
+    "date": null,
+    "time": null,
+    "recurrence": null
+  },
+  {
+    "input": "!!, . wow!!! super cool :)))",
+    "group": null,
+    "task": "!!, . wow!!! super cool :)))",
+    "date": null,
+    "time": null,
+    "recurrence": null
   }
 ]

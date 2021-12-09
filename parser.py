@@ -60,7 +60,7 @@ def format_answers(answers):
     else:
         answers["group"] = None
 
-def get_entity_patterns(groups):
+def get_entity_patterns(groups, holidays):
     entity_patterns = []
     for group in groups:
         # if the lowercase version of the token matches our word then add it
@@ -82,7 +82,7 @@ def get_nlp(exclude_list, groups, holidays_set):
         ep = {"label": "HOLIDAY", "pattern": p}
     nlp.add_pipe("expand_weekday_dates")
     # Set ER to assign our labels over other entity types
-    nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"}).add_patterns(get_entity_patterns(groups))
+    nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"}).add_patterns(get_entity_patterns(groups, holidays))
     nlp.add_pipe("get_recurrence_entities", after="entity_ruler")
     nlp.add_pipe("merge_nouns_without_group", after="get_recurrence_entities")
     return nlp
@@ -94,28 +94,16 @@ def is_date_or_time(token):
 #includes almost all words in task unless they're a date or time or adposition before date or time
 def include_in_task(token):
     ADP_before_removed_portion = token.i + 1 < len(token.doc) and token.pos_ == "ADP" and (is_date_or_time(token.nbor()) or token.nbor().ent_type_ == "RECURRENCE")
-    in_included_pos = token.pos_ == "VERB" \
-                    or token.pos_ == "ADJ" \
-                    or token.pos_ == "AUX" \
-                    or token.pos_ == "NOUN" \
-                    or token.pos_ == "PROPN" \
-                    or token.pos_ == "ADP" \
-                    or token.pos_ == "ADV" \
-                    or token.pos_ == "DET" \
-                    or token.pos_ == "PART" \
-                    or token.pos_ == "PUNCT" \
-                    or token.pos_ == "INTJ" \
-                    or token.pos_ == "PRON" \
-                    or token.pos_ == "CCONJ"
-    return in_included_pos and not (ADP_before_removed_portion)
+    included_pos = set(["VERB", "ADJ", "AUX", "NOUN", "PROPN", "ADP", "ADV", "DET", "PART", "PUNCT", "INTJ", "PRON", "CCONJ"])
+    return token.pos_ in included_pos and not (ADP_before_removed_portion)
 
 def attached_to_last_word(token):
     '''
     True if token should be appended to the last token
-    (Should attach to last word if it's a contraction or punctuation)
+    (Should attach to last word if it's a contraction or punctuation but NOT if there was a space there in the original task)
     '''
     # Includes things like "n't" and "to"
-    return (token.pos_ == "PART" and "'" in token.text) or token.pos_ == "PUNCT"
+    return token.idx-1 >= 0 and ((token.pos_ == "PART" and "'" in token.text) or (token.pos_ == "PUNCT" and not doc.text[token.idx-1] == " "))
 
 def parse_body(doc, answers, p, holidays_set):
     for token in doc:
@@ -151,8 +139,8 @@ def groups_from_acronyms(input, abbrev_dict):
             if key in abbrev_dict.get(group):
                 found_groups.add(group)
             # check if it's an abbreviation of a group name
-            if key[0] == group[0].lower() and key in group.lower():
-                abbrev_dict[key] = abbrev_dict.get(group).add(key)
+            elif key[0] == group[0].lower() and key in group.lower():
+                abbrev_dict.get(group).add(key)
                 found_groups.add(group)
     return found_groups
 

@@ -283,5 +283,19 @@
         "task": "Do hw", 
         "datetime": null, 
         "recurrence": "every thursday"
+    }, 
+    {
+        "group": null, 
+        "task": "teehee ;)", 
+        "date": null, 
+        "time": null, 
+        "recurrence": null
+    }, 
+    {
+        "group": null, 
+        "task": "!!, . wow!!! super cool :)))", 
+        "date": null, 
+        "time": null, 
+        "recurrence": null
     }
 ]
