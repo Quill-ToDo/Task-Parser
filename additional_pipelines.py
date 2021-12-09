@@ -62,7 +62,7 @@ def get_recurrence_entities(doc):
                     # ex: 8 pm every night
                     start = i
                     for ent in doc.ents:
-                        if ent.label_ == "TIME" or ent.label_ == "DATE" and ent.start < i < ent.end:
+                        if (ent.label_ == "TIME" or ent.label_ == "DATE") and (ent.start < i < ent.end):
                             start = ent.start
     
                     end = len(doc)

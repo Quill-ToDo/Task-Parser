@@ -40,23 +40,6 @@
         }
     }, 
     {
-        "original input": "take 1se video every day at 12pm", 
-        "correct groups": {
-            "group": null, 
-            "task": "take 1se video", 
-            "date": null, 
-            "time": null, 
-            "recurrence": "every day at 12pm"
-        }, 
-        "our output": {
-            "group": null, 
-            "task": "take 1se video every day", 
-            "date": null, 
-            "time": null, 
-            "recurrence": "12pm"
-        }
-    }, 
-    {
         "original input": "doctor's appointment on 9/22/22", 
         "correct groups": {
             "group": null, 

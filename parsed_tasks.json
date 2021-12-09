@@ -142,10 +142,10 @@
     }, 
     {
         "group": null, 
-        "task": "take 1se video every day", 
+        "task": "take 1se video", 
         "date": null, 
         "time": null, 
-        "recurrence": "12pm"
+        "recurrence": "every day at 12pm"
     }, 
     {
         "group": null, 
