@@ -119,8 +119,8 @@ def groups_from_acronyms(input, abbrev_dict):
             if key in abbrev_dict.get(group):
                 found_groups.add(group)
             # check if it's an abbreviation of a group name
-            if key[0] == group[0].lower() and key in group.lower():
-                abbrev_dict[key] = abbrev_dict.get(group).add(key)
+            elif key[0] == group[0].lower() and key in group.lower():
+                abbrev_dict.get(group).add(key)
                 found_groups.add(group)
     return found_groups
 
