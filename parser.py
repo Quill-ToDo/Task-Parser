@@ -56,7 +56,7 @@ def format_answers(answers):
         answers["recurrence"] = None
     
     if answers["group"]:
-        answers["group"] = list(answers["group"])
+        answers["group"] = sorted(list(answers["group"]))
     else:
         answers["group"] = None
 

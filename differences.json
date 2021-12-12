@@ -31,7 +31,7 @@
                 "Japanese"
             ], 
             "task": "practice japanese speech", 
-            "datetime": "12/09/21 21:00", 
+            "datetime": "12/12/21 21:00", 
             "recurrence": null
         }
     }, 
@@ -46,7 +46,7 @@
         "our output": {
             "group": null, 
             "task": "Take down the lights!", 
-            "datetime": "12/09/21 12:57", 
+            "datetime": "12/12/21 15:49", 
             "recurrence": null
         }
     }, 
@@ -76,27 +76,6 @@
         "our output": {
             "group": null, 
             "task": "Add more test cases by", 
-            "datetime": null, 
-            "recurrence": null
-        }
-    }, 
-    {
-        "original input": "Do my combined japanese and cs HW", 
-        "correct groups": {
-            "group": [
-                "Japanese", 
-                "Computer Science"
-            ], 
-            "task": "Do my combined japanese and cs HW", 
-            "datetime": null, 
-            "recurrence": null
-        }, 
-        "our output": {
-            "group": [
-                "Computer Science", 
-                "Japanese"
-            ], 
-            "task": "Do my combined japanese and cs HW", 
             "datetime": null, 
             "recurrence": null
         }

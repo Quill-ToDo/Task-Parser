@@ -295,7 +295,7 @@
   },
   {
     "input": "Do my combined japanese and cs HW",
-    "group": ["Japanese", "Computer Science"],
+    "group": ["Computer Science", "Japanese"],
     "task": "Do my combined japanese and cs HW",
     "datetime": null,
     "recurrence": null
