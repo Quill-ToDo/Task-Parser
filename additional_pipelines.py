@@ -27,23 +27,28 @@ def expand_weekday_dates(doc):
 def recurrence_likely(token):
     '''
     This is likely a recurrence string if token is "every" and the next token is:
-        - Ent: DATE (), TIME (evening), ORINDAL (third)
-        - POS: NUM (4), ADJ (14th)
+        - Ent: DATE (), TIME (evening), ORINDAL (third) or
+        - POS: NUM (4), ADJ (14th) or
         - Duration: day, week, second, minute, hour, month, year... etc. 
+    Or the token is "on" and the next token is:
+        - a plural form of a date
     '''
     try:
         nbor = token.nbor()
     except IndexError:
         return False
+
+    recurrence_likely_on = token.lower_ == "on" and (nbor.morph.get("Number") and nbor.morph.get("Number")[0]  == "Plur") \
+        and (nbor.ent_type_ == "DATE")
+    if recurrence_likely_on:
+        return True
     
     durations = set(["day", "week", "weekday", "weekday", "weekend", "second", "minute", "hour", "month", "year", "monday", "mon", "tuesday", "tues", "tue",
         "wednesday", "wed", "thursday", "thurs", "r", "friday", "fri", "saturday", "sat", "sunday", "sun"])
     ent_types = set(["DATE", "TIME", "ORDINAL"])
     pos = set(["NUM", "ADJ"])
-    return token.text == "every" and ( \
-        nbor.ent_type_ in ent_types or \
-        nbor.pos_ in pos or \
-        nbor.lower_ in durations) 
+    recurrence_likely_every = (token.text == "every" and (nbor.ent_type_ in ent_types or nbor.pos_ in pos or nbor.lower_ in durations))
+    return recurrence_likely_every
 
 
 @spacy.Language.component(
@@ -56,27 +61,16 @@ def get_recurrence_entities(doc):
     '''
     for token in doc:
         if recurrence_likely(token):
-            # if every is part of an ent like time include the whole time span too
-            # ex: 8 pm every night
             start = token.i
             for ent in doc.ents:
                 if (ent.label_ == "TIME" or ent.label_ == "DATE") and (ent.start < start < ent.end):
                     start = ent.start
-
             end = len(doc)
+
             with doc.retokenize() as retokenizer:
                 recurrences = spacy.tokens.Span(doc, start, end, label="RECURRENCE")
                 retokenizer.merge(recurrences, attrs={"ent_type": 7884667884033787756})
             break
-        # Add to recurrences if its a plural date that comes after "on"
-        if ((token.i > 0 and token.nbor(-1).lower_ == "on") \
-                and (token.morph.get("Number") and token.morph.get("Number")[0]  == "Plur") \
-                and token.ent_type_ == "DATE"):
-                end = len(doc)
-                with doc.retokenize() as retokenizer:
-                    recurrences = spacy.tokens.Span(doc, token.i, end, label="RECURRENCE")
-                    retokenizer.merge(recurrences, attrs={"ent_type": recurrences.label, "ent_type_": recurrences.label_})
-                break
     return doc
         
 

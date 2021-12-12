@@ -305,7 +305,7 @@
     "group": null,
     "task": "Do the dishes",
     "datetime": null,
-    "recurrence": "thursdays"
+    "recurrence": "on thursdays"
   },
   {
     "input": "Do hw every thursday",
@@ -333,6 +333,6 @@
     "group": null,
     "task": "Wash the dishes",
     "datetime": null,
-    "recurrence": "mondays every week"
+    "recurrence": "on mondays every week"
   }
 ]
