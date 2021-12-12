@@ -72,8 +72,9 @@ def get_recurrence_entities(doc):
         if ((token.i > 0 and token.nbor(-1).lower_ == "on") \
                 and (token.morph.get("Number") and token.morph.get("Number")[0]  == "Plur") \
                 and token.ent_type_ == "DATE"):
+                end = len(doc)
                 with doc.retokenize() as retokenizer:
-                    recurrences = spacy.tokens.Span(doc, token.i, token.i+1, label="RECURRENCE")
+                    recurrences = spacy.tokens.Span(doc, token.i, end, label="RECURRENCE")
                     retokenizer.merge(recurrences, attrs={"ent_type": recurrences.label, "ent_type_": recurrences.label_})
                 break
     return doc

@@ -327,5 +327,12 @@
     "task": "!!, . wow!!! super cool :)))",
     "datetime": null,
     "recurrence": null
+  },
+  {
+    "input": "Wash the dishes on mondays every week",
+    "group": null,
+    "task": "Wash the dishes",
+    "datetime": null,
+    "recurrence": "mondays every week"
   }
 ]
