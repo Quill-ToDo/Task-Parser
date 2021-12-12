@@ -1,12 +1,17 @@
+from microtc.utils import tweet_iterator
+from os.path import join
+from datetime import datetime
 import spacy
 import json
+import parsedatetime
 import re
+import copy
 import additional_pipelines
 from collections import Counter
 
 FILE = "tasks.json"
-
-def validate(input, output, total_inputs):
+    
+def validate(input, output, p, total_inputs):
     '''
     Visualize differences between input and output dataset and output in "differences.json"
     '''
@@ -15,10 +20,17 @@ def validate(input, output, total_inputs):
 
     for i in range(len(input)):
         input_task = input[i]
+        input_task_copy = copy.deepcopy(input[i])
         output_task = output[i]
         original = input_task["input"]
+
+        if input_task["datetime"] != output_task["datetime"]:
+            if output_task["datetime"] == p.parseDT(input_task["input"])[0].strftime("%m/%d/%y %H:%M") \
+               and output_task["datetime"] != datetime.now().strftime("%m/%d/%y %H:%M"):
+                input_task_copy["datetime"] = output_task["datetime"]
+        del input_task_copy["input"]
         del input_task["input"]
-        if input_task != output_task:
+        if input_task_copy != output_task:
             differences.append({"original input": original, "correct groups": input_task, "our output": output_task})
     
     with open("differences.json", "w") as f:
@@ -35,10 +47,10 @@ def format_answers(answers):
     else: 
         answers["task"] = None
 
-    if answers["date"]:
-        answers["date"] = " ".join(answers["date"])
+    if answers["datetime"]:
+        answers["datetime"] = " ".join(answers["datetime"])
     else:
-        answers["date"] = None
+        answers["datetime"] = None
 
     if not answers["recurrence"]:
         answers["recurrence"] = None
@@ -64,6 +76,10 @@ def get_entity_patterns(groups, holidays):
 
 def get_nlp(exclude_list, groups, holidays):
     nlp = spacy.load("en_core_web_sm", exclude=exclude_list)
+    for holiday in holidays:
+        # if the lowercase version of the token matches our word then add it
+        p = [{"LOWER": word.lower()} for word in holiday.split(" ")] 
+        ep = {"label": "HOLIDAY", "pattern": p}
     nlp.add_pipe("expand_weekday_dates")
     # Set ER to assign our labels over other entity types
     nlp.add_pipe("entity_ruler", config={"overwrite_ents": True, "phrase_matcher_attr": "LOWER"}).add_patterns(get_entity_patterns(groups, holidays))
@@ -75,6 +91,7 @@ def is_date_or_time(token):
     #HOLIDAY ent_type_ does not work, it appears as if it is never assigned
     return token.ent_type_ == "DATE" or token.ent_type_ == "TIME" or token.ent_type_ == "HOLIDAY"
 
+#includes almost all words in task unless they're a date or time or adposition before date or time
 def include_in_task(token):
     ADP_before_removed_portion = token.i + 1 < len(token.doc) and token.pos_ == "ADP" and (is_date_or_time(token.nbor()) or token.nbor().ent_type_ == "RECURRENCE")
     included_pos = set(["VERB", "ADJ", "AUX", "NOUN", "PROPN", "ADP", "ADV", "DET", "PART", "PUNCT", "INTJ", "PRON", "CCONJ"])
@@ -88,15 +105,18 @@ def attached_to_last_word(token):
     # Includes things like "n't" and "to"
     return token.idx-1 >= 0 and ((token.pos_ == "PART" and "'" in token.text) or (token.pos_ == "PUNCT" and not doc.text[token.idx-1] == " "))
 
-def parse_body(doc, answers):
+def parse_body(doc, answers, p, holidays):
     for token in doc:
-        
         if token.ent_type_ == "RECURRENCE":
             answers["recurrence"] = token.text
-        elif token.ent_type_ == "DATE" or token.ent_type_ == "HOLIDAY":
-            answers["date"].append(token.text)
-        elif token.ent_type_ == "TIME":
-            answers["time"] = token.text
+        elif token.ent_type_ == "DATE" or token.ent_type_ == "ORDINAL" or token.ent_type_ == "TIME":
+            if answers["datetime"] == []:
+                answers["datetime"].append(p.parseDT(doc.text)[0].strftime("%m/%d/%y %H:%M"))
+            elif token.ent_type == "DATE":
+                answers["datetime"] = p.parseDT(doc.text)[0].strftime("%m/%d/%y %H:%M")
+        elif token.ent_type_ == "HOLIDAY":
+                if answers["datetime"] == []:
+                    answers["datetime"].append(p.parseDT(holidays[token.text])[0].strftime("%m/%d/%y %H:%M"))
         elif include_in_task(token):
             if attached_to_last_word(token):
                 answers["task"][-1] += token.text
@@ -119,8 +139,8 @@ def groups_from_acronyms(input, abbrev_dict):
             if key in abbrev_dict.get(group):
                 found_groups.add(group)
             # check if it's an abbreviation of a group name
-            if key[0] == group[0].lower() and key in group.lower():
-                abbrev_dict[key] = abbrev_dict.get(group).add(key)
+            elif key[0] == group[0].lower() and key in group.lower():
+                abbrev_dict.get(group).add(key)
                 found_groups.add(group)
     return found_groups
 
@@ -135,8 +155,8 @@ def add_acronyms(groups, abbrev_dict):
 
 if __name__ == "__main__":
     # !!!Make sure you run this: $ python -m spacy download en_core_web_sm
-    holidays = ["Christmas", "Valentine's Day", "Halloween", "Easter", "Passover", "Hanukkah", "New Year's Eve", "New Year's Day", "Diwali", "Eid al-Fitr",
-            "Saint Patrick's Day", "Thanksgiving"]
+    holidays = {"Christmas": "12/25", "Valentine's Day": "2/14", "Halloween": "10/31", "New Year's Eve": "12/31", "New Year's Day": "1/1",
+            "Saint Patrick's Day": "3/17", "Presidents' Day": "2/21", "Fourth of July": "7/4"}
 
     # Pipes we don't need
     exclude_list = [
@@ -159,13 +179,14 @@ if __name__ == "__main__":
         nlp = get_nlp(exclude_list, predefined_groups, holidays)
         abbrev_dict = {group : set() for group in predefined_groups} # keep track of all abbreviations for group names that we have seen
         add_acronyms(predefined_groups, abbrev_dict)
+        p = parsedatetime.Calendar()
 
         input_task = input("Task: ")
         doc = nlp(input_task)
-        answers = { "group": set(), "task": [], "date": [], "time": None, "recurrence": [] }
+        answers = { "group": set(), "task": [], "datetime": [], "recurrence": [] }
 
-        parse_body(doc, answers)
-
+        parse_body(doc, answers, p, holidays)
+ 
         answers["group"] = groups_from_acronyms(input_task, abbrev_dict)
 
         format_answers(answers)

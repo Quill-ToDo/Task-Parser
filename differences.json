@@ -6,15 +6,13 @@
                 "Computer Science"
             ], 
             "task": "Study for compsci", 
-            "date": null, 
-            "time": null, 
+            "datetime": null, 
             "recurrence": null
         }, 
         "our output": {
             "group": null, 
             "task": "Study for compsci", 
-            "date": null, 
-            "time": null, 
+            "datetime": null, 
             "recurrence": null
         }
     }, 
@@ -25,8 +23,7 @@
                 "Japanese"
             ], 
             "task": "practice japanese speech for 2 hours", 
-            "date": "tonight", 
-            "time": "tonight", 
+            "datetime": "tonight", 
             "recurrence": null
         }, 
         "our output": {
@@ -34,8 +31,22 @@
                 "Japanese"
             ], 
             "task": "practice japanese speech", 
-            "date": null, 
-            "time": "tonight", 
+            "datetime": "12/09/21 21:00", 
+            "recurrence": null
+        }
+    }, 
+    {
+        "original input": "Take down the lights the day after Christmas!", 
+        "correct groups": {
+            "group": null, 
+            "task": "Take down the lights!", 
+            "datetime": "the day after Christmas", 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": null, 
+            "task": "Take down the lights!", 
+            "datetime": "12/09/21 12:57", 
             "recurrence": null
         }
     }, 
@@ -44,15 +55,13 @@
         "correct groups": {
             "group": null, 
             "task": "doctor's appointment", 
-            "date": "9/22/22", 
-            "time": null, 
+            "datetime": "9/22/22", 
             "recurrence": null
         }, 
         "our output": {
             "group": null, 
             "task": "doctor's appointment on", 
-            "date": null, 
-            "time": null, 
+            "datetime": null, 
             "recurrence": null
         }
     }, 
@@ -61,15 +70,34 @@
         "correct groups": {
             "group": null, 
             "task": "Add more test cases", 
-            "date": "11/18", 
-            "time": null, 
+            "datetime": "11/18", 
             "recurrence": null
         }, 
         "our output": {
             "group": null, 
             "task": "Add more test cases by", 
-            "date": null, 
-            "time": null, 
+            "datetime": null, 
+            "recurrence": null
+        }
+    }, 
+    {
+        "original input": "Do my combined japanese and cs HW", 
+        "correct groups": {
+            "group": [
+                "Japanese", 
+                "Computer Science"
+            ], 
+            "task": "Do my combined japanese and cs HW", 
+            "datetime": null, 
+            "recurrence": null
+        }, 
+        "our output": {
+            "group": [
+                "Computer Science", 
+                "Japanese"
+            ], 
+            "task": "Do my combined japanese and cs HW", 
+            "datetime": null, 
             "recurrence": null
         }
     }

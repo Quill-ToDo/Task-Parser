@@ -3,376 +3,329 @@
     "input": "Don't worry, be happy :)",
     "group": null,
     "task": "Don't worry, be happy :)",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "Do computer science reading on Friday",
     "group": ["Computer Science"],
     "task": "Do computer science reading",
-    "date": "Friday",
-    "time": null,
+    "datetime": "Friday",
     "recurrence": null
   },
   {
     "input": "Study for compsci",
     "group": ["Computer Science"],
     "task": "Study for compsci",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "Work on cs lab Thursday evening",
     "group": ["Computer Science"],
     "task": "Work on cs lab",
-    "date": "Thursday",
-    "time": "evening",
+    "datetime": "Thursday evening",
     "recurrence": null
   },
   {
     "input": "Remind Deni to give cats flea meds every month on the 18th",
     "group": null,
     "task": "Remind Deni to give cats flea meds",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every month on the 18th"
   },
   {
     "input": "Start bio HW tonight!!!",
     "group": ["Biology"],
     "task": "Start bio HW!!!",
-    "date": null,
-    "time": "tonight",
+    "datetime": "tonight",
     "recurrence": null
   },
   {
     "input": "Pick up books from lib on Thursday",
     "group": null,
     "task": "Pick up books from lib",
-    "date": "Thursday",
-    "time": null,
+    "datetime": "Thursday",
     "recurrence": null
   },
   {
     "input": "Use leftover rice in the next two days",
     "group": null,
     "task": "Use leftover rice",
-    "date": "the next two days",
-    "time": null,
+    "datetime": "the next two days",
     "recurrence": null
   },
   {
     "input": "Go to class tomorrow",
     "group": null,
     "task": "Go to class",
-    "date": "tomorrow",
-    "time": null,
+    "datetime": "tomorrow",
     "recurrence": null
   },
   {
     "input": "eat dinner",
     "group": null,
     "task": "eat dinner",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "",
     "group": null,
     "task": null,
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "Prepare for MarketBridge interview on Friday",
     "group": null,
     "task": "Prepare for MarketBridge interview",
-    "date": "Friday",
-    "time": null,
+    "datetime": "Friday",
     "recurrence": null
   },
   {
     "input": "practice japanese speech for 2 hours tonight",
     "group": ["Japanese"],
     "task": "practice japanese speech for 2 hours",
-    "date": "tonight",
-    "time": "tonight",
+    "datetime": "tonight",
     "recurrence": null
   },
   {
     "input": "take medicine",
     "group": null,
     "task": "take medicine",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
     "group": null,
     "task": "DON'T LET THE DOG EAT THE HOMEWORK!!!",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "Go to the grocery store for food on December 14th",
     "group": null,
     "task": "Go to the grocery store for food",
-    "date": "December 14th",
-    "time": null,
+    "datetime": "December 14th",
     "recurrence": null
   },
   {
     "input": "Take down the lights the day after Christmas!",
     "group": null,
     "task": "Take down the lights!",
-    "date": "the day after Christmas",
-    "time": null,
+    "datetime": "the day after Christmas",
     "recurrence": null
   },
   {
     "input": "do push-ups every day this week",
     "group": null,
     "task": "do push-ups",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every day this week"
   },
   {
     "input": "call friend in two weeks",
     "group": null,
     "task": "call friend",
-    "date": "two weeks",
-    "time": null,
+    "datetime": "two weeks",
     "recurrence": null
   },
   {
     "input": "take 1se video every day at 12pm",
     "group": null,
     "task": "take 1se video",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every day at 12pm"
   },
   {
     "input": "go to work at noon",
     "group": null,
     "task": "go to work",
-    "date": null,
-    "time": "noon",
+    "datetime": "noon",
     "recurrence": null
   },
   {
     "input": "doctor's appointment on 9/22/22",
     "group": null,
     "task": "doctor's appointment",
-    "date": "9/22/22",
-    "time": null,
+    "datetime": "9/22/22",
     "recurrence": null
   },
   {
     "input": "NLP group meeting at 5:00",
     "group": null,
     "task": "NLP group meeting",
-    "date": null,
-    "time": "5:00",
+    "datetime": "5:00",
     "recurrence": null
   },
   {
     "input": "send email to recruiter",
     "group": null,
     "task": "send email to recruiter",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "mail package next month",
     "group": null,
     "task": "mail package",
-    "date": "next month",
-    "time": null,
+    "datetime": "next month",
     "recurrence": null
   },
   {
     "input": "hello, world!",
     "group": null,
     "task": "hello, world!",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "Finish English paper by next Thursday",
     "group": ["English"],
     "task": "Finish English paper",
-    "date": "next Thursday",
-    "time": null,
+    "datetime": "next Thursday",
     "recurrence": null
   },
   {
     "input": "Reminder to take antibiotic at 8:00 PM every night for the next week",
     "group": null,
     "task": "Reminder to take antibiotic",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "8:00 PM every night for the next week"
   },
   {
     "input": "Send posters to print shop by 5:30 PM Wednesday",
     "group": null,
     "task": "Send posters to print shop",
-    "date": "Wednesday",
-    "time": "5:30 PM",
+    "datetime": "Wednesday 5:30 PM",
     "recurrence": null
   },
   {
     "input": "Grab Eggs on my way home from work",
     "group": null,
     "task": "Grab Eggs on my way home from work",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "Is this thing on? I can't tell",
     "group": null,
     "task": "Is this thing on? I can't tell",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "this is a task for today",
     "group": null,
     "task": "this is a task",
-    "date": "today",
-    "time": null,
+    "datetime": "today",
     "recurrence": null
   },
   {
     "input": "go to class every day until December 6th",
     "group": null,
     "task": "go to class",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every day until December 6th"
   },
   {
     "input": "Leave for the airport by 7:30",
     "group": null,
     "task": "Leave for the airport",
-    "date": null,
-    "time": "7:30",
+    "datetime": "7:30",
     "recurrence": null
   },
   {
     "input": "Add more test cases by 11/18",
     "group": null,
     "task": "Add more test cases",
-    "date": "11/18",
-    "time": null,
+    "datetime": "11/18",
     "recurrence": null
   },
   {
     "input": "Water the plants every day from 10 May until 20 May",
     "group": null,
     "task": "Water the plants",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every day from 10 May until 20 May"
   },
   {
     "input": "Shower every six days",
     "group": null,
     "task": "Shower",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every six days"
   },
   {
     "input": "Harass my neighbors every 14th",
     "group": null,
     "task": "Harass my neighbors",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every 14th"
   },
   {
     "input": "Grind leetcode every day for three weeks",
     "group": null,
     "task": "Grind leetcode",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every day for three weeks"
   },
   {
     "input": "work stuff every third friday",
     "group": null,
     "task": "work stuff",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every third friday"
   },
   {
     "input": "blink every 5 seconds",
     "group": null,
     "task": "blink",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every 5 seconds"
   },
   {
     "input": "Do every page of my bio HW",
     "group": ["Biology"],
     "task": "Do every page of my bio HW",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "Do my combined japanese and cs HW",
     "group": ["Computer Science", "Japanese"],
     "task": "Do my combined japanese and cs HW",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "Do the dishes on thursdays",
     "group": null,
     "task": "Do the dishes",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "thursdays"
   },
   {
     "input": "Do hw every thursday",
     "group": null,
     "task": "Do hw",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": "every thursday"
   },
   {
     "input": "teehee ;)",
     "group": null,
     "task": "teehee ;)",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   },
   {
     "input": "!!, . wow!!! super cool :)))",
     "group": null,
     "task": "!!, . wow!!! super cool :)))",
-    "date": null,
-    "time": null,
+    "datetime": null,
     "recurrence": null
   }
 ]
